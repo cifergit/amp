@@ -1,0 +1,74 @@
+Installing Apache HTTP Server 2.x with
+ DomainName =    localhost
+ ServerName =    localhost
+ ServerAdmin =   zeshare@qq.com
+ ServerPort =    80
+ ServerSslPort = 443
+ ServerRoot =    F:/amp/apache
+Rewrote F:/amp/apache/conf/original/extra/httpd-autoindex.conf.in
+ to F:/amp/apache/conf/original/extra/httpd-autoindex.conf
+Successfully removed F:\amp\apache\conf\original\extra\httpd-autoindex.conf.in
+Rewrote F:/amp/apache/conf/original/extra/httpd-vhosts.conf.in
+ to F:/amp/apache/conf/original/extra/httpd-vhosts.conf
+Successfully removed F:\amp\apache\conf\original\extra\httpd-vhosts.conf.in
+Rewrote F:/amp/apache/conf/original/extra/httpd-default.conf.in
+ to F:/amp/apache/conf/original/extra/httpd-default.conf
+Successfully removed F:\amp\apache\conf\original\extra\httpd-default.conf.in
+Rewrote F:/amp/apache/conf/original/extra/httpd-manual.conf.in
+ to F:/amp/apache/conf/original/extra/httpd-manual.conf
+Successfully removed F:\amp\apache\conf\original\extra\httpd-manual.conf.in
+Rewrote F:/amp/apache/conf/original/extra/httpd-mpm.conf.in
+ to F:/amp/apache/conf/original/extra/httpd-mpm.conf
+Successfully removed F:\amp\apache\conf\original\extra\httpd-mpm.conf.in
+Rewrote F:/amp/apache/conf/original/extra/httpd-info.conf.in
+ to F:/amp/apache/conf/original/extra/httpd-info.conf
+Successfully removed F:\amp\apache\conf\original\extra\httpd-info.conf.in
+Rewrote F:/amp/apache/conf/original/extra/httpd-dav.conf.in
+ to F:/amp/apache/conf/original/extra/httpd-dav.conf
+Successfully removed F:\amp\apache\conf\original\extra\httpd-dav.conf.in
+Rewrote F:/amp/apache/conf/original/extra/httpd-languages.conf.in
+ to F:/amp/apache/conf/original/extra/httpd-languages.conf
+Successfully removed F:\amp\apache\conf\original\extra\httpd-languages.conf.in
+Rewrote F:/amp/apache/conf/original/httpd.conf.in
+ to F:/amp/apache/conf/original/httpd.conf
+Successfully removed F:\amp\apache\conf\original\httpd.conf.in
+Rewrote F:/amp/apache/conf/original/extra/httpd-userdir.conf.in
+ to F:/amp/apache/conf/original/extra/httpd-userdir.conf
+Successfully removed F:\amp\apache\conf\original\extra\httpd-userdir.conf.in
+Rewrote F:/amp/apache/conf/original/extra/httpd-ssl.conf.in
+ to F:/amp/apache/conf/original/extra/httpd-ssl.conf
+Successfully removed F:\amp\apache\conf\original\extra\httpd-ssl.conf.in
+Rewrote F:/amp/apache/conf/original/extra/httpd-multilang-errordoc.conf.in
+ to F:/amp/apache/conf/original/extra/httpd-multilang-errordoc.conf
+Successfully removed F:\amp\apache\conf\original\extra\httpd-multilang-errordoc.conf.in
+Duplicated F:/amp/apache/conf/original/magic
+ to F:/amp/apache/conf/magic
+Duplicated F:/amp/apache/conf/original/extra/httpd-autoindex.conf
+ to F:/amp/apache/conf/extra/httpd-autoindex.conf
+Duplicated F:/amp/apache/conf/original/extra/httpd-vhosts.conf
+ to F:/amp/apache/conf/extra/httpd-vhosts.conf
+Duplicated F:/amp/apache/conf/original/extra/httpd-default.conf
+ to F:/amp/apache/conf/extra/httpd-default.conf
+Duplicated F:/amp/apache/conf/original/mime.types
+ to F:/amp/apache/conf/mime.types
+Duplicated F:/amp/apache/conf/original/charset.conv
+ to F:/amp/apache/conf/charset.conv
+Duplicated F:/amp/apache/conf/original/extra/httpd-manual.conf
+ to F:/amp/apache/conf/extra/httpd-manual.conf
+Duplicated F:/amp/apache/conf/original/extra/httpd-mpm.conf
+ to F:/amp/apache/conf/extra/httpd-mpm.conf
+Duplicated F:/amp/apache/conf/original/extra/httpd-info.conf
+ to F:/amp/apache/conf/extra/httpd-info.conf
+Duplicated F:/amp/apache/conf/original/extra/httpd-dav.conf
+ to F:/amp/apache/conf/extra/httpd-dav.conf
+Duplicated F:/amp/apache/conf/original/extra/httpd-languages.conf
+ to F:/amp/apache/conf/extra/httpd-languages.conf
+Duplicated F:/amp/apache/conf/original/httpd.conf
+ to F:/amp/apache/conf/httpd.conf
+Duplicated F:/amp/apache/conf/original/extra/httpd-userdir.conf
+ to F:/amp/apache/conf/extra/httpd-userdir.conf
+Duplicated F:/amp/apache/conf/original/extra/httpd-ssl.conf
+ to F:/amp/apache/conf/extra/httpd-ssl.conf
+Duplicated F:/amp/apache/conf/original/extra/httpd-multilang-errordoc.conf
+ to F:/amp/apache/conf/extra/httpd-multilang-errordoc.conf
+Successfully removed F:\amp\apache\conf\original\installwinconf.awk

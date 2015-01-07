@@ -1,0 +1,25 @@
+Starting the Apache2.2 service
+The Apache2.2 service is running.
+rmine the server's fully qualified domain name, using 192.168.31.213 for ServerName
+[Tue Jan 06 19:45:42 2015] [notice] Apache/2.2.25 (Win32) configured -- resuming normal operations
+[Tue Jan 06 19:45:42 2015] [notice] Server built: Jul 10 2013 01:52:12
+[Tue Jan 06 19:45:42 2015] [notice] Parent: Created child process 5160
+httpd.exe: Could not reliably determine the server's fully qualified domain name, using 192.168.31.213 for ServerName
+httpd.exe: Could not reliably determine the server's fully qualified domain name, using 192.168.31.213 for ServerName
+[Tue Jan 06 19:45:42 2015] [notice] Child 5160: Child process is running
+[Tue Jan 06 19:45:42 2015] [notice] Child 5160: Acquired the start mutex.
+[Tue Jan 06 19:45:42 2015] [notice] Child 5160: Starting 64 worker threads.
+[Tue Jan 06 19:45:42 2015] [notice] Child 5160: Starting thread to listen on port 80.
+[Tue Jan 06 19:48:38 2015] [error] [client 127.0.0.1] File does not exist: F:/amp/apache/htdocs/favicon.ico
+[Tue Jan 06 20:08:59 2015] [error] [client 127.0.0.1] File does not exist: F:/amp/apache/htdocs/ifr_status
+[Tue Jan 06 20:09:01 2015] [error] [client 127.0.0.1] File does not exist: F:/amp/apache/htdocs/ifr_status
+[Tue Jan 06 20:35:04 2015] [error] [client 127.0.0.1] File does not exist: F:/amp/apache/htdocs/ifr_status
+[Tue Jan 06 20:35:05 2015] [error] [client 127.0.0.1] File does not exist: F:/amp/apache/htdocs/ifr_status
+[Wed Jan 07 10:33:49 2015] [warn] pid file F:/amp/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Wed Jan 07 10:33:49 2015] [notice] Apache/2.2.25 (Win32) configured -- resuming normal operations
+[Wed Jan 07 10:33:49 2015] [notice] Server built: Jul 10 2013 01:52:12
+[Wed Jan 07 10:33:49 2015] [notice] Parent: Created child process 2280
+[Wed Jan 07 10:33:49 2015] [notice] Child 2280: Child process is running
+[Wed Jan 07 10:33:49 2015] [notice] Child 2280: Acquired the start mutex.
+[Wed Jan 07 10:33:49 2015] [notice] Child 2280: Starting 64 worker threads.
+[Wed Jan 07 10:33:49 2015] [notice] Child 2280: Starting thread to listen on port 80.
