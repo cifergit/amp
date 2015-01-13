@@ -1,0 +1,26 @@
+@charset "utf-8";
+/**
+ * @desc 基础函数
+ * @author cifer
+ * @date 2015-1-14
+ */
+
+// setting
+$main_width: 1190px;
+
+@mixin elli{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+%clearfix{
+  zoom:1;
+  &:after {
+    visibility:hidden;
+    display:block;
+    font-size:0;
+    content:" ";
+    clear:both;
+    height:0;
+  }
+}
+
+%indent{ text-indent: -100%; overflow: hidden;}
+%border_box{ -webkit-box-sizing: border-box; box-sizing: border-box; }
