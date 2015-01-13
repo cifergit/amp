@@ -2,13 +2,14 @@
 /**
  * @desc: 全局样式
  */
-
+@import "common";
 @import "function";
 @import "reset";
 @import "footer";
 @import "header";
 
 .icon{ display: inline-block; *display: inline; *zoom:1; }
+
 
 
 

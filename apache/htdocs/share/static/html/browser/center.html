@@ -3,55 +3,10 @@
 <head lang="UTF-8">
     <meta charset="UTF-8">
     <title>浏览器兼容</title>
-    <link rel="stylesheet" href="../../css/browser/share.css"/>
+    <link rel="stylesheet" href="../../css/common/global.css"/>
+    <link rel="stylesheet" href="../../css/browser/index.css"/>
+    <link rel="stylesheet" href="../../css/browser/center.css"/>
     <link rel="shortcut icon" href="../../favicon.ico">
-    <style rel="stylesheet" type="text/css">
-        .inline_block {
-            display: inline-block;
-            *display: block;
-            *zoom: 1;
-        }
-        h4 {
-            margin: 5px;
-        }
-        .row {
-            width: 100%;
-            margin: 10px;
-            float: left;
-        }
-        .mr_md {
-            margin-right: 30px;
-            margin-bottom: 30px;
-        }
-        .div_bg {
-            width: 400px;
-            height: 400px;
-            background-color: ghostwhite;
-        }
-        .div_md {
-            width: 300px;
-            height: 300px;
-            background-color: gainsboro;
-            position: relative;
-        }
-        .div_sm {
-            width: 200px;
-            height: 200px;
-            background-color: greenyellow;
-            position: relative;
-        }
-        h3 {
-            margin-bottom: 10px;
-        }
-        .pic_desc {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-        }
-        .vertical_align {
-            vertical-align: middle;
-        }
-    </style>
 </head>
 
 <body>
@@ -60,11 +15,11 @@
 </div>
 <div class="main">
     <div class="row">
-        <h4>1.1 正常情况如1.1.1如示</h4>
-        <h4>1.2 内外块级元素长宽都确定时，可以直接用margin,padding上下居中</h4>
-        <h4>1.3 内部行级元素，外部直接用text-align:center使其居中</h4>
-
-
+        <h3>1.1 正常情况如图1.1如示</h3>
+        <h3>1.2 内外块级元素长宽都确定时，可以直接用margin,padding上下居中</h3>
+        <h3>1.3 内部为行内元素，外部直接用text-align:center使其居中</h3>
+        <h3>1.4 内部确定宽度的块元素可以用margin: 0 auto居中。如果是内部是行内元素或想用margin: auto 0来上下居中都是不可行的。</h3>
+        <h3>1.5 内部块元素不确定宽度时，外部元素用text-align:center,把内元素设成行内块级元素，如果内元素有多个，则内元素与外元素之间加一个中间层，中间层设成行内块元素。其中diplay:inline-block;在ie7及以下不支持，可以用display:inline;zoom:1;来模拟，不过模拟出来的是有点区别的，那就是该元素前后的元素最好写明是内联还块级元素。</h3>
         <div class="div_md mr_md float_left">
             <div class="div_sm">
                 默认
@@ -84,39 +39,53 @@
             <span class="pic_desc">图1.3</span>
         </div>
 
-        <h4>1.4 内部确定宽度的块元素可以用margin: 0 auto居中。如果是内部是行内元素或想用margin: auto 0来上下居中都是不可行的。</h4>
-        <h4>1.5 内部块元素不确定宽度时，外部元素用text-align:center,把内元素设成行内块级元素，如果内元素有多个，则内元素与外元素之间加一个中间层，中间层设成行内块元素。</h4>
-        <h4>1.6 内部是单行内元素，可以直接让行高等于外块高</h4>
-
         <div class="div_md mr_md float_left">
             <div class="div_sm" style="margin: 0 auto;">
                 margin: 0 auto
             </div>
             <span class="pic_desc">图1.4</span>
         </div>
+
         <div class="div_md mr_md float_left" style="text-align: center">
-            text-align:center
-             <div class="inline_block" style="background-color: #aaaaaa">
-                 display:
-                 <div class="inline_block" style="background-color: greenyellow;">第1页</div>
-                 <div class="inline_block" style="background-color: greenyellow">第2页</div>
-                 inline-block
-             </div>
+            <span style="display: block">text-align:center</span>
+            <div class="inline_block" style="background-color: #aaaaaa">
+                display:
+                <div class="inline_block" style="background-color: greenyellow;">第1页</div>
+                <div class="inline_block" style="background-color: greenyellow">第2页</div>
+                inline-block
+            </div>
             <span class="pic_desc">图1.5</span>
         </div>
+    </div>
 
-
+    <div class="row">
+        <h3>1.6 内部是单行行内元素，可以直接让行高等于外块高</h3>
+        <h3>1.7 如果高度不确定，则可以用padding大概设罢一个上下值来“居中” </h3>
+        <h3>1.8 先上左移动50%，然后减去自已的宽与高</h3>
         <div class="div_md mr_md float_left" style="height: 300px;line-height: 300px;">
             height: 300px;line-height: 300px;
             <span class="pic_desc" style="top: 160px;">图1.6</span>
         </div>
 
-        <h4>1.7 </h4>
-        <div class="div_md mr_md float_left">
-            <div class="div_sm" style="margin: 50px 0 0 50px">
-                margin: 50px 0 0 50px
+        <div class="div_md mr_md float_left" style="height: auto;padding: 100px 0 100px 0;">
+            padding: 100px 0 100px 0;高度可变的情况下，让内容挤在中间
+            <span class="pic_desc" style="">图1.7</span>
+        </div>
+
+        <div class="div_md mr_md float_left" style="position: relative;">
+            height: 50px;
+            top: 50%;
+            left: 50%;
+            margin: -25px 0 0 -100px;
+            <div class="div_sm" style="position: absolute;height:50px;top: 50%;left:50%;margin: -25px 0 0 -100px;">
             </div>
-            <span class="pic_desc">图1.7</span>
+            <span class="pic_desc" style="">图1.8</span>
+        </div>
+
+        <div class="div_md mr_md float_left" style="position: relative;">
+            <div class="div_sm" style="height:50%;">
+            </div>
+            <span class="pic_desc" style="">图1.9</span>
         </div>
 
     </div>
@@ -125,7 +94,7 @@
         <h3 class="title_h">1.2 如果是单行，用height与line-height设同一个数字，否则只能用margin,padding设置在在固定数据</h3>
     </div>
     <div class="row">
-        <h4 class="title_h"><a href="index.html">上一级</a></h4>
+        <h3 class="title_h"><a href="index.html">上一级</a></h3>
     </div>
 </div>
 <div class="footer">

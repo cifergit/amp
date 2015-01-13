@@ -1,22 +1,10 @@
+@charset "UTF-8";
+
 body {
-  margin: 0;
-  padding: 0;
   color: #333;
   background-color: #ecffff;
 }
-h1,h2,h3,h4,h5,h6 {
-  margin: 0;
-  padding: 0;
-}
-.float_left {
-  float: left;
-}
-.float_right {
-  float: right;
-}
-.clear {
-  clear: right;
-}
+
 .main,.header,.footer {
   width: 1190px;
   margin: 0 auto;
