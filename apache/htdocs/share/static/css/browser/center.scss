@@ -5,6 +5,7 @@ h2 {
 }
 h3 {
   font-size: 14px;
+  font-weight: normal;
 }
 .row {
   width: 100%;
@@ -48,4 +49,15 @@ h3 {
 }
 .vertical_align {
   vertical-align: middle;
+}
+
+.transform {
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);		/* IE 9 */
+  -webkit-transform: translate(-50%,-50%);	/* Safari and Chrome */
+  -o-transform: translate(-50%,-50%);		/* Opera */
+  -moz-transform: translate(-50%,-50%);		/* Firefox */
 }
