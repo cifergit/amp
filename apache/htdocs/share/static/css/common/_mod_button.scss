@@ -1,0 +1,120 @@
+@charset "UTF-8";
+/**
+ * @desc: 移动端按钮组件
+ * @author: cifer
+ * @date: 2015/1/20
+ */
+//默认按钮
+.mod_btn {
+  display:inline-block;
+  *display: inline;
+  *zoom: 1;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #e7e7e7;
+  font-size: 24px;//默认字体
+  padding: 6px 12px;//默认距离
+  height: 60px;
+}
+
+a.mod_btn {
+  box-sizing: border-box;
+  line-height: 44px;//减去12，因为padding
+}
+a.mod_btn_md,a.mod_btn_lg {
+  line-height: 72px;
+}
+
+//默认，白色背景，蓝色字框
+.mod_btn_default {
+  color: #0093d5;
+  background-color: #ffffff;
+  border: 2px solid #0093d5;
+}
+
+//常见的
+.mod_btn_primary {
+  color: #fffefe;
+  background-color: #0093d5;
+  border: 2px solid #0093d5;
+}
+
+//醒目
+.mod_btn_important {
+  color: #fffefe;
+  background-color: #ff3300;
+  border: 2px solid #ff3300;
+}
+
+.mod_btn_special {
+  color: #fffefe;
+  background-color: #09bb07;
+  border: 2px solid #09bb07;
+}
+
+//不可点击
+.mod_btn_disable {
+  color: #aeaeae;
+  background-color: #f0f0f0;
+  border: 2px solid #f0f0f0;
+}
+
+//large button
+.mod_btn_lg {
+  width: 100%;
+  height: 88px;
+  font-size: 30px;
+}
+
+//medium button
+.mod_btn_md {
+  width: 280px;
+  height: 88px;
+  font-size: 30px;
+}
+
+//比medium width更小2号的按钮sw2，如果是更小的高度就是sh2，如果是更大的与更高的就是lw2,lh2
+.mod_btn_md_sw2 {
+  width: 200px;
+  height: 88px;
+  font-size: 30px;
+}
+
+//small button
+.mod_btn_sm {
+  width: 100px;
+}
+//以下是比较少见的情况
+.mod_btn_default_important {
+  color: #ff3300;
+  background-color: #ffffff;
+  border: 2px solid #ff3300;
+}
+.mod_btn_default_special {
+  color: #09bb07;
+  background-color: #ffffff;
+  border: 2px solid #09bb07;
+}
+.mod_btn_default_disable {
+  color: #aeaeae;
+  background-color: #ffffff;
+  border: 2px solid #aeaeae;
+}
+.mod_btn_default_normal {
+  color: #000000;
+  background-color: #ffffff;
+  border: 2px solid #000000;
+}
+.mod_btn_default_white {
+  color: #666;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+}
+.mr_sm {
+  margin-right: 10px;
+}
+
+.mr_md {
+  margin-right: 20px;
+}

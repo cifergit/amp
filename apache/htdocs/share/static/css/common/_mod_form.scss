@@ -1,0 +1,73 @@
+@charset "UTF-8";
+/**
+ * @desc: 移动端按钮组件
+ * @author: cifer
+ * @date: 2015/1/21
+ */
+//表单
+.mod_form {
+  padding: 0 30px;
+  .form_table {
+    display: table;
+    width: 100%;
+  }
+}
+//表单每行
+.form_group {
+  display: table-row;
+  //提示
+  .form_label {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 30px 0;
+    color: #333;
+    white-space: nowrap;
+    border-bottom: 1px solid #eeeeee;
+  }
+  //内容
+  .form_content {
+    display: table-cell;
+    vertical-align: middle;
+    border-bottom: 1px solid #eeeeee;
+    position: relative;
+    .form_extra{
+      position: absolute;
+      right:0;
+      top:50%;
+      -webkit-transform:translateY(-50%);
+    }
+    .form_input {
+      width: 100%;
+      height: 36px;
+      border: none;
+    }
+    .form_input[disable="disable"] {
+      background: #f0f0f0;
+    }
+
+    .form_select {
+      width: 100%;
+      border: none;
+    }
+
+    .form_textarea {
+      float: left;
+      width: 100%;
+      line-height: 26px;
+      border: none;
+    }
+    .form_msg {//以此到下面三者，都可放在.content里面及外面
+      //反馈结果，第二种情况，可能没有content的情况
+      display: block;
+      position: absolute;
+      color: #e64545;
+      font-size: 20px;
+    }
+  }
+
+  &:last-child {
+    .form_label,.form_content {
+      border-bottom: none;
+    }
+  }
+}
