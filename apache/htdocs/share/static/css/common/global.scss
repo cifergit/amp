@@ -10,7 +10,18 @@
 @import "footer";
 @import "header";
 
-.icon{ display: inline-block; *display: inline; *zoom:1; }
+
+.main_wrap {
+  width: 100%;
+  min-height: 565px;
+  margin-top: 20px;
+  .inner_wrap {
+    width: 1190px;
+    margin: 0 auto;
+  }
+}
+
+
 
 
 
