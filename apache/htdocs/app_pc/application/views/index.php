@@ -9,6 +9,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 首页
-
 </body>
 </html>
