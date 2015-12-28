@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>中国好声音评分</title>
+<style>
+    .main_wrap {
+        width: 1180px;
+        margin: 20px auto;
+    }
+</style>
+<script>
+    window.onload = onloadFunction;
+    function onloadFunction() {
+        document.getElementById('JS_jury_number').onkeyup = countGrade;
+        document.getElementById('JS_audience_number').onkeyup = countGrade;
+    }
+    function countGrade() {
+        var juryNumber = parseInt(document.getElementById('JS_jury_number').value);
+        if(!juryNumber){
+            juryNumber = 0;
+        }
+        var juryGrade = juryNumber/27*100;
+        document.getElementById('JS_jury_grade').innerHTML = juryGrade;
+        var audienceNumber = parseInt(document.getElementById('JS_audience_number').value);
+        if(!audienceNumber){
+            audienceNumber = 0;
+        }
+        var audienceGrade = audienceNumber/360*100;
+        document.getElementById('JS_audience_grade').innerHTML = audienceGrade;
+        var grade = (juryGrade + audienceGrade)/2;
+        document.getElementById('JS_grade').innerHTML = grade.toFixed(1);
+    }
+</script>
+</head>
+<body>
+<div class="main_wrap">
+    <div class="voice_wrap">
+        <div class="row"><h1>中国好声音投票评分</h1></div>
+        <div class="row">
+            <label>评审团(27)投票:</label>
+            <input type="text" id="JS_jury_number">
+            评分：<span id="JS_jury_grade"></span>
+        </div>
+        <div class="row">
+            <label>观众（360)投票:</label>
+            <input type="text" id="JS_audience_number">
+            评分：<span id="JS_audience_grade"></span>
+        </div>
+        <div class="row">
+            最终分：<span id="JS_grade"></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,3 +1,11 @@
+<?php
+$base_url = "localhost:8080/";
+/**
+ * @desc: 头部
+ * @author: cifer
+ * @date: 2015/3/24
+ */
+?>
 <!DOCTYPE html>
 <html>
 <head lang="zh-CN">
@@ -7,13 +15,13 @@
     <title>头部</title>
     <link rel="shortcut icon" href="favicon.ico">
 
-    <link href="../module/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../module/bootstrap-3.3.4/css/bootstrap-theme.min.css">
+    <link href="<?php echo $base_url ?>module/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo $base_url ?>module/bootstrap-3.3.4/css/bootstrap-theme.min.css">
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="../module/jquery/jquery-1.11.2.min.js"></script>
+    <script src="<?php echo $base_url ?>module/jquery/jquery-1.11.2.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../module/bootstrap-3.3.4/js/bootstrap.min.js"></script>
-    <script src="static/js/common/header.js"></script>
+    <script src="<?php echo $base_url ?>module/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script src="<?php echo $base_url ?>share/static/js/common/header.js"></script>
 </head>
 
 <body>
@@ -38,7 +46,7 @@
                     <li role="presentation" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">常见技巧<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">居中技巧</a></li>
+                            <li><a href="<?php echo $base_url ?>share/static/html/skill/center.php">居中技巧</a></li>
                             <li><a href="#">雪碧</a></li>
                             <li><a href="#">文字溢出</a></li>
                             <li><a href="#">清除浮动</a></li>
