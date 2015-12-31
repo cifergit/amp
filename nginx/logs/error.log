@@ -1,0 +1,2 @@
+2016/01/01 00:27:37 [error] 8092#8764: *1 CreateFile() "F:\amp\nginx/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost"
+2016/01/01 00:32:07 [notice] 9444#9708: signal process started
