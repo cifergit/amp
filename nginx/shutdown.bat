@@ -1,4 +1,4 @@
 @echo off
 tskill nginx
-echo ряжуж╧кЫспginx╫ЬЁл
+echo О©╫ginxО©╫О©╫О©╫
 pause
