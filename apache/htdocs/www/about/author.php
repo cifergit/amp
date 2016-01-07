@@ -1,4 +1,4 @@
-<?php include "../../config/common.php";?>
+<?php include "../../config/common/common.php";?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -11,7 +11,7 @@
 
 <body>
 
-<?php include "../common/header.php";?>
+<?php include "../../view/common/header.php";?>
 
 <section class="main_wrap">
     <section class="main_inner">
@@ -38,7 +38,7 @@
     </section>
 </section>
 
-<?php include "../common/footer.php";?>
+<?php include "../../view/common/footer.php";?>
 
 </body>
 </html>

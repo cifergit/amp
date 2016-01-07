@@ -63,10 +63,19 @@ header {
       max-width: 100px;
       line-height: 40px;
       text-align: center;
-      cursor: pointer;
-      &:hover {
+      /*&:hover {
         background-color: #FFFFBB;
-      }
+      }*/
+    }
+    .item_on {
+      background-color: #FFFFBB;
+    }
+
+    a {
+      display: inline-block;
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
     }
   }
 }
