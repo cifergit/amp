@@ -1,16 +1,10 @@
-<?php
-/**
- * desc: 
- * User: cifer 
- * DateTime: 2016/1/20 22:15
- */
-include "../../config/common/common.php";?>
+<?php include "../../config/common/common.php";?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"  />
-    <title>太空船-电影库</title>
+    <title>太空船-添加电影</title>
     <link rel="stylesheet" href="<?php echo $server_root;?>static/css/common/global.css"/>
     <link rel="stylesheet" href="<?php echo $server_root;?>static/css/movie_manage/movie_add.css"/>
     <style>
@@ -41,27 +35,27 @@ include "../../config/common/common.php";?>
     <section class="main_inner">
         <table>
             <thead>
-            <tr>
-                <th class="th_1">id</th>
-                <th class="th_2">名字</th>
-                <th class="th_3">推荐理由</th>
-                <th class="th_4">日期</th>
-            </tr>
+                <tr>
+                    <th class="th_1">id</th>
+                    <th class="th_2">名字</th>
+                    <th class="th_3">介绍</th>
+                    <th class="th_4">日期</th>
+                </tr>
             </thead>
             <tbody>
             <?php
             try {
                 $dbh = new PDO($db_mysql_connect, $db_user, $db_password);
                 $dbh->query("SET NAMES 'utf8'");
-                $sql = "select id,name,movie_point,create_time from t_movie;";
+                $sql = "select * from t_movie_day_recommend;";
                 $rs =$dbh->query($sql);
                 foreach($rs as $row){
                     ?>
                     <tr>
                         <td><?php echo $row["id"];?></td>
                         <td><?php echo $row["name"];?></td>
-                        <td><?php echo $row["movie_point"];?></td>
-                        <td><?php echo $row["create_time"];?></td>
+                        <td><?php echo $row["comment"];?></td>
+                        <td><?php echo $row["recommend_time"];?></td>
                     </tr>
                 <?php
                 }

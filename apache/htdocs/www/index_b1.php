@@ -1,4 +1,4 @@
-<?php include "../config/common/common.php";?>
+﻿<?php include "../config/common/common.php";?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -36,39 +36,47 @@
     </section>
 
     <section class="main_inner">
-        <?php $nTimeDay = date("j");?>
+        <?php $str_today = date("2016-01-15");?>
         <?php
         $arr_history_movie = array();
         $str_today_movie = array();
         try {
             $dbh = new PDO($db_mysql_connect, $db_user, $db_password);
             $dbh->query("SET NAMES 'utf8'");
-            $min_movie_index = 1;
-            $max_movie_index = 30;
-            if($max_movie_index <= 31){
-                $today_movie_index = $nTimeDay%$max_movie_index+1;
-            }
-            else {
-                $today_movie_index = $max_movie_index%$nTimeDay+1;
-            }
-
-            $sql = "select id,name,movie_point from t_movie where id = ".$today_movie_index;
+            $sql = "select * from t_movie_day_recommend where recommend_time <= '$str_today'";
             $rs = $dbh->query($sql);
             if(!empty($rs)){
                 $rs2 = array();
                 ?>
 
-                <?php foreach($rs as $today_movie){?>
-                    <article class="today_movie">
-                            <h2 title="啧啧，每天推荐一部，看不过来有木有？">每日只推荐一部电影，必属精品！</h2>
+                <?php foreach($rs as $today_movie){
+
+                    if($str_today == $today_movie["recommend_time"]){?>
+                        <article class="today_movie">
+                            <h2 title="啧啧，每天推荐一部，看不过来有木有？">本月电影推荐（太空船推荐，必属精品！）(系统升级中，暂停更新……升级更精彩)</h2>
                             <dl>
                                 <dt class="name" title="我去，为什么不能复制啊？作者原创版权所有，暂时不提供复制哦～">
                                     <?php echo $today_movie["name"];?>
                                 </dt>
-                                <dd class="desc"><?php echo $today_movie["movie_point"];?></dd>
+                                <dd class="desc"><?php echo $today_movie["comment"];?></dd>
                             </dl>
-                    </article>
-            <?php } }
+                        </article>
+                    <?php }
+                    else {
+                        $rs2[] = $today_movie;
+                    }
+                }?>
+
+                <article class="history_movie"  title="我去，为什么不能复制啊？作者原创版权所有，暂时不提供复制哦～">
+                    <h2 class="history_title">电影推荐历史</h2>
+                    <ul>
+                        <?php foreach($rs2 as $history_movie){?>
+                            <li <?php if(!empty($history_movie["comment"])){?>title="<?php echo $history_movie["comment"];}?>"><?php echo $history_movie["recommend_time"];?>&nbsp;&nbsp;<?php echo $history_movie["name"];?></li>
+                        <?php }?>
+                    </ul>
+                </article>
+
+            <?php }
         }
         catch (PDOException $e){
             echo '数据库连接失败'.$e->getMessage();

@@ -1,8 +1,8 @@
 <?php
 /**
- * desc:
- * User: cifer
- * DateTime: 2016/1/19
+ * desc: 
+ * User: cifer 
+ * DateTime: 2016/1/7 23:25
  */
 include "../../config/common/database.php";
 $admin_default_code = "11";
@@ -20,7 +20,9 @@ if($admin_code != $admin_default_code){
 }
 else {
     $strMovieName = $_POST["movie_name"];
+    $strMovieName = "大";
     $strMovieComment = $_POST["movie_comment"];
+    $timeRecommendTime = $_POST["recommend_time"];
     /*$ret["moiveMessage"] = array(
         "strMovieName"  => $strMovieName,
         "strMovieComment"   => $strMovieComment,
@@ -31,35 +33,22 @@ else {
     try {
         $dbh = new PDO($db_mysql_connect, $db_user, $db_password);
         $dbh->query("SET NAMES 'utf8'");
-        $sql = "select * from t_movie where name = '$strMovieName'";
+        $sql = "select * from t_movie_day_recommend where name = '$strMovieName'";
         $rs = $dbh->query($sql);
         $boolSameMovie = false;
         if(!empty($rs)){
             foreach($rs as $sameNameMovie){
                 if(!empty($sameNameMovie)){
                     $boolSameMovie = true;
+
                 }
             }
         }
         if(!$boolSameMovie){
-            date_default_timezone_set('PRC');
-            $str_today = date("Y-m-d H:i:s");
-            $dbh->query("SET NAMES 'utf8'");
-            $sqlInset = "insert into t_movie (name,movie_point,create_time,user_id,pv) values('$strMovieName','$strMovieComment',now(),1,1)";
-            try {
-                $row = $dbh->exec($sqlInset);
-
-                $ret = array(
-                    "errcode" => 0,
-                    "errmsg" => $dbh->errorInfo(),
-                );
-            }
-            catch(PDOException $sertE){
-                $ret = array(
-                    "errcode" => 403,
-                    "errmsg" => $sertE->getMessage(),
-                );
-            }
+            $ret = array(
+                "errcode" => 401,
+                "errmsg" => "电影不存在",
+            );
         }
         else {
             $ret = array(

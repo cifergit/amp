@@ -8,7 +8,7 @@ $db_host = "127.0.0.1";
 $db_name = "cifer";
 $db_user = "cifer";
 $db_password = "CFNf24hXFFz4XWUZ";
-$environment = "idc";
+$environment = "dev";
 if($environment == "dev"){
     $db_user = "root";
     $db_password = "mysql5";

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<div id="c">divdiv</div>
+<script>
+    var ul = document.createElement('ul');
+    for(var i=0;i< 1000;i++){
+        var li = document.createElement('li');
+        var ii = document.createTextNode(i);
+        li.appendChild(ii);
+        ul.appendChild(li);
+    }
+    document.getElementsByTagName("body")[0].insertBefore(ul,document.getElementsByTagName("body")[0].childNodes[0]);
+    //var body = document.getElementsByTagName("body")[0];
+    //body.appendChild(ul);
+</script>
+
+<!--<div id="div1">
+    <p id="p1">这是一个段落</p>
+    <p id="p2">这是另一个段落</p>
+</div>
+
+<script>
+    var para=document.createElement("p");
+    var node=document.createTextNode("这是新段落。");
+    para.appendChild(node);
+
+    var element=document.getElementById("div1");
+    element.appendChild(para);
+</script>-->
+
+</body>
+</html>
