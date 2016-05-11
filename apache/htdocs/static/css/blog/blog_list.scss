@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+.my_share {
+  /*width: 50%;
+  margin-left: 25%;
+  padding: 20px;
+  border: 1px solid #eee;
+  background-color: #fcfcfc;*/
+  .title {
+    //margin: 10px 0;
+  }
+}
+.blog_ol {
+  list-style-type: decimal;
+  a {
+    &:hover {
+      color: #0b76ad;
+    }
+  }
+}
+
+.title {
+  height: 40px;
+  line-height: 40px;
+}

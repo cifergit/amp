@@ -1,5 +1,11 @@
-RewriteEngine on 
+RewriteEngine on
+
+<Files *>
+Options -Indexes
+</Files>
  
-RewriteCond $1 !^(index\.php|images|robots\.txt) 
+RewriteCond $1 !^(index\.php|images|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
  
 RewriteRule ^(.*)$ /index.php/$1 [L]
