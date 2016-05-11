@@ -53,7 +53,14 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+//生产环境
+if($_SERVER['SERVER_ADDR'] == "104.131.157.84"){
+    define('ENVIRONMENT', 'production');
+}
+else {
+    define('ENVIRONMENT', 'development');
+}
+	//define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 /*
  *---------------------------------------------------------------
