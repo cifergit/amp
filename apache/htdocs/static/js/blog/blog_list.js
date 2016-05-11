@@ -2,7 +2,7 @@
  * Created by cifer on 2016/5/7.
  */
 require.config({
-    baseUrl: '//www.boatsky.com',
+    baseUrl: '//www.boatsky.com/static',
     paths: {
         jquery: 'module/jquery/jquery',
         global: 'js/common/global'
