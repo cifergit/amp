@@ -26,7 +26,7 @@ CREATE TABLE `t_invite_code` (
   `used_user_id` int(10) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_invite_code
@@ -47,7 +47,7 @@ CREATE TABLE `t_movie` (
   `user_id` int(10) DEFAULT NULL,
   `pv` int(14) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_movie
@@ -97,7 +97,7 @@ CREATE TABLE `t_user` (
   `lock_time` datetime DEFAULT NULL,
   `score` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_user
