@@ -5,22 +5,6 @@
  * Date: 2016/5/6
  * Time: 23:44
  * */
-$server_root = "http://www.boatsky.com";
-/**
- * desc:
- * User: cifer
- * DateTime: 2016/1/7 0:11
- */
-$db_host = "127.0.0.1";
-$db_name = "cifer";
-$db_user = "cifer";
-$db_password = "CFNf24hXFFz4XWUZ";
-$environment = "dev";
-if($environment == "dev"){
-    $db_user = "root";
-    $db_password = "mysql5";
-}
-$db_mysql_connect = "mysql:host=$db_host;dbname=$db_name";
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,46 +27,47 @@ $db_mysql_connect = "mysql:host=$db_host;dbname=$db_name";
 <?php $this->load->view('common/header');?>
 
 <div class="main_wrap">
+
+
     <section class="main_inner mod_inner">
-        <?php $nTimeDay = date("j");?>
         <?php
-        $arr_history_movie = array();
-        $str_today_movie = array();
-        try {
-            $dbh = new PDO($db_mysql_connect, $db_user, $db_password);
-            $dbh->query("SET NAMES 'UTF8'");
-            $min_movie_index = 1;
-            $max_movie_index = 30;
-            if($max_movie_index <= 31){
-                $today_movie_index = $nTimeDay%$max_movie_index+1;
-            }
-            else {
-                $today_movie_index = $max_movie_index%$nTimeDay+1;
-            }
-
-            $sql = "select id,name,movie_point from t_movie where id = ".$today_movie_index;
-            $rs = $dbh->query($sql);
-            if(!empty($rs)){
-                $rs2 = array();
-                ?>
-
-                <?php foreach($rs as $today_movie){?>
-                    <article class="today_movie">
-                        <h2 title="啧啧，每天推荐一部，看不过来有木有？">每日只推荐一部电影，必属精品！</h2>
-                        <dl>
-                            <dt class="name" title="我去，为什么不能复制啊？作者原创版权所有，暂时不提供复制哦～">
-                                <?php echo $today_movie["name"];?>
-                            </dt>
-                            <dd class="desc"><?php echo $today_movie["movie_point"];?></dd>
-                        </dl>
-                    </article>
-                <?php } }
-        }
-        catch (PDOException $e){
-            echo '数据库连接失败'.$e->getMessage();
-        }
+        $indexMovieCount = 1;
+        foreach ($arrMovie as $movie)
+        {?>
+            <?php if($indexMovieCount == 1){?>
+            <article class="today_movie">
+                <h2 title="啧啧，每天推荐一部，很好看有木有？">今天推荐，必属精品！</h2>
+                <dl>
+                    <dt class="name" title="我去，为什么不能复制啊？作者原创版权所有，暂时不提供复制哦～">
+                        <?php echo $movie->name;?>
+                    </dt>
+                    <dd class="desc"><?php echo $movie->movie_point;?></dd>
+                </dl>
+            </article>
+        <?php }else if($indexMovieCount == 2) {?>
+            <article class="today_movie">
+                <h2 title="昨日推荐,你看完了吗？">昨日推荐,你看完了吗？</h2>
+                <dl>
+                    <dt class="name" title="我去，为什么不能复制啊？作者原创版权所有，暂时不提供复制哦～">
+                        <?php echo $movie->name;?>
+                    </dt>
+                    <dd class="desc"><?php echo $movie->movie_point;?></dd>
+                </dl>
+            </article>
+        <?php } else {?>
+            <article class="today_movie">
+                <h2 title="啧啧，每天推荐一部，看不过来有木有？">前日推荐,犹如在昨日？</h2>
+                <dl>
+                    <dt class="name" title="我去，为什么不能复制啊？作者原创版权所有，暂时不提供复制哦～">
+                        <?php echo $movie->name;?>
+                    </dt>
+                    <dd class="desc"><?php echo $movie->movie_point;?></dd>
+                </dl>
+            </article>
+        <?php }
+            $indexMovieCount++;?>
+        <?php }
         ?>
-
     </section>
 </div>
 

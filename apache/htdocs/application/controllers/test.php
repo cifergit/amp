@@ -12,12 +12,26 @@ class Test extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        $this->load->database();
     }
 
     //博客
     public function index()
     {
-        $this->load->view('movie/index');
+        $data = "";
+        $query = $this->db->query('select * from t_movie');
+        /*if ($this->db->query('select * from t_movie'))
+        {
+            $data =  "Success!";
+        }
+        else
+        {
+            $data =  "Query failed!";
+        }*/
+
+        $this->load->view('common/test',array(
+            'query'  => $query
+        ));
     }
 
 }
