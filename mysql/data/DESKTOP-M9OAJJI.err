@@ -1,0 +1,157 @@
+160508 17:01:27 [Note] Plugin 'FEDERATED' is disabled.
+MySQL: Table 'mysql.plugin' doesn't exist
+160508 17:01:27 [ERROR] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+160508 17:01:27 InnoDB: The InnoDB memory heap is disabled
+160508 17:01:27 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+160508 17:01:27 InnoDB: Compressed tables use zlib 1.2.3
+160508 17:01:27 InnoDB: Initializing buffer pool, size = 107.0M
+160508 17:01:27 InnoDB: Completed initialization of buffer pool
+160508 17:01:27  InnoDB: Log file .\ib_logfile0 did not exist: new to be created
+InnoDB: Setting log file .\ib_logfile0 size to 54 MB
+InnoDB: Database physically writes the file full: wait...
+160508 17:01:27  InnoDB: Log file .\ib_logfile1 did not exist: new to be created
+InnoDB: Setting log file .\ib_logfile1 size to 54 MB
+InnoDB: Database physically writes the file full: wait...
+160508 17:01:27 InnoDB: Cannot initialize created log files because
+160508 17:01:27 InnoDB: data files are corrupt, or new data files were
+160508 17:01:27 InnoDB: created when the database was started previous
+160508 17:01:27 InnoDB: time but the database was not shut down
+160508 17:01:27 InnoDB: normally after that.
+160508 17:01:27 [ERROR] Plugin 'InnoDB' init function returned error.
+160508 17:01:27 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+160508 17:01:27 [ERROR] Fatal error: Can't open and lock privilege tables: Table 'mysql.host' doesn't exist
+160508 17:04:11 [Note] Plugin 'FEDERATED' is disabled.
+160508 17:04:11 InnoDB: The InnoDB memory heap is disabled
+160508 17:04:11 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+160508 17:04:11 InnoDB: Compressed tables use zlib 1.2.3
+160508 17:04:11 InnoDB: Initializing buffer pool, size = 107.0M
+160508 17:04:11 InnoDB: Completed initialization of buffer pool
+160508 17:04:11 InnoDB: highest supported file format is Barracuda.
+InnoDB: No valid checkpoint found.
+InnoDB: If this error appears when you are creating an InnoDB database,
+InnoDB: the problem may be that during an earlier attempt you managed
+InnoDB: to create the InnoDB data files, but log file creation failed.
+InnoDB: If that is the case, please refer to
+InnoDB: http://dev.mysql.com/doc/refman/5.5/en/error-creating-innodb.html
+160508 17:04:11 [ERROR] Plugin 'InnoDB' init function returned error.
+160508 17:04:11 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+160508 17:04:11 [Note] Event Scheduler: Loaded 0 events
+160508 17:04:11 [Note] MySQL: ready for connections.
+Version: '5.5.19'  socket: ''  port: 3306  MySQL Community Server (GPL)
+160508 17:49:05 [Note] MySQL: Normal shutdown
+
+160508 17:49:05 [Note] Event Scheduler: Purging the queue. 0 events
+160508 17:49:07 [Warning] MySQL: Forcing close of thread 12  user: 'root'
+
+160508 17:49:07 [Warning] MySQL: Forcing close of thread 11  user: 'root'
+
+160508 17:49:07 [Warning] MySQL: Forcing close of thread 10  user: 'root'
+
+160508 17:49:07 [Warning] MySQL: Forcing close of thread 9  user: 'root'
+
+160508 17:49:07 [Note] MySQL: Shutdown complete
+
+160508 17:50:44 [Note] Plugin 'FEDERATED' is disabled.
+160508 17:50:44 InnoDB: The InnoDB memory heap is disabled
+160508 17:50:44 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+160508 17:50:44 InnoDB: Compressed tables use zlib 1.2.3
+160508 17:50:44 InnoDB: Initializing buffer pool, size = 107.0M
+160508 17:50:44 InnoDB: Completed initialization of buffer pool
+160508 17:50:45 InnoDB: highest supported file format is Barracuda.
+InnoDB: No valid checkpoint found.
+InnoDB: If this error appears when you are creating an InnoDB database,
+InnoDB: the problem may be that during an earlier attempt you managed
+InnoDB: to create the InnoDB data files, but log file creation failed.
+InnoDB: If that is the case, please refer to
+InnoDB: http://dev.mysql.com/doc/refman/5.5/en/error-creating-innodb.html
+160508 17:50:45 [ERROR] Plugin 'InnoDB' init function returned error.
+160508 17:50:45 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+160508 17:50:45 [Note] Event Scheduler: Loaded 0 events
+160508 17:50:45 [Note] MySQL: ready for connections.
+Version: '5.5.19'  socket: ''  port: 3306  MySQL Community Server (GPL)
+160508 18:02:33 [Note] MySQL: Normal shutdown
+
+160508 18:02:33 [Note] Event Scheduler: Purging the queue. 0 events
+160508 18:02:35 [Warning] MySQL: Forcing close of thread 3  user: 'ODBC'
+
+160508 18:02:35 [Note] MySQL: Shutdown complete
+
+160508 18:05:49 [Note] Plugin 'FEDERATED' is disabled.
+160508 18:05:49 InnoDB: The InnoDB memory heap is disabled
+160508 18:05:49 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+160508 18:05:49 InnoDB: Compressed tables use zlib 1.2.3
+160508 18:05:49 InnoDB: Initializing buffer pool, size = 107.0M
+160508 18:05:49 InnoDB: Completed initialization of buffer pool
+160508 18:05:49 InnoDB: highest supported file format is Barracuda.
+InnoDB: No valid checkpoint found.
+InnoDB: If this error appears when you are creating an InnoDB database,
+InnoDB: the problem may be that during an earlier attempt you managed
+InnoDB: to create the InnoDB data files, but log file creation failed.
+InnoDB: If that is the case, please refer to
+InnoDB: http://dev.mysql.com/doc/refman/5.5/en/error-creating-innodb.html
+160508 18:05:49 [ERROR] Plugin 'InnoDB' init function returned error.
+160508 18:05:49 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+160508 18:05:49 [Note] Event Scheduler: Loaded 0 events
+160508 18:05:49 [Note] MySQL: ready for connections.
+Version: '5.5.19'  socket: ''  port: 3306  MySQL Community Server (GPL)
+160508 18:17:28 [Note] MySQL: Normal shutdown
+
+160508 18:17:28 [Note] Event Scheduler: Purging the queue. 0 events
+160508 18:17:30 [Warning] MySQL: Forcing close of thread 12  user: 'root'
+
+160508 18:17:30 [Warning] MySQL: Forcing close of thread 11  user: 'root'
+
+160508 18:17:30 [Warning] MySQL: Forcing close of thread 10  user: 'root'
+
+160508 18:17:30 [Warning] MySQL: Forcing close of thread 1  user: 'ODBC'
+
+160508 18:17:30 [Note] MySQL: Shutdown complete
+
+160508 18:18:29 [Note] Plugin 'FEDERATED' is disabled.
+160508 18:18:29 InnoDB: The InnoDB memory heap is disabled
+160508 18:18:29 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+160508 18:18:29 InnoDB: Compressed tables use zlib 1.2.3
+160508 18:18:29 InnoDB: Initializing buffer pool, size = 107.0M
+160508 18:18:29 InnoDB: Completed initialization of buffer pool
+160508 18:18:29 InnoDB: highest supported file format is Barracuda.
+InnoDB: No valid checkpoint found.
+InnoDB: If this error appears when you are creating an InnoDB database,
+InnoDB: the problem may be that during an earlier attempt you managed
+InnoDB: to create the InnoDB data files, but log file creation failed.
+InnoDB: If that is the case, please refer to
+InnoDB: http://dev.mysql.com/doc/refman/5.5/en/error-creating-innodb.html
+160508 18:18:29 [ERROR] Plugin 'InnoDB' init function returned error.
+160508 18:18:29 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+160508 18:18:29 [Note] Event Scheduler: Loaded 0 events
+160508 18:18:29 [Note] MySQL: ready for connections.
+Version: '5.5.19'  socket: ''  port: 3306  MySQL Community Server (GPL)
+160508 18:28:58 [Note] MySQL: Normal shutdown
+
+160508 18:28:58 [Note] Event Scheduler: Purging the queue. 0 events
+160508 18:29:00 [Warning] MySQL: Forcing close of thread 1  user: 'ODBC'
+
+160508 18:29:00 [Note] MySQL: Shutdown complete
+
+160508 18:30:44 [Note] Plugin 'FEDERATED' is disabled.
+160508 18:30:44 InnoDB: The InnoDB memory heap is disabled
+160508 18:30:44 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+160508 18:30:44 InnoDB: Compressed tables use zlib 1.2.3
+160508 18:30:44 InnoDB: Initializing buffer pool, size = 107.0M
+160508 18:30:44 InnoDB: Completed initialization of buffer pool
+160508 18:30:44 InnoDB: highest supported file format is Barracuda.
+InnoDB: No valid checkpoint found.
+InnoDB: If this error appears when you are creating an InnoDB database,
+InnoDB: the problem may be that during an earlier attempt you managed
+InnoDB: to create the InnoDB data files, but log file creation failed.
+InnoDB: If that is the case, please refer to
+InnoDB: http://dev.mysql.com/doc/refman/5.5/en/error-creating-innodb.html
+160508 18:30:44 [ERROR] Plugin 'InnoDB' init function returned error.
+160508 18:30:44 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+160508 18:30:44 [Note] Event Scheduler: Loaded 0 events
+160508 18:30:44 [Note] MySQL: ready for connections.
+Version: '5.5.19'  socket: ''  port: 3306  MySQL Community Server (GPL)
+160508 18:32:40 [Note] MySQL: Normal shutdown
+
+160508 18:32:40 [Note] Event Scheduler: Purging the queue. 0 events
+160508 18:32:40 [Note] MySQL: Shutdown complete
+

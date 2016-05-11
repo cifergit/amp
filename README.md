@@ -1,3 +1,3 @@
 # amp
 
-It for appach + mysql + php
+It for appach + mysql + php demo
