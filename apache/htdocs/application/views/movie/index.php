@@ -23,7 +23,6 @@
 </head>
 <body>
 
-
 <?php $this->load->view('common/header');?>
 
 <div class="main_wrap">
@@ -36,7 +35,7 @@
         {?>
             <?php if($indexMovieCount == 1){?>
             <article class="today_movie">
-                <h2 title="啧啧，每天推荐一部，很好看有木有？">今天推荐，必属精品！</h2>
+                <h2 title="啧啧，每天推荐一部，很好看有木有？">今日推荐，必属精品！</h2>
                 <dl>
                     <dt class="name" title="我去，为什么不能复制啊？作者原创版权所有，暂时不提供复制哦～">
                         <?php echo $movie->name;?>

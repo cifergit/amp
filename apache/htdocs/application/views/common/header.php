@@ -1,3 +1,12 @@
+<script>
+    var globalMess = {};
+    SERVER_ROOT = '<?php echo SERVER_ROOT;?>';
+    if(typeof(SERVER_ROOT) != 'undefined' && SERVER_ROOT){
+    }
+    else {
+        SERVER_ROOT ='//www.boatsky.com';
+    }
+</script>
 <header class="header">
     <nav class="mod_inner">
         <ul id="topNavWrap">

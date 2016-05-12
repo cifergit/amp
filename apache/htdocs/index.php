@@ -60,6 +60,7 @@ if($_SERVER['SERVER_ADDR'] == "104.131.157.84"){
 else {
     define('ENVIRONMENT', 'development');
 }
+define('SERVER_ROOT','http://www.boatsky.com');
 	//define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 /*
