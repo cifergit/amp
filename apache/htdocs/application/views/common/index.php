@@ -16,7 +16,7 @@
     <meta name="apple-mobile-web-app-title" content="太空船">
     <title>太空船-电影推荐网</title>
     <meta name="description" content="推荐最值的看的电影，太空船推荐，必属精品！" />
-    <meta name="keywords" content="太空船，电影推荐网，电影排行榜，太空船网，太空船电影，太空船电影网，太空船电影推荐，电影推荐，电影评分，电影分享" />
+    <meta name="keywords" content="太空船，太空船电影，太空船网，太空船电影网，太空船电影推荐，太空船电影推荐网，电影推荐网，电影排行榜，电影推荐，电影评分，电影分享，boatsky,boatsky.com,www.boatsky.com" />
     <meta name="author" content="cifer" />
     <link rel="stylesheet" href="//www.boatsky.com/static/css/common/global.css"/>
     <link rel="stylesheet" href="//www.boatsky.com/static/css/movie/index.css"/>

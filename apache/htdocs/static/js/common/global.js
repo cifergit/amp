@@ -12,6 +12,9 @@ define(function(require,exports,module){
             console.log(2);
             $(".top_nav_li_movie").addClass("cur");
         }
+        else if(thisHref.indexOf("boatsky.com/register") > -1 || thisHref.indexOf("boatsky.com/login") > -1){
+            $(".top_nav_li_user").addClass("cur");
+        }
         else {
             console.log(3);
             $(".top_nav_li_home").addClass("cur");
