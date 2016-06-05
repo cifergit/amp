@@ -1,0 +1,71 @@
+@charset "UTF-8";
+/**
+ * @desc 公共表单描述
+ * @author cifer
+ * @date 2016-05-20
+ */
+@import "function";
+
+.mod_form_desc {
+  .title {
+    font-size: 14px;
+    height: 70px;
+    line-height: 70px;
+  }
+}
+
+.sub_header {
+  height: 80px;
+  background-color: #f7f8f9;
+  .h1 {
+    height: 80px;
+    line-height: 80px;
+    color: #0399e5;
+    font-size: 24px;
+  }
+}
+
+.current_product {
+  width: 870px;
+  padding: 20px 40px 20px 40px;
+  border: 1px solid #ccc;
+  @extend %clearfix;
+  .content {
+    float: left;
+    width: 550px;
+  }
+  .name,.product_title {
+    font-size: 20px;
+  }
+  .desc {
+    font-size: 12px;
+    margin-top: 20px;
+  }
+  .pic {
+    float: right;
+    width: 200px;
+    height: 200px;
+    .img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
+
+.spec_wrap {
+  margin-top: 10px;
+  .spec_type {
+    @extend %clearfix;
+  }
+  .spec_type_value {
+    float: left;
+    color: #6d6d6d;
+    font-weight: normal;
+  }
+  .spec_value_wrap {
+    float: left;
+    .spec_value_item {
+      margin-left: 20px;
+    }
+  }
+}

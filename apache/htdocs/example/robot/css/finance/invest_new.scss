@@ -1,0 +1,122 @@
+@charset "UTF-8";
+/**
+ * @desc 创投
+ * @author cifer
+ * @date 2016-05-22
+ */
+@import "../common/_mod_form";
+@import "../common/_mod_form_desc";
+
+%clearfix{
+  *zoom:1;
+  &:after {
+    visibility:hidden;
+    display:block;
+    font-size:0;
+    content:" ";
+    clear:both;
+    height:0;
+  }
+}
+
+.mod_form_item {
+  @extend %clearfix;
+}
+
+.mod_form {
+  .mod_item_upload {
+    height: auto;
+    line-height: auto;
+  }
+}
+
+.mod_input_percent_wrap {
+  float: left;
+  width: 200px;
+  position: relative;
+  .mod_input_percent {
+    box-sizing: border-box;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 30px 0 15px;
+    border: 1px solid #ccc;
+    &:focus {
+      border: 1px solid #0093d5;
+    }
+  }
+  .icon_percent {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    color: #666;
+  }
+}
+.mod_input_percent_right_wrap {
+  float: right;
+}
+.mod_line_through {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  height: 40px;
+  text-decoration:line-through;
+  color: #ccc;
+}
+
+.mod_form_item_iswrap {
+  @extend %clearfix;
+}
+.text_center {
+  text-align: center;
+}
+
+
+
+
+
+.upload_plan_btn {
+  float: left;
+  width: 120px;
+  background-color: #00a9f9;
+  border: 1px solid #00a9f9;
+}
+.upload_msg {
+  height: 40px;
+  color: #999;
+  font-size: 12px;
+  .word {
+    height: 20px;
+    line-height: 20px;
+  }
+}
+
+.wu-example {
+  .state {
+    height: 30px;
+  }
+  .info {
+    height: 30px;
+  }
+}
+
+.webuploader-pick {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  background: #00b7ee;
+  padding: 0px 10px;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  overflow: hidden;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 7px;
+}
+
+
+
+
+
+

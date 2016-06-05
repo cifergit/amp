@@ -1,0 +1,87 @@
+@charset "UTF-8";
+/**
+ * @desc 子头部
+ * @author cifer
+ * @date 2016-05-21
+ */
+%clearfix{
+  *zoom:1;
+  &:after {
+    visibility:hidden;
+    display:block;
+    font-size:0;
+    content:" ";
+    clear:both;
+    height:0;
+  }
+}
+.sub_header {
+  background-color: #f7f8f9;
+}
+//子导航
+.product_financial_ul {
+  height: 80px;
+  line-height: 80px;
+  font-size: 24px;
+  @extend %clearfix;
+  .product_financial_li {
+    float: left;
+    margin-right: 50px;
+    cursor: pointer;
+  }
+  .cur {
+    color: #0399e5;
+  }
+}
+
+.sub_nav_wrap {
+  position: relative;
+  z-index: 10;
+  .mod_inner {
+    position: relative;
+    width: 1190px;
+    margin: 0 auto;
+  }
+  .product_list {
+    width: 630px;
+    position: absolute;
+    padding: 0 15px 15px 15px;
+    box-shadow: 0 0 2px 2px #f4f4f4;
+    left: 0;
+    background-color: #fff;
+  }
+  ///filter: alpha(opacity=88);
+  //opacity: 0.88;
+  @extend %clearfix;
+  a {
+    &:hover {
+      color: #0399e5;
+    }
+  }
+  .product_item {
+  }
+  .product_hd {
+    height: 32px;
+    border-bottom: 1px solid #d3d2d2;
+    margin-top: 6px;
+    line-height: 32px;
+    font-size: 16px;
+    color: #373737;
+  }
+  .sub_product_list {
+    font-size: 16px;
+    color: #6b6969;
+    padding-top: 14px;
+    padding-bottom: 15px;
+    @extend %clearfix;
+    .sub_product {
+      display: inline-block;
+      *display: inline;
+      *zoom: 1;
+      margin-right: 25px;
+      height: 36px;
+      line-height: 36px;
+    }
+  }
+
+}

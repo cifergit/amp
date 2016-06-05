@@ -1,0 +1,150 @@
+@charset "UTF-8";
+/**
+ * @desc 产品列表
+ * @author cifer
+ * @date 2016-05-21
+ */
+@import "../common/function";
+@import "../common/sub_header";
+
+body {
+  background-color: #fff;
+}
+
+.main_wrap {
+  padding-bottom: 60px;
+}
+
+.crumb_wrap {
+  padding-top: 10px;
+  .icon_delete {
+    position: relative;
+    top: 4px;
+    margin-left: 3px;
+  }
+  .mod_inner {
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+  }
+
+
+  .mod_arrow {
+    margin-left: 11px;
+    margin-right: 5px;
+  }
+  .select_item {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    box-sizing: border-box;
+    height: 28px;
+    border: 1px solid #0399e5;
+    padding: 0 8px;
+    line-height: 26px;
+  }
+  .selete_attr_value {
+    color: #0399e5;
+  }
+  .mod_delete {
+    margin-left: 8px;
+    /*display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: url(//img.alicdn.com/tps/i2/TB1R08GFVXXXXbRXpXX7WcCNVXX-400-400.png) -120px -20px no-repeat;*/
+  }
+}
+
+
+.filter_wrap {
+  padding-bottom: 10px;
+  font-size: 16px;
+  border-bottom: 1px solid #e3e3e3;
+  .filter_attr {
+
+  }
+  .sub_product,.attr_item {
+    margin-left: 23px;
+    cursor: pointer;
+    height: 36px;
+    line-height: 36px;
+    &:hover {
+      color: #0399e5;
+    }
+  }
+  .cur {
+      color: #0399e5;
+  }
+}
+
+.mod_product_list {
+  .mod_inner {
+    @extend %clearfix;
+  }
+  .mod_product_con {
+    width: 282px;
+    margin: 0 auto;
+  }
+  .mod_name {
+    font-size: 22px;
+    color: #363636;
+    width: 100%;
+    text-align: center;
+    @include elli;
+  }
+  .mod_desc {
+    height: 41px;
+    margin-top: 10px;
+    overflow: hidden;
+    font-size: 14px;
+    color: #4b4a4a;
+  }
+  .mod_link {
+    width: 100%;
+    margin-top: 14px;
+    text-align: center;
+    span {
+      color: #0399e5;
+    }
+    .mod_arrow {
+      margin-left: 10px;
+    }
+  }
+}
+
+//中图产品
+.mod_product_md {
+  display: block;
+  float: left;
+  width: 396px;
+  height: 420px;
+  box-sizing: border-box;
+  border-right: 1px solid #d7d7d7;
+  border-bottom: 1px solid #d7d7d7;
+  .mod_product_img {
+    width: 224px;
+    height: 224px;
+    margin: 0 auto;
+    padding-top: 50px;
+  }
+  .mod_img {
+    width: 224px;
+    height: 224px;
+    background-color: #eee;
+  }
+}
+
+//最后一行
+.mod_product_last_row {
+  border-bottom: none;
+}
+//大图最后一列
+.mod_product_md_last_column {
+  width: 398px;
+  border-right: none;
+}
+//小图最后一列
+.mod_product_sm_last_column {
+  width: 182px;
+  border-right: none;
+}

@@ -1,0 +1,517 @@
+@charset "UTF-8";
+/**
+ * @desc 首页
+ * @author cifer
+ * @date 2016-05-04
+ */
+
+@import "function";
+
+body {
+  color: #333;
+  font-size: 14px;
+}
+header,section {
+  display: block\9;
+}
+
+/*.body_index_header {
+  .about_us_wrap {
+    padding-top: 576px;
+  }
+}
+
+.index_header {
+  position: relative;
+  color: #fff;
+  box-shadow: none;
+  background-color: transparent;
+  .unlogin_black {
+    display: none;
+  }
+  .unlogin_white {
+    display: block;
+  }
+  .header_ul {
+    .header_li {
+      &:hover {
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
+  a {
+    color: #fff;
+  }
+}*/
+
+.mod_head_wrap {
+  padding: 60px 0 25px 0;
+  height: 30px;
+  margin-left: 30px;
+  color: #363636;
+  @extend %clearfix;
+  .mod_title {
+    float: left;
+    height: 14px;
+    padding-left: 10px;
+    border-left: 2px solid #363636;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 14px;
+  }
+
+  .mod_list {
+    float: left;
+    margin-left: 50px;
+    @extend %clearfix;
+    .li {
+      float: left;
+      font-size: 14px;
+      cursor: pointer;
+      height: 14px;
+      line-height: 14px;
+    }
+    .separate {
+      width: 23px;
+      text-align: center;
+      cursor: default;
+    }
+  }
+}
+
+
+.mod_bd_wrap {
+  margin-left: 30px;
+  @extend %clearfix;
+  .name {
+    padding-bottom: 10px;
+    color: #505050;
+    font-size: 40px;
+    font-weight: normal;
+    margin-bottom: 12px;
+  }
+  p {
+    font-size: 16px;
+    color: #646464;
+  }
+  .mod_btn {
+    width: 150px;
+    margin-top: 60px;
+  }
+}
+
+
+
+//加入我们
+.join_us_wrap {
+  width: 1190px;
+  height: 537px;
+  margin-top: 25px;
+  background-image: url("../../images/index/index_head_bg.png");
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+                  src='../../images/index/index_head_bg.png',
+                  sizingMethod='scale');
+  background-size: cover;
+  background-position: center;
+  .mod_bd_wrap {
+    padding-top: 130px;
+  }
+
+}
+
+//新闻中心
+.news_wrap {
+  padding-bottom: 40px;
+  background-color: #f7f8f9;
+  @extend %clearfix;
+  .main_news {
+    position: relative;
+    float: left;
+    width: 550px;
+    height: 320px;
+    .main_img {
+      width: 550px;
+      height: 320px;
+    }
+  }
+
+  .main_bg {
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    bottom: 0px;
+    line-height: 40px;
+    left: 0;
+    font-size: 12px;
+    background-color: #000;
+    filter: alpha(opacity=60);
+    -moz-opacity: 0.60;
+    opacity: 0.6;
+  }
+  .main_title {
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 382px;
+    height: 40px;
+    padding-left: 70px;
+    color: #ffffff;
+    line-height: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 20px;
+  }
+  .news_list {
+    float: left;
+    width: 400px;
+    height: 320px;
+    list-style-type: square;
+    overflow: hidden;
+    padding: 10px 0 10px 45px;
+    font-size: 16px;
+    .news_li {
+      width: 100%;
+      height: 30px;
+      @include elli;
+      &:hover {
+        .point {
+          background-color: #00a9f9;
+        }
+        a {
+          color: #00a9f9;
+        }
+      }
+    }
+    .point {
+      display: inline-block;
+      *display: inline;
+      *zoom: 1;
+      width: 5px;
+      height: 5px;
+      background-color: #646464;
+      margin-right: 10px;
+      position: relative;
+      bottom: 3px;
+    }
+  }
+}
+
+
+
+.news_cur_trade {
+  .news_trade {
+    display: block;
+  }
+  .news_expert,.news_company {
+    display: none;
+  }
+  .news_trade_item {
+    color: #21b4fa;
+  }
+}
+
+.news_cur_expert {
+  .news_expert {
+    display: block;
+  }
+  .news_trade,.news_company {
+    display: none;
+  }
+  .news_expert_item {
+    color: #21b4fa;
+  }
+
+}
+.news_cur_company {
+  .news_trade,.news_expert {
+    display: none;
+  }
+  .news_company {
+    display: block;
+  }
+  .news_company_item {
+    color: #21b4fa;
+  }
+
+}
+
+
+
+.one_stop_wrap {
+  padding-bottom: 65px;
+  .content {
+    float: left;
+  }
+  .one_stop_logo {
+    float: right;
+    margin-right: 120px;
+  }
+}
+
+.product_wrap {
+  background-color: #f7f8f9;
+  .mod_inner {
+    height: 690px;
+    overflow: hidden;
+  }
+}
+
+
+//关于我们
+.about_us_wrap {
+  padding-top: 636px;
+  .title {
+    font-size: 34px;
+    height: 112px;
+    line-height: 112px;
+  }
+  .about_pic_list {
+    @extend %clearfix;
+    overflow: hidden;
+    //height: 490px;
+    .about_pic {
+      position: relative;
+      float: left;
+      width: 343px;
+      height: 489px;
+      margin-left: 40px;
+      img {
+        width: 343px;
+        height: 489px;
+      }
+    }
+  }
+}
+
+//我们的服务
+.our_service_wrap {
+  .title {
+    height: 112px;
+    padding-top: 34px;
+    line-height: 112px;
+    font-size: 34px;
+  }
+  .our_service_pic {
+    width: 100%;
+    height: 490px;
+    background-image: url("../../images/index/our_service.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+                    src='../images/index/our_service.png',
+                    sizingMethod='scale');
+    background-size: cover;
+    background-position: center;
+  }
+  .pic_title {
+    width: 100%;
+    text-align: center;
+    font-size: 48px;
+    color: #fff;
+    padding-top: 165px;
+  }
+  .btn {
+    width: 240px;
+    margin: 70px auto 0 auto;
+  }
+  .apply_btn {
+    display: block;
+    width: 240px;
+    height: 50px;
+    border: 1px solid #21b4fa;
+    border-radius: 5px;
+    background-color: #21b4fa;
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+  }
+}
+
+
+
+
+//产品中心
+.product_wrap {
+  .product_hd {
+  }
+  .title {
+  }
+  .product_type_list {
+
+  }
+  .product_more {
+    /*float: right;*/
+    margin-right: 10px;
+  }
+  .product_bd {
+    position: relative;
+    overflow: hidden;
+    &:hover {
+      .slider_btn {
+        display: block;
+      }
+    }
+    .slider_btn {
+      display: none;
+      position: absolute;
+      top: 206px;
+      width: 48px;
+      height: 75px;
+      background: #e0e0e0;
+      color: #fff;
+      font-size: 30px;
+      text-align: center;
+      border-radius: 3px;
+    }
+    .pre_btn {
+      line-height: 75px;
+    }
+    .next_btn {
+      line-height: 75px;
+      right: 40px;
+    }
+  }
+
+  .slider_list {
+    //*position: relative;
+    //height: 488px;
+    //overflow: hidden;
+    @extend %clearfix;
+    li {
+      @extend %clearfix;
+
+      a {
+        &:hover {
+          color: #363636;
+        }
+      }
+    }
+    .product {
+      display: block;
+      float: left;
+      width: 368px;
+      height: 488px;
+      box-shadow: 0 2px 2px #f4f4f4;
+      background-color: #fff;
+      margin-right: 23px;
+      .img {
+        width: 368px;
+        height: 368px;
+      }
+    }
+    .product_desc {
+      width: 288px;
+      height: 70px;
+      margin-top: 27px;
+      margin-left: 40px;
+      font-size: 24px;
+      .name {
+        height: 30px;
+        font-size: 16px;
+        color: #505050;
+        @include elli;
+      }
+      .word {
+        margin-top: 10px;
+        font-size: 12px;
+        color: #21b4fa;
+      }
+    }
+  }
+  .bar_wrap {
+    width: 100%;
+    text-align: center;
+    .bar {
+      display: inline-block;
+      padding: 0 8px;
+      margin-top: 10px;
+      min-width: 110px;
+      height: 36px;
+      overflow: hidden;
+      text-align: center;
+      border-radius: 20px;
+    }
+    li {
+      display: inline-block;
+      *display: inline;
+      *zoom: 1;
+      width: 10px;
+      height: 10px;
+      opacity: 0.5;
+      filter: alpha(opacity=50);
+      cursor: pointer;
+      margin: 10px 0 10px 3px;
+      background-color: #bcbccc;
+      border: #989696 solid 1px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .cur {
+      background-color: #2f353d;
+    }
+  }
+}
+.product_complete_cur {
+  .product_complete {
+    display: block;
+  }
+  .product_application,.product_scheme,.product_parts {
+    display: none;
+  }
+  .product_complete_item {
+    color: #21b4fa;
+  }
+}
+.product_application_cur {
+  .product_application {
+    display: block;
+  }
+  .product_complete,.product_scheme,.product_parts {
+    display: none;
+  }
+  .product_application_item {
+    color: #21b4fa;
+  }
+}
+.product_scheme_cur {
+  .product_scheme {
+    display: block;
+  }
+  .product_complete,.product_application,.product_parts {
+    display: none;
+  }
+  .product_scheme_item {
+    color: #21b4fa;
+  }
+}
+.product_parts_cur {
+  .product_parts {
+    display: block;
+  }
+  .product_complete,.product_application,.product_scheme {
+    display: none;
+  }
+  .product_parts_item {
+    color: #21b4fa;
+  }
+}
+
+
+
+//金融服务
+.finance_wrap {
+  padding-bottom: 40px;
+  .finance_logo {
+    float: left;
+  }
+  .content {
+    float: right;
+    margin-right: 100px;
+    text-align: right;
+  }
+}
+
+
+
+

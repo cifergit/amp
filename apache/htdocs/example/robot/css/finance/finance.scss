@@ -1,0 +1,74 @@
+@charset "UTF-8";
+@import "../common/function";
+@import "../common/sub_header";
+
+.finance_head_bg {
+  width: 100%;
+  height: 417px;
+  background-image: url("../../images/finance/finance_head_bg.png?t=1");
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+                  src='../../images/finance/finance_head_bg.png',
+                  sizingMethod='scale');
+  background-size: cover;
+  background-position: center;
+}
+
+.finance_wrap {
+
+  .mod_inner {
+    width: 866px;
+    margin: 40px auto 0 auto;
+  }
+  .apply_btn {
+    display: block;
+    margin: 40px auto 70px auto;
+    width: 150px;
+    font-size: 14px;
+  }
+
+}
+
+.finance_status {
+  @extend %clearfix;
+  .status_unit {
+    float: left;
+    width: 297px;
+    text-align: center;
+  }
+  .company {
+    color: #039be5;
+    font-size: 20px;
+  }
+  .notice {
+    font-size: 26px;
+  }
+  .word {
+
+  }
+  .type {
+    font-size: 16px;
+    color: #999;
+  }
+}
+.status_today {
+  margin-top: 70px;
+  font-size: 16px;
+  color: #999;
+  text-align: center;
+}
+
+.scroll_num {
+  position: relative;
+  top: 5px;
+  right: 4px;
+}
+.scroll_num i {
+  width: 15px;
+  height: 23px;
+  display: inline-block;
+  background: url(../../images/common/number.png) no-repeat;
+  background-position: 0 0;
+  text-indent: -999em;
+}
+
+
