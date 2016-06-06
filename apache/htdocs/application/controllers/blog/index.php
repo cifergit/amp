@@ -7,7 +7,7 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Index extends CI_Controller {
+class Index extends MY_Controller {
 
 
     function __construct() {
@@ -28,5 +28,14 @@ class Index extends CI_Controller {
     //正则表达式
     public function regexp() {
         $this->load->view('blog/regexp');
+    }
+
+    //如何用正确的姿势写HTML
+    public function html_write() {
+        $this->render('blog/html_write',array(
+            'head_title'    => '如何用正确的姿势写HTML',
+            'head_description'  => '介绍HTML的正确写法',
+            'head_keywords' => '怎么编写HTML，HTML该怎么写，正确的HTML写法',
+        ));
     }
 }

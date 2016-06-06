@@ -24,6 +24,9 @@
                 <h1 class="title">我的分享：</h1>
                 <ol class="blog_ol" type="1">
                     <li><a href="//www.boatsky.com/blog/index/regexp">万金油之正则表达式</a></li>
+                    <li><a href="http://www.boatsky.com/blog/index/html_write">如何用正确的姿势写HTML</a></li>
+
+
                 </ol>
             </div>
         </div>

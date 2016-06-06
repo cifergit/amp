@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/**
+ * desc: blog html
+ * User: cifer
+ * DateTime: 2016/6/7 19:41
+ */
+.title {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+.article {
+  margin-top: 50px;
+}
+.article_title {
+  font-size: 18px;
+}
+p {
+  text-indent: 2em;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+h3 {
+  margin-top: 30px;
+}
+td {
+  padding: 10px;
+}
