@@ -1,0 +1,125 @@
+@charset "UTF-8";
+/**
+ * @desc 公共表单
+ * @author cifer
+ * @date 2016-05-10
+ */
+%clearfix{
+  *zoom:1;
+  &:after {
+    visibility:hidden;
+    display:block;
+    font-size:0;
+    content:" ";
+    clear:both;
+    height:0;
+  }
+}
+
+body {
+  color: #6d6d6d;
+}
+
+
+.mod_form {
+  font-size: 14px;
+  .icon_must {
+    position: relative;
+    top: 5px;
+  }
+
+  .mod_row {
+    margin-top: 20px;
+    @extend %clearfix;
+  }
+  .mod_row_category {
+    .mod_label {
+      width: 110px;
+      padding-left: 30px;
+    }
+  }
+  .mod_label {
+    float: left;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 40px;
+  }
+  .mod_form_item {
+    float: left;
+    width: 460px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+    border: 1px solid #ccc;
+    &:focus {
+      border: 1px solid #0093d5;
+    }
+  }
+  .mod_form_item_iswrap {
+    width: 492px;
+    padding: 0;
+    border: none;
+  }
+
+  .mod_errmsg {
+    float: left;
+    height: 40px;
+    margin-left: 10px;
+    line-height: 40px;
+    color: #ff0000;
+  }
+  input.mod_form_item {
+    font-size: 14px;
+  }
+  .mod_textarea {
+    height: 166px;
+    font-size: 14px;
+    font-family: 'Lucida Grande','Microsoft YaHei','SimSun',Arial;
+  }
+
+  /*.submit_price_btn {
+    width: 144px;
+    height: 44px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-left: 105px;
+    line-height: 44px;
+    background-color: #0399e5;
+    border: 1px solid #0399e5;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }*/
+
+  //产品选择
+  .mod_form_item_product {
+    width: 900px;
+    height: auto;
+    @extend %clearfix;
+  }
+  .sub_category {
+    float: left;
+    width: 180px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    @extend %clearfix;
+    .icon_check {
+      float: left;
+    }
+    .word {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+  .sub_category_cur {
+    .icon_check {
+      background-position: -80px 0;
+    }
+  }
+}
+
+
+

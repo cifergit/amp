@@ -1,0 +1,132 @@
+@charset "UTF-8";
+/**
+ * @desc 公共按钮
+ * @author cifer
+ * @date 2015-05-20
+ */
+.mod_btn {
+  display:inline-block;
+  *display: inline;
+  *zoom: 1;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #e7e7e7;
+  font-size: 12px;
+  padding: 6px 12px;//默认距离
+  height: 36px;
+  line-height: 24px;
+  border-radius: 2px;
+}
+
+
+//默认，白色背景，蓝色字框
+.mod_btn_default {
+  border: 1px solid #d6d6d6;
+  background-color: #ffffff;
+  &:hover {
+    border-color: #bbbbbb;
+  }
+}
+
+//0399e5,006fa3
+//21b4fa,0399e5
+//常见的
+.mod_btn_primary {
+  color: #fffefe;
+  background-color: #21b4fa;
+  border: 1px solid #21b4fa;
+  &:hover {
+    background-color: #0399e5;
+  }
+}
+
+//醒目
+.mod_btn_important {
+  color: #fffefe;
+  background-color: #ff3300;
+  border: 1px solid #ff3300;
+}
+
+.mod_btn_special {
+  color: #fffefe;
+  background-color: #09bb07;
+  border: 1px solid #09bb07;
+}
+
+//不可点击
+.mod_btn_disable {
+  color: #aeaeae;
+  background-color: #f0f0f0;
+  border: 1px solid #f0f0f0;
+}
+
+a.mod_btn {
+  box-sizing: border-box;//边框成为高度的一部分
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  *height: 26px;
+  vertical-align: top;
+}
+
+//small button
+.mod_btn_sm {
+  width: 100px;
+}
+a.mod_btn_sm {
+  width: 100px;
+}
+
+.mod_btn_sm_lw2 {
+  width: 150px;
+}
+a.mod_btn_sm_lw2 {
+  width: 150px;
+}
+
+//medium button
+.mod_btn_md {
+  width: 190px;
+  font-size: 14px;
+}
+
+//比在md的基础上更大2号宽度的按钮lw2，如果是更大的高度就是lh2，如果是更小宽的与更小高的就是sw2,sh2,合到一起是sw2_sh2
+.mod_btn_md_lw2 {
+  width: 300px;
+}
+a.mod_btn_md_lw2 {
+  width: 300px;
+}
+
+//large button
+.mod_btn_lg {
+  width: 400px;
+}
+
+//以下是比较少见的情况
+.mod_btn_default_important {
+  color: #ff3300;
+  background-color: #ffffff;
+  border: 1px solid #ff3300;
+}
+.mod_btn_default_special {
+  color: #09bb07;
+  background-color: #ffffff;
+  border: 1px solid #09bb07;
+}
+.mod_btn_default_disable {
+  color: #aeaeae;
+  background-color: #ffffff;
+  border: 1px solid #aeaeae;
+}
+.mod_btn_default_normal {
+  color: #000000;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+}
+.mod_btn_default_white {
+  color: #666;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+}
