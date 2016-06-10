@@ -11,7 +11,8 @@
     <meta name="keywords" content="cifer，cifer的博客" />
     <meta name="author" content="cifer" />
     <link rel="stylesheet" href="//www.boatsky.com/static/css/common/global.css"/>
-    <link rel="stylesheet" href="//www.boatsky.com/static/css/blog/blog_list.css"/>
+    <!--#include virtual="/static/blog_list.html" -->
+
 </head>
 <body>
 
@@ -23,10 +24,8 @@
             <div class="inner">
                 <h1 class="title">我的分享：</h1>
                 <ol class="blog_ol" type="1">
-                    <li><a href="//www.boatsky.com/blog/index/regexp">万金油之正则表达式</a></li>
-                    <li><a href="http://www.boatsky.com/blog/index/html_write">如何用正确的姿势写HTML</a></li>
-
-
+                    <li><a href="//www.boatsky.com/blog/index/regexp">万金油之正则表达式<span class="date">2016-06-02</span></a></li>
+                    <li><a href="http://www.boatsky.com/blog/index/html_write">如何用正确的姿势写HTML<span class="date">2016-06-23</span></a></li>
                 </ol>
             </div>
         </div>

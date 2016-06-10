@@ -11,10 +11,8 @@
     <meta name="author" content="cifer" />
     <title>万金油之正则表达式</title>
     <link rel="stylesheet" href="//www.boatsky.com/static/css/common/global.css"/>
+    <link type="text/css" rel="stylesheet" href="http://www.boatsky.com/static/css/blog/blog_html.css"/>
     <style type="text/css">
-    h1 {
-        font-size: 20px;
-    }
     article {
         margin-top: 50px;
     }
@@ -217,7 +215,7 @@
 
 <div class="mod_inner">
 
-<h1 class="h1">万金油之正则表达式</h1>
+<h1 class="title">万金油之正则表达式</h1>
 <article>
     <fieldset>
         <legend>JS正则测试工具</legend>
