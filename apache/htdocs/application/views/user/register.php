@@ -1,6 +1,6 @@
 <?php
 /**
- * Created by IntelliJ IDEA.
+ * desc register view.
  * User: cifer
  * Date: 2016/5/18
  * Time: 23:40

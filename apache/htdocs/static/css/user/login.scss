@@ -1,0 +1,78 @@
+@charset "UTF-8";
+@import "../common/function";
+
+.page_title {
+  width: 80%;
+  max-width: 400px;
+  margin: 30px auto 30px auto;
+  text-align: center;
+}
+.register_form {
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.form_row {
+  @extend %clearfix;
+  .label {
+    float: left;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+  }
+  .form_item {
+    float: left;
+    box-sizing: border-box;
+    width: 80%;
+    max-width: 300px;
+    height: 30px;
+    padding: 0 5px;
+    border: 1px solid #d6d6d6;
+    border-radius: 3px;
+    line-height: 30px;
+  }
+
+  .errmsg {
+    //visibility: hidden;
+    float: left;
+    width: 80%;
+    margin-left: 85px;
+    height: 20px;
+    line-height: 20px;
+    color: #ff0000;
+  }
+
+}
+.form_row_msg {
+  width: 80%;
+  height: 20px;
+}
+
+.login_btn {
+  box-sizing: border-box;
+  margin-left: 80px;
+  width: 80%;
+  max-width: 300px;
+  height: 30px;
+  border: 1px solid #00d586;
+  border-radius: 2px;
+  background-color: #00d586;
+  line-height: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1191px){
+  .register_btn {
+    margin-left: 0;
+  }
+  .form_row {
+    .label {
+      text-align: left;
+    }
+    .errmsg {
+      margin-left: 0;
+    }
+  }
+}

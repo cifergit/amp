@@ -188,8 +188,8 @@ requirejs(['jquery','global','validator','windowalert'], function ($,global,vali
                     buttionRightValue : '返回修改'
                 });
             },
-            success : function (e){
-                if(e.errcode === 0){
+            success : function (response){
+                if(e.response === 0){
                     windowalert.simple({
                         errmsg : '恭喜您，提交成功!',
                         leftButtionCallback : function(){
@@ -206,7 +206,7 @@ requirejs(['jquery','global','validator','windowalert'], function ($,global,vali
                 }
                 else {
                     windowalert.simple({
-                        errmsg : e.msg,
+                        errmsg : response.errmsg,
                         leftButtionCallback : function(){
                             location.href = '/';
                         },
@@ -252,8 +252,8 @@ requirejs(['jquery','global','validator','windowalert'], function ($,global,vali
                     $('#J_EmailMsg').html('');
                 }
                 else {
-                    $('#J_EmailMsg').show().html('该邮箱已被注册');
                     emailBool = false;
+                    $('#J_EmailMsg').show().html(response.errmsg);
                 }
             }
         });
@@ -291,7 +291,7 @@ requirejs(['jquery','global','validator','windowalert'], function ($,global,vali
                 }
                 else {
                     nameBool = false;
-                    $('#J_NameMsg').show().html('该昵称已被注册');
+                    $('#J_NameMsg').show().html(response.errmsg);
                 }
             }
         });

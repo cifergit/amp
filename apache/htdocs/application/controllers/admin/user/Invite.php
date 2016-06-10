@@ -39,7 +39,7 @@ class Invite extends MY_Controller {
         echo json_encode($ret);
     }
 
-    function getRandChar($length){
+    private function getRandChar($length){
         $str = null;
         $strPol = "0123456789abcdefghijklmnopqrstuvwxyz";
         $max = strlen($strPol)-1;

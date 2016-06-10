@@ -20,7 +20,6 @@ class Register extends MY_Controller {
     public function index()
     {
         $this->render('user/register',array());
-
     }
 
     //注册
@@ -35,7 +34,7 @@ class Register extends MY_Controller {
             'name' => $name,
             'email'     => $email,
             'invite_code' => $invite_code,
-            'password' => $password,
+            'password' => md5($password),
             'create_time'   => $dateTime,
             'error_number'  => 0,
             'score'     => 0,
@@ -96,19 +95,27 @@ class Register extends MY_Controller {
     //判断昵称唯一,true唯一，false不唯一
     public function check_name(){
         $name = get_post_value('name');
-        $query = $this->Model_user->findUserByName($name);
-        if($query->row()){
+        if(strlen($name) > 21){
             $ret = array(
-                'errcode'   => -1,
-                'errmsg'   => '昵称已被注册',
-                'data'  => $query->row(),
+                'errcode'   => 400,
+                'errmsg'    => '用户名太长',
             );
         }
         else {
-            $ret = array(
-                'errcode'   => 0,
-                'errmsg'   => '昵称可使用',
-            );
+            $query = $this->Model_user->findUserByName($name);
+            if($query->row()){
+                $ret = array(
+                    'errcode'   => -1,
+                    'errmsg'   => '昵称已被注册',
+                    'data'  => $query->row(),
+                );
+            }
+            else {
+                $ret = array(
+                    'errcode'   => 0,
+                    'errmsg'   => '昵称可使用',
+                );
+            }
         }
         echo json_encode($ret);
     }

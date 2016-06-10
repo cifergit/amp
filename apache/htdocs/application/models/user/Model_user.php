@@ -40,6 +40,28 @@ class Model_user extends CI_Model {
         return $respQuery;
     }
 
+    //登录判断
+    public function findUserByNameAndPssword($reqData){
+        $sql = "select * from t_user where (name = ? or email = ?) and password = ?";
+        $query = $this->db->query($sql,array($reqData['name'],$reqData['name'],$reqData['password']));
+        return $query;
+    }
+
+    //登录成功后更新一下key
+    public function updateUserKey($id, $key){
+        $this->db->where('id', $id);
+        $query = $this->db->update('t_user', array(
+            'ukey'   => $key,
+        ));
+    }
+
+    //登录后验证是否已登录
+    public function checkLogin($id, $ukey){
+        $sql = "select * from t_user where id = ? and ukey = ?";
+        $query = $this->db->query($sql,array($id,$ukey));
+        return $query;
+    }
+
     //邀请码查询
     public function findInviteCodeByCodeAndStatus($inviteCode, $status){
         $sql = "select * from t_invite_code where invite_code = ? and status = ?";
