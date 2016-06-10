@@ -7,18 +7,47 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Register extends CI_Controller {
+class Register extends MY_Controller {
 
 
     function __construct() {
         parent::__construct();
+        date_default_timezone_set('PRC');
         $this->load->model('user/Model_user');
     }
 
     //首页
     public function index()
     {
+        $this->render('user/register',array());
+
+    }
+
+    //注册
+    public function add_user(){
+        $name = get_post_value('name');
+        $email = get_post_value('email');
+        $invite_code = get_post_value('invite_code');
+        $password = get_post_value('password');
+        $password_confirm = get_post_value('password_confirm');
+        $dateTime = date("Y-m-d H:i:s");
         $reqData = array(
+            'name' => $name,
+            'email'     => $email,
+            'invite_code' => $invite_code,
+            'password' => $password,
+            'create_time'   => $dateTime,
+            'error_number'  => 0,
+            'score'     => 0,
+            'status'    => 0,
+        );
+
+        $ret = array(
+            'errcode'   => 0,
+            'errmsg'    => '注册成功',
+            'data'      => $reqData,
+        );
+        /*$reqData = array(
             'name' => '1',
             'email'     => '123@qq.com',
             'password' => '1',
@@ -26,37 +55,81 @@ class Register extends CI_Controller {
             'error_number'  => 0,
             'score'     => 0,
             'status'    => 0,
-        );
-        $this->load->view('user/register');
-        return;
-        $userBoolean = $this->Model_user->addUser($reqData);
-        echo json_encode($userBoolean);
+        );*/
+        //return;
+        $userId = $this->Model_user->addUser($reqData);
+        if(!empty($userId)){
+            $reqInvite = new stdClass();
+            $reqInvite->used_user_id = $userId;
+            $reqInvite->invite_code = $invite_code;
+            $this->Model_user->updateInvite($reqInvite);
+            $ret = array(
+                'errcode'   => 0,
+                'errmsg'    => '注册成功',
+                'user'  => $userId,
+                'data'      => $reqData,
+            );
+        }
+        echo json_encode($ret);
     }
 
-    public function movie(){
-
-        $today = date("j");
-        $todayId = $this->getMovieId($today);
-        $movieQuery = $this->db->query('select * from t_movie where id = '.$todayId);
-        $this->load->view('common/index',array(
-            'movieQuery'    => $movieQuery,
-        ));
-    }
-
-    //用日期的天得到电影ID
-    private function getMovieId($day){
-        $min_movie_index = 1;
-        $max_movie_index = 30;
-        if($max_movie_index <= 31){
-            $today_movie_index = $day%$max_movie_index+1;
+    //判断邮箱唯一,true唯一，false不唯一
+    public function check_email(){
+        $email = get_post_value('email');
+        $query = $this->Model_user->findUserByEmail($email);
+        if($query->row()){
+            $ret = array(
+                'errcode'   => -1,
+                'errmsg'   => '邮箱已被注册',
+                'data'  => $query->row(),
+            );
         }
         else {
-            $today_movie_index = $max_movie_index%$day+1;
+            $ret = array(
+                'errcode'   => 0,
+                'errmsg'   => '邮箱可使用',
+            );
         }
-        return $today_movie_index;
+        echo json_encode($ret);
     }
 
-    public function blog_list(){
-        $this->load->view('blog/blog_list');
+    //判断昵称唯一,true唯一，false不唯一
+    public function check_name(){
+        $name = get_post_value('name');
+        $query = $this->Model_user->findUserByName($name);
+        if($query->row()){
+            $ret = array(
+                'errcode'   => -1,
+                'errmsg'   => '昵称已被注册',
+                'data'  => $query->row(),
+            );
+        }
+        else {
+            $ret = array(
+                'errcode'   => 0,
+                'errmsg'   => '昵称可使用',
+            );
+        }
+        echo json_encode($ret);
+    }
+
+    //判断邀请码是否存在且是否未被使用,0可用，其他不可用
+    public function check_invite_code(){
+        $invite_code = get_post_value('invite_code');
+        $query = $this->Model_user->findInviteCodeByCodeAndStatus($invite_code,0);
+        if($query->row()){
+            $ret = array(
+                'errcode'   => 0,
+                'errmsg'   => '邀请码可用',
+                'data'  => $query->row(),
+            );
+        }
+        else {
+            $ret = array(
+                'errcode'   => -1,
+                'errmsg'   => '邀请码不可用',
+            );
+        }
+        echo json_encode($ret);
     }
 }

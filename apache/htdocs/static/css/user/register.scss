@@ -32,8 +32,9 @@
     border-radius: 3px;
     line-height: 30px;
   }
+
   .errmsg {
-    visibility: hidden;
+    //visibility: hidden;
     float: left;
     width: 80%;
     margin-left: 85px;
@@ -43,6 +44,11 @@
   }
 
 }
+.form_row_msg {
+  width: 80%;
+  height: 20px;
+}
+
 .register_btn {
   box-sizing: border-box;
   margin-left: 80px;

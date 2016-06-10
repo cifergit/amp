@@ -14,14 +14,49 @@ class Model_user extends CI_Model {
         $this->load->database();
     }
 
+    //id查用户
     public function  getUser($userId){
         $userQuery = $this->db->query('select * from t_user where id = '.$userId);
         return $userQuery;
     }
 
+    //增加用户
     public function addUser($insertData){
         $insertBool = $this->db->insert('t_user', $insertData);
-        return $insertBool;
+        return $this->db->insert_id();
     }
 
+    //邮箱查找用户
+    public function findUserByEmail($email){
+        $sql = "SELECT * FROM t_user WHERE email = ?";
+        $respQuery = $this->db->query($sql, array($email));
+        return $respQuery;
+    }
+
+    //昵称查用户
+    public function findUserByName($name){
+        $sql = "SELECT * FROM t_user WHERE name = ?";
+        $respQuery = $this->db->query($sql, array($name));
+        return $respQuery;
+    }
+
+    //邀请码查询
+    public function findInviteCodeByCodeAndStatus($inviteCode, $status){
+        $sql = "select * from t_invite_code where invite_code = ? and status = ?";
+        $query = $this->db->query($sql,array($inviteCode,$status));
+        return $query;
+    }
+
+    //注册成功后更新邀请码
+    public function updateInvite($reqData){
+        $dateTime = date("Y-m-d H:i:s");
+        $data = array(
+            'used_user_id' => $reqData->used_user_id,
+            'update_time' => $dateTime,
+            'status'    => 1,
+        );
+
+        $this->db->where('invite_code', $reqData->invite_code);
+        $query = $this->db->update('t_invite_code', $data);
+    }
 }
