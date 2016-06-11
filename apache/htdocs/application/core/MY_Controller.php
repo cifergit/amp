@@ -32,7 +32,7 @@ class MY_Controller extends CI_Controller
         $this->_data['head_title'] = isset($params['head_title']) ? $params['head_title'] : '太空船-电影推荐网';
         $this->_data['head_description'] = isset($params['head_description']) ? $params['head_description'] : '推荐最值的看的电影，太空船推荐，必属精品！';
         $this->_data['head_keywords'] = isset($params['head_keywords']) ? $params['head_keywords'] : '太空船，电影推荐网，电影排行榜，太空船网，太空船电影，太空船电影网，太空船电影推荐，电影推荐，电影评分，电影分享';
-        $this->doLogin();
+        $this->checkLogin();
         $this->_data['uid'] = get_cookie('uid');
         $this->_data['uname'] = urldecode(get_cookie('uname'));
         $this->_data['ukey'] = get_cookie('ukey');
@@ -41,19 +41,29 @@ class MY_Controller extends CI_Controller
         $this->load->view('common/foot', $this->_data);
     }
 
-    protected function doLogin(){
+    protected function checkLogin(){
+        $is_login = false;
         $uid = get_cookie('uid');
         $uname = urldecode(get_cookie('uname'));
         $ukey = get_cookie('ukey');
         if(!empty($uid) && !empty($uname) && !empty($ukey)){
-            $this->Model_user->checkLogin((int)$uid, $ukey);
+            $query = $this->Model_user->checkLogin((int)$uid, $ukey);
+            if($query->row()){
+                $this->_data['user'] = $query->row();
+                $is_login = true;
+            }
+            else {
+                delete_cookie('uid');
+                delete_cookie('uname');
+                delete_cookie('ukey');
+            }
         }
         else {
             delete_cookie('uid');
             delete_cookie('uname');
             delete_cookie('ukey');
         }
-
+        return $is_login;
     }
 
 }

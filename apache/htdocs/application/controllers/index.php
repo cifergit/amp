@@ -7,7 +7,7 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Index extends CI_Controller {
+class Index extends MY_Controller {
 
 
     function __construct() {
@@ -27,7 +27,8 @@ class Index extends CI_Controller {
         $today = date("j");
         $todayId = $this->getMovieId($today);
         $movieQuery = $this->db->query('select * from t_movie where id = '.$todayId);
-        $this->load->view('common/index',array(
+
+        $this->render('common/index',array(
             'movieQuery'    => $movieQuery,
         ));
     }
@@ -46,6 +47,6 @@ class Index extends CI_Controller {
     }
 
     public function blog_list(){
-        $this->load->view('blog/blog_list');
+        $this->render('blog/blog_list');
     }
 }

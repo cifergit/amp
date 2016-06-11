@@ -18,7 +18,9 @@ body{
   -moz-user-select: none;
   -webkit-touch-callout: none;/*禁止系统默认菜单*/
 }
-
+.main_wrap {
+  padding: 20px 0;
+}
 .mod_inner {
   margin: 0 auto;
 }
@@ -89,7 +91,7 @@ footer {
 .main_inner {
   //max-width: 1242px;
   margin: 0 auto;
-  padding: 10px 10px 30px 10px;
+  padding: 0 10px 0px 10px;
 }
 
 

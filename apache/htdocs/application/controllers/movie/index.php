@@ -7,7 +7,7 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Index extends CI_Controller {
+class Index extends My_Controller {
 
 
     function __construct() {
@@ -39,7 +39,7 @@ class Index extends CI_Controller {
                 }
             }
         }
-        $this->load->view('movie/index',array(
+        $this->render('movie/index',array(
             'arrMovie'    => $arrMovie,
         ));
     }

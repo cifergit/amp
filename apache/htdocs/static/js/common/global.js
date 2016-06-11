@@ -12,7 +12,7 @@ define(function(require,exports,module){
             console.log(2);
             $(".top_nav_li_movie").addClass("cur");
         }
-        else if(thisHref.indexOf("boatsky.com/register") > -1 || thisHref.indexOf("boatsky.com/login") > -1){
+        else if(thisHref.indexOf("boatsky.com/register") > -1 || thisHref.indexOf("boatsky.com/login") > -1 || thisHref.indexOf("boatsky.com/user") > -1){
             $(".top_nav_li_user").addClass("cur");
         }
         else {
@@ -23,7 +23,7 @@ define(function(require,exports,module){
 
     function pageMinHeight() {
         var clientWidth = document.documentElement.clientHeight || document.body.clientHeight;
-        var minHeight = clientWidth - 40 -50;
+        var minHeight = clientWidth - 40 -50 - 40;
         $('.main_wrap').css("min-height",minHeight);
     }
 

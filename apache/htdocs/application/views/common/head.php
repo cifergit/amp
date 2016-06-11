@@ -1,6 +1,6 @@
 <?php
 /**
- * Created by IntelliJ IDEA.
+ * desc: common head.
  * User: cifer
  * Date: 2016/6/5
  * Time: 22:29

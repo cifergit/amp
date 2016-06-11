@@ -11,7 +11,7 @@
 
 <?php $this->load->view('common/header');?>
 
-<div class="main_wrap">
+<section class="main_wrap">
     <section class="main_inner mod_inner">
         <h1 class="page_title">立即登录</h1>
         <form class="register_form" action="" method="post">
@@ -40,6 +40,6 @@
             </div>
         </form>
     </section>
-</div>
+</section>
 
 <script type="text/javascript" data-main="/static/js/user/login.js?t=1" src="/static/module/require/require.js"></script>

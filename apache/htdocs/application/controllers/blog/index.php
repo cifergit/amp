@@ -22,7 +22,7 @@ class Index extends MY_Controller {
 
     //博客列表页
     public function blog_list(){
-        $this->load->view('blog/blog_list');
+        $this->render('blog/blog_home');
     }
 
     //正则表达式
