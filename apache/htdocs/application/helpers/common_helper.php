@@ -17,6 +17,17 @@ function get_post_value($key, $df = '')
     return filter_value($val);
 }
 
+function get_post_value_nofilter($key, $df = '')
+{
+    $CI =& get_instance();
+    $v = $CI->input->get_post($key);
+    $val = $v ? $v : $df;
+    if (is_string($val)) {
+        $val = $val;
+    }
+    return $val;
+}
+
 function filter_value($val)
 {
     if ($val) {

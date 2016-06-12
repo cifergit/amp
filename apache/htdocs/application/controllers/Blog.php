@@ -7,7 +7,7 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Index extends MY_Controller {
+class Blog extends MY_Controller {
 
 
     function __construct() {
@@ -18,7 +18,6 @@ class Index extends MY_Controller {
     //博客
     public function index($id = 0)
     {
-        //$id = get_post_value('id');
         if(empty($id)){
             $this->blog_list();
         }
@@ -52,8 +51,74 @@ class Index extends MY_Controller {
         ));
     }
 
+    //新建博客
     public function blog_new() {
         $this->render('blog/blog_new');
+    }
+
+    //打开博客编辑页
+    public function edit($id = 0) {
+        $query = $this->Model_blog->findBlogById($id);
+        $this->render('blog/blog_edit',array(
+            'blog' => $query->row(),
+        ));
+    }
+
+    //编辑博客
+    public function blog_edit(){
+        $id = get_post_value('id');
+        $title = get_post_value('title');
+        $desc = get_post_value('desc');
+        $content = get_post_value_nofilter('content');
+        $html_desc = get_post_value('html_desc');
+        $html_key = get_post_value('html_key');
+        $dateTime = date("Y-m-d H:i:s");
+        $reqData = array(
+            'title' => $title,
+            'desc'     => $desc,
+            'content' => $content,
+            'html_desc' => $html_desc,
+            'html_key'   => $html_key,
+            'update_time'  => $dateTime,
+        );
+        $ret = array(
+            'errcode'   => -1,
+            'errmsg'    => '修改失败',
+        );
+        if($id){
+            $query = $this->Model_blog->updateBlog($id,$reqData);
+            if($query){
+                $ret = array(
+                    'errcode'   => 0,
+                    'errmsg'    => '修改成功',
+                    'data'      => $query,
+                );
+            }
+        }
+        echo json_encode($ret);
+    }
+
+    function changeHtml($content){
+        $content = str_replace(' &nbsp;','@@@#@@',$content);
+
+        $content = str_replace('&nbsp;',' ',$content);
+
+        $content = str_replace('@@@#@@',' &nbsp;',$content);
+        return $content;
+    }
+
+    function kindhtml($html,$jc='j'){
+        if($jc=='j'){
+            $html = str_replace('&nbsp;', '&amp;nbsp;', $html);
+            $html = str_replace('&gt;', '&amp;gt;', $html);
+            $html = str_replace('&lt;', '&amp;lt;', $html);
+        }
+        //仅用在非kindeditor文本编辑器页面使用，因为kindeditor文本编辑器会自动执行下面这类转换
+        if($jc=='c'){
+            $html = str_replace('&nbsp;', '&amp;nbsp;', $html);
+            $html = str_replace('&gt;', '&amp;gt;', $html);
+            $html = str_replace('&lt;', '&amp;lt;', $html);
+        }
     }
 
     public function blog_add() {
@@ -69,6 +134,7 @@ class Index extends MY_Controller {
             'content' => $content,
             'html_desc' => $html_desc,
             'html_key'   => $html_key,
+            'update_time'  => $dateTime,
             'create_time'  => $dateTime,
             'pv'     => 0,
         );
