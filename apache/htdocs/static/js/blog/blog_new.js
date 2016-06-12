@@ -18,7 +18,12 @@ requirejs(['jquery','global','kindeditor','validator','windowalert'], function (
     global.init();
     console.log("blog new");
     KindEditor.ready(function(K) {
-        window.editor = K.create('#J_Content');
+        window.editor = K.create('#J_Content',{
+            cssPath : '/static/module/kindeditor/plugins/code/prettify.css',
+            imageUploadJson: '/static/module/kindeditor/php/upload_json.php',
+            fileManagerJson: '/static/module/kindeditor/php/file_manager_json.php',
+            allowFileManager : true
+        });
     });
     //验证初始化
     var vali = validator.init({msgTemplate: '{#msg#}'});
