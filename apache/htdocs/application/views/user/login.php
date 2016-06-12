@@ -14,6 +14,7 @@
 <section class="main_wrap">
     <section class="main_inner mod_inner">
         <h1 class="page_title">立即登录</h1>
+        <h3 class="page_title">没有账号？<a href="/register">注册一个</a>吧</h3>
         <form class="register_form" action="" method="post">
             <div class="form_item">
                 <div class="form_row">

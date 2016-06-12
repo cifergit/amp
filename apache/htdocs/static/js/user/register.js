@@ -189,7 +189,7 @@ requirejs(['jquery','global','validator','windowalert'], function ($,global,vali
                 });
             },
             success : function (response){
-                if(e.response === 0){
+                if(response.errcode === 0){
                     windowalert.simple({
                         errmsg : '恭喜您，提交成功!',
                         leftButtionCallback : function(){
