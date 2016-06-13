@@ -8,7 +8,7 @@
 ?>
 <link rel="stylesheet" href="http://www.boatsky.com/static/module/kindeditor/themes/default/default.css"/>
 <link rel="stylesheet" href="//www.boatsky.com/static/css/blog/blog_new.css"/>
-<script charset="utf-8" src="http://www.boatsky.com/static/module/kindeditor/kindeditor-all-min.js"></script>
+<script charset="utf-8" src="http://www.boatsky.com/static/module/kindeditor/kindeditor-all.js"></script>
 <script charset="utf-8" src="http://www.boatsky.com/static/module/kindeditor/lang/zh-CN.js"></script>
 <script>
 	KindEditor.ready(function(K) {

@@ -7,7 +7,7 @@
  */
 ?><link rel="stylesheet" href="http://www.boatsky.com/static/module/kindeditor/themes/default/default.css"/>
 <link rel="stylesheet" href="//www.boatsky.com/static/css/blog/blog_new.css"/>
-<script charset="utf-8" src="http://www.boatsky.com/static/module/kindeditor/kindeditor-all-min.js"></script>
+<script charset="utf-8" src="http://www.boatsky.com/static/module/kindeditor/kindeditor-all.js"></script>
 <script charset="utf-8" src="http://www.boatsky.com/static/module/kindeditor/lang/zh-CN.js"></script>
 <script>
 	KindEditor.ready(function(K) {
@@ -47,7 +47,6 @@
             <div class="form_row">
                 <label class="label" for="J_Content">内容</label>
                 <textarea id="J_Content" name="J_Content" style="width:850px;height:500px;">
-                    &lt;strong&gt;HTML内容&lt;/strong&gt;
                 </textarea>
             </div>
             <div class="form_row form_row_msg">

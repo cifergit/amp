@@ -25,6 +25,9 @@ class Blog extends MY_Controller {
             $query = $this->Model_blog->findBlogById($id);
             $this->render('blog/detail',array(
                 'blog' => $query->row(),
+                'head_title'    => $query->row()->title,
+                'head_description'  => $query->row()->html_desc,
+                'head_keywords' => $query->row()->html_key,
             ));
         }
     }
