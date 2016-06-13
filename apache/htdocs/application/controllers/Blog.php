@@ -52,50 +52,57 @@ class Blog extends MY_Controller {
     }
 
     //新建博客
-    public function blog_new() {
-        $this->render('blog/blog_new');
+    public function add(){
+        if($this->checkOnline()){
+            $this->render('blog/blog_new');
+        }
+
     }
 
     //打开博客编辑页
     public function edit($id = 0) {
-        $query = $this->Model_blog->findBlogById($id);
-        $this->render('blog/blog_edit',array(
-            'blog' => $query->row(),
-        ));
+        if($this->checkOnline()){
+            $query = $this->Model_blog->findBlogById($id);
+            $this->render('blog/blog_edit',array(
+                'blog' => $query->row(),
+            ));
+        }
     }
 
     //编辑博客
     public function blog_edit(){
-        $id = get_post_value('id');
-        $title = get_post_value('title');
-        $desc = get_post_value('desc');
-        $content = get_post_value_nofilter('content');
-        $html_desc = get_post_value('html_desc');
-        $html_key = get_post_value('html_key');
-        $dateTime = date("Y-m-d H:i:s");
-        $reqData = array(
-            'title' => $title,
-            'desc'     => $desc,
-            'content' => $content,
-            'html_desc' => $html_desc,
-            'html_key'   => $html_key,
-            'update_time'  => $dateTime,
-        );
-        $ret = array(
-            'errcode'   => -1,
-            'errmsg'    => '修改失败',
-        );
-        if($id){
-            $query = $this->Model_blog->updateBlog($id,$reqData);
-            if($query){
-                $ret = array(
-                    'errcode'   => 0,
-                    'errmsg'    => '修改成功',
-                    'data'      => $query,
-                );
+        if($this->checkOnline()){
+            $id = get_post_value('id');
+            $title = get_post_value('title');
+            $desc = get_post_value('desc');
+            $content = get_post_value_nofilter('content');
+            $html_desc = get_post_value('html_desc');
+            $html_key = get_post_value('html_key');
+            $dateTime = date("Y-m-d H:i:s");
+            $reqData = array(
+                'title' => $title,
+                'desc'     => $desc,
+                'content' => $content,
+                'html_desc' => $html_desc,
+                'html_key'   => $html_key,
+                'update_time'  => $dateTime,
+            );
+            $ret = array(
+                'errcode'   => -1,
+                'errmsg'    => '修改失败',
+            );
+            if($id){
+                $query = $this->Model_blog->updateBlog($id,$reqData);
+                if($query){
+                    $ret = array(
+                        'errcode'   => 0,
+                        'errmsg'    => '修改成功',
+                        'data'      => $query,
+                    );
+                }
             }
+            echo json_encode($ret);
         }
-        echo json_encode($ret);
     }
 
     function changeHtml($content){
@@ -122,36 +129,40 @@ class Blog extends MY_Controller {
     }
 
     public function blog_add() {
-        $title = get_post_value('title');
-        $desc = get_post_value('desc');
-        $content = get_post_value('content');
-        $html_desc = get_post_value('html_desc');
-        $html_key = get_post_value('html_key');
-        $dateTime = date("Y-m-d H:i:s");
-        $reqData = array(
-            'title' => $title,
-            'desc'     => $desc,
-            'content' => $content,
-            'html_desc' => $html_desc,
-            'html_key'   => $html_key,
-            'update_time'  => $dateTime,
-            'create_time'  => $dateTime,
-            'pv'     => 0,
-        );
-        $blogId = $this->Model_blog->insertBlog($reqData);
-        if(!empty($blogId)){
-            $ret = array(
-                'errcode'   => 0,
-                'errmsg'    => '提交成功',
-                'data'      => $blogId,
+        if($this->checkOnline()){
+            $title = get_post_value('title');
+            $desc = get_post_value('desc');
+            $content = get_post_value_nofilter('content');
+            $html_desc = get_post_value('html_desc');
+            $html_key = get_post_value('html_key');
+            $dateTime = date("Y-m-d H:i:s");
+            $uid = get_cookie('uid');
+            $reqData = array(
+                'title' => $title,
+                'desc'     => $desc,
+                'content' => $content,
+                'user_id'   => $uid,
+                'html_desc' => $html_desc,
+                'html_key'   => $html_key,
+                'update_time'  => $dateTime,
+                'create_time'  => $dateTime,
+                'pv'     => 0,
             );
+            $blogId = $this->Model_blog->insertBlog($reqData);
+            if(!empty($blogId)){
+                $ret = array(
+                    'errcode'   => 0,
+                    'errmsg'    => '提交成功',
+                    'data'      => $blogId,
+                );
+            }
+            else {
+                $ret = array(
+                    'errcode'   => -1,
+                    'errmsg'    => '提交失败',
+                );
+            }
+            echo json_encode($ret);
         }
-        else {
-            $ret = array(
-                'errcode'   => -1,
-                'errmsg'    => '提交失败',
-            );
-        }
-        echo json_encode($ret);
     }
 }

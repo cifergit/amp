@@ -28,7 +28,7 @@
                         </li>
                     <?php }?>
                 </ol>
-                <a class="mod_btn mod_btn_primary mod_btn_sm new_blog_btn" href="http://www.boatsky.com/blog/blog_new">写博客</a>
+                <a class="mod_btn mod_btn_primary mod_btn_sm new_blog_btn" href="http://www.boatsky.com/blog/add">写博客</a>
             </div>
         </div>
     </section>

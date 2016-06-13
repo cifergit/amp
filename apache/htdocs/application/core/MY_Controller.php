@@ -66,4 +66,31 @@ class MY_Controller extends CI_Controller
         return $is_login;
     }
 
+    protected function checkOnline(){
+        $is_login = false;
+        $uid = get_cookie('uid');
+        $uname = urldecode(get_cookie('uname'));
+        $ukey = get_cookie('ukey');
+        if(!empty($uid) && !empty($uname) && !empty($ukey)){
+            $query = $this->Model_user->checkLogin((int)$uid, $ukey);
+            if($query->row()){
+                $this->_data['user'] = $query->row();
+                $is_login = true;
+            }
+            else {
+                delete_cookie('uid');
+                delete_cookie('uname');
+                delete_cookie('ukey');
+                $this->render('user/login');
+            }
+        }
+        else {
+            delete_cookie('uid');
+            delete_cookie('uname');
+            delete_cookie('ukey');
+            $this->render('user/login');
+        }
+        return $is_login;
+    }
+
 }

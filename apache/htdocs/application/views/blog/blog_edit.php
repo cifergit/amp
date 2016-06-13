@@ -7,14 +7,18 @@
  */
 ?>
 <link rel="stylesheet" href="http://www.boatsky.com/static/module/kindeditor/themes/default/default.css"/>
-<link type="text/css" rel="stylesheet" href="http://www.boatsky.com/static/component/syntaxHighlighter/styles/shCoreDefault.css"/>
 <link rel="stylesheet" href="//www.boatsky.com/static/css/blog/blog_new.css"/>
-<script type="text/javascript" src="http://www.boatsky.com/static/component/syntaxHighlighter/scripts/shCore.js"></script>
-<script type="text/javascript" src="http://www.boatsky.com/static/component/syntaxHighlighter/scripts/shBrushXml.js"></script>
-<script type="text/javascript">
-    SyntaxHighlighter.defaults['quick-code'] = false;
-    SyntaxHighlighter.defaults['toolbar'] = false;
-    SyntaxHighlighter.all();
+<script charset="utf-8" src="http://www.boatsky.com/static/module/kindeditor/kindeditor-all-min.js"></script>
+<script charset="utf-8" src="http://www.boatsky.com/static/module/kindeditor/lang/zh-CN.js"></script>
+<script>
+	KindEditor.ready(function(K) {
+        window.kindeditors = K.create('#J_Content',{
+            cssPath : '/static/module/kindeditor/plugins/code/prettify.css',
+            imageUploadJson: '/static/module/kindeditor/php/upload_json.php',
+            fileManagerJson: '/static/module/kindeditor/php/file_manager_json.php',
+            allowFileManager : true
+        });
+    });
 </script>
 
 </head>
@@ -45,7 +49,7 @@
 
             <div class="form_row">
                 <label class="label" for="J_Content">内容</label>
-                <textarea id="J_Content" name="J_Content" style="width:700px;height:300px;">
+                <textarea id="J_Content" name="J_Content" style="width:860px;height:500px;">
                     <?php echo $blog->content;?>
                 </textarea>
             </div>

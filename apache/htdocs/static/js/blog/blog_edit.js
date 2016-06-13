@@ -1,12 +1,10 @@
-/**
+﻿/**
  * Created by cifer on 2016/6/11.
  */
 require.config({
     baseUrl: baseUrl,
     paths: {
         jquery: 'module/jquery/jquery',
-        kindeditor : 'module/kindeditor/kindeditor-all',
-        kindeditor_cn : 'module/kindeditor/lang/zh-CN',
         validator: 'js/component/validator',
         windowalert: 'js/component/windowalert',
         global: 'js/common/global'
@@ -14,18 +12,10 @@ require.config({
 });
 
 
-requirejs(['jquery','global','kindeditor','validator','windowalert'], function ($,global, kindeditor,validator,windowalert) {
+requirejs(['jquery','global','validator','windowalert'], function ($,global, validator,windowalert) {
     global.init();
     console.log("blog new");
-    KindEditor.options.filterMode = false;
-    KindEditor.ready(function(K) {
-        window.kindeditors = K.create('#J_Content',{
-            cssPath : '/static/module/kindeditor/plugins/code/prettify.css',
-            imageUploadJson: '/static/module/kindeditor/php/upload_json.php',
-            fileManagerJson: '/static/module/kindeditor/php/file_manager_json.php',
-            allowFileManager : true
-        });
-    });
+   
 
     //验证初始化
     var vali = validator.init({msgTemplate: '{#msg#}'});
@@ -87,7 +77,6 @@ requirejs(['jquery','global','kindeditor','validator','windowalert'], function (
         var id = document.getElementById("J_Id").value;
         var title = document.getElementById("J_Title").value;
         var desc = document.getElementById("J_Desc").value;
-        kindeditors.sync();
         //var content = document.getElementById('J_Content').value;
         var content = kindeditors.html();
         var html_desc = document.getElementById("J_HtmlDesc").value;
