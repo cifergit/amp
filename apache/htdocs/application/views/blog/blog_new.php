@@ -12,6 +12,7 @@
 <script>
 	KindEditor.ready(function(K) {
         window.kindeditors = K.create('#J_Content',{
+            filterMode : false,
             cssPath : '/static/module/kindeditor/plugins/code/prettify.css',
             imageUploadJson: '/static/module/kindeditor/php/upload_json.php',
             fileManagerJson: '/static/module/kindeditor/php/file_manager_json.php',

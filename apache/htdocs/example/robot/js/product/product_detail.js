@@ -37,7 +37,6 @@ requirejs(['jquery','global','mod_product'], function ($,global,mod_product) {
             else {
                 $(this).removeClass('option_selected');
             }
-
         });
 
         //选择小图，展示大图
