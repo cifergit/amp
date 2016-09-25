@@ -8,7 +8,9 @@
 @import "reset";
 @import "function";
 @import "mod_button";
-
+.hide {
+  display: none;
+}
 body{
   max-width: 100%;
   height:100%;
@@ -24,6 +26,21 @@ body{
 }
 .mod_inner {
   margin: 0 auto;
+}
+
+.icon_global {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.icon_delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 1191px){
@@ -95,4 +112,16 @@ footer {
   padding: 0 10px 0px 10px;
 }
 
+.mod_arrow_left {
+  font-family: simsun;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.mod_arrow_right {
+  font-family: simsun;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
 

@@ -88,42 +88,26 @@ requirejs(['jquery','global','validator','windowalert'], function ($,global,vali
             url : reqUrl,
             error : function (er){
                 windowalert.simple({
-                    errmsg : '抱歉，服务器繁忙，请稍候再试！',
-                    leftButtionCallback : function(){
-                        location.href = '/';
-                    },
-                    buttionLeftValue : '返回首页',
-                    rightButtionCallback : function(){
-                        windowalert.hideWindowalert();
-                    },
-                    buttionRightValue : '返回修改'
+                    msg : '抱歉，服务器繁忙，请稍候再试！'
                 });
             },
             success : function (response){
                 if(response.errcode === 0){
                     windowalert.simple({
-                        errmsg : '恭喜您，登录成功!',
-                        leftButtionCallback : function(){
-                            location.href = '/';
-                        },
-                        buttionLeftValue : '返回首页',
-                        rightButtionCallback : function(){
-                            location.href = '/user';
-                        },
-                        buttionRightValue : '个人中心'
+                        msg : '恭喜您，登录成功!',
+                        buttonEvent: [
+                            {
+                                value : '确定',
+                                callbackEvent : function(){
+                                    location.href = '/user';
+                                }
+                            }
+                        ]
                     });
                 }
                 else {
                     windowalert.simple({
-                        errmsg : response.errmsg,
-                        leftButtionCallback : function(){
-                            location.href = '/';
-                        },
-                        buttionLeftValue : '返回首页',
-                        rightButtionCallback : function(){
-                            windowalert.hideWindowalert();
-                        },
-                        buttionRightValue : '返回修改'
+                        msg : response.errmsg
                     });
                 }
             }

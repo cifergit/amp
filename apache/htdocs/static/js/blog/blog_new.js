@@ -37,7 +37,7 @@ requirejs(['jquery','global','validator','windowalert'], function ($,global,vali
             max: 300,
             caption: ''
         });
-        vali.bind({
+        /*vali.bind({
             domId: 'J_Content',
             eventType: 'blur',
             msgId: 'J_ContentMsg',
@@ -45,7 +45,7 @@ requirejs(['jquery','global','validator','windowalert'], function ($,global,vali
             min: 1,
             max: 20000,
             caption: ''
-        });
+        });*/
         vali.bind({
             domId: 'J_HtmlDesc',
             eventType: 'blur',
@@ -94,44 +94,18 @@ requirejs(['jquery','global','validator','windowalert'], function ($,global,vali
             url : reqUrl,
             error : function (er){
                 windowalert.simple({
-                    errmsg : '抱歉，服务器繁忙，请稍候再试！',
-                    leftButtionCallback : function(){
-                        location.href = '/blog';
-                    },
-                    buttionLeftValue : '返回博客页',
-                    rightButtionCallback : function(){
-                        windowalert.hideWindowalert();
-                    },
-                    buttionRightValue : '返回修改'
+                    msg : '抱歉，服务器繁忙，请稍候再试！'
                 });
             },
             success : function (response){
                 if(response.errcode === 0){
                     windowalert.simple({
-                        errmsg : '恭喜您，提交成功!',
-                        leftButtionCallback : function(){
-                            location.href = '/blog';
-                        },
-                        buttionLeftValue : '返回博客列页',
-                        rightButtionCallback : function(){
-                            location.href = '/user';
-                            //document.body.scrollTop = 0;
-                            //location.reload();
-                        },
-                        buttionRightValue : '个人中心'
+                        msg : '恭喜您，提交成功!'
                     });
                 }
                 else {
                     windowalert.simple({
-                        errmsg : response.errmsg,
-                        leftButtionCallback : function(){
-                            location.href = '/blog';
-                        },
-                        buttionLeftValue : '博客列表',
-                        rightButtionCallback : function(){
-                            windowalert.hideWindowalert();
-                        },
-                        buttionRightValue : '返回修改'
+                        msg : response.errmsg
                     });
                 }
             }

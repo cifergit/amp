@@ -72,10 +72,12 @@ a.mod_btn {
 
 //small button
 .mod_btn_sm {
-  width: 100px;
+  width: 50px;
+  height: 30px;
+  line-height: 18px;
 }
 a.mod_btn_sm {
-  width: 100px;
+  width: 50px;
 }
 
 .mod_btn_sm_lw2 {
@@ -87,7 +89,7 @@ a.mod_btn_sm_lw2 {
 
 //medium button
 .mod_btn_md {
-  width: 190px;
+  width: 150px;
   font-size: 14px;
 }
 

@@ -177,46 +177,21 @@ requirejs(['jquery','global','validator','windowalert'], function ($,global,vali
             url : reqUrl,
             error : function (er){
                 windowalert.simple({
-                    errmsg : '抱歉，服务器繁忙，请稍候再试！',
-                    leftButtionCallback : function(){
-                        location.href = '/';
-                    },
-                    buttionLeftValue : '返回首页',
-                    rightButtionCallback : function(){
-                        windowalert.hideWindowalert();
-                    },
-                    buttionRightValue : '返回修改'
+                    msg : '抱歉，服务器繁忙，请稍候再试！'
                 });
             },
             success : function (response){
                 if(response.errcode === 0){
                     windowalert.simple({
-                        errmsg : '恭喜您，提交成功!',
-                        leftButtionCallback : function(){
-                            location.href = '/';
-                        },
-                        buttionLeftValue : '返回首页',
-                        rightButtionCallback : function(){
-                            location.href = '/user';
-                            //document.body.scrollTop = 0;
-                            //location.reload();
-                        },
-                        buttionRightValue : '个人中心'
+                        msg : '恭喜您，注册成功!'
                     });
                 }
                 else {
                     windowalert.simple({
-                        errmsg : response.errmsg,
-                        leftButtionCallback : function(){
-                            location.href = '/';
-                        },
-                        buttionLeftValue : '返回首页',
-                        rightButtionCallback : function(){
-                            windowalert.hideWindowalert();
-                        },
-                        buttionRightValue : '返回修改'
+                        msg : response.errmsg
                     });
                 }
+
             }
         });
     }
@@ -235,15 +210,7 @@ requirejs(['jquery','global','validator','windowalert'], function ($,global,vali
             error : function (er){
                 emailBool = false;
                 windowalert.simple({
-                    errmsg : '抱歉，服务器繁忙，请稍候再试！',
-                    leftButtionCallback : function(){
-                        location.href = '/';
-                    },
-                    buttionLeftValue : '返回首页',
-                    rightButtionCallback : function(){
-                        windowalert.hideWindowalert();
-                    },
-                    buttionRightValue : '返回修改'
+                    msg : '抱歉，服务器繁忙，请稍候再试！'
                 });
             },
             success : function (response){
@@ -273,15 +240,7 @@ requirejs(['jquery','global','validator','windowalert'], function ($,global,vali
             error : function (er){
                 nameBool = false;
                 windowalert.simple({
-                    errmsg : '抱歉，服务器繁忙，请稍候再试！',
-                    leftButtionCallback : function(){
-                        location.href = '/';
-                    },
-                    buttionLeftValue : '返回首页',
-                    rightButtionCallback : function(){
-                        windowalert.hideWindowalert();
-                    },
-                    buttionRightValue : '返回修改'
+                    msg : '抱歉，服务器繁忙，请稍候再试！'
                 });
             },
             success : function (response){
@@ -311,15 +270,7 @@ requirejs(['jquery','global','validator','windowalert'], function ($,global,vali
             error : function (er){
                 inviteCodeBool = false;
                 windowalert.simple({
-                    errmsg : '抱歉，服务器繁忙，请稍候再试！',
-                    leftButtionCallback : function(){
-                        location.href = '/';
-                    },
-                    buttionLeftValue : '返回首页',
-                    rightButtionCallback : function(){
-                        windowalert.hideWindowalert();
-                    },
-                    buttionRightValue : '返回修改'
+                    msg : '抱歉，服务器繁忙，请稍候再试！'
                 });
             },
             success : function (response){
@@ -332,15 +283,7 @@ requirejs(['jquery','global','validator','windowalert'], function ($,global,vali
                 else {
                     inviteCodeBool = false;
                     windowalert.simple({
-                        errmsg : response.errmsg,
-                        leftButtionCallback : function(){
-                            location.href = '/';
-                        },
-                        buttionLeftValue : '返回首页',
-                        rightButtionCallback : function(){
-                            windowalert.hideWindowalert();
-                        },
-                        buttionRightValue : '返回修改'
+                        msg : response.errmsg
                     });
                 }
             }

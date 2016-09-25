@@ -17,7 +17,6 @@
 }
 
 .mod_form_wrap {
-  width: 818px;
   padding-left: 150px;
   padding-right: 220px;
   margin: 0 auto;
@@ -28,7 +27,6 @@
   font-size: 14px;
   padding-bottom: 75px;
   .mod_row {
-    margin-top: 20px;
     @extend %clearfix;
   }
   .mod_row_error {
@@ -54,8 +52,6 @@
     }
   }
   .mod_content {
-    border-bottom: 1px solid #c5c5c5;
-    padding-bottom: 7px;
     @extend %clearfix;
   }
   .mod_content_textarea {
@@ -66,9 +62,8 @@
   }
   .mod_label {
     float: left;
-    width: 128px;
-    height: 20px;
-    font-size: 18px;
+    width: 120px;
+    font-size: 14px;
 
     @extend %clearfix;
   }
@@ -77,26 +72,26 @@
     display: block;
     position: relative;
     right: 5px;
+    text-align: center;
   }
   .label_word {
     float: left;
     display: block;
-    height: 20px;
-    line-height: 20px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 30px;
   }
 
   .mod_form_item {
     float: left;
-    width: 635px;
-    height: 20px;
-    padding: 0 25px;
-    border: none;
-    line-height: 20px;
-    font-size: 18px;
+    width: 400px;
+    height: 30px;
+    padding: 0 5px;
+    line-height: 30px;
+    font-size: 14px;
     color: #6d6d6d;
-    border-left: 1px solid #c3c3c3;
+    border: 1px solid #c3c3c3;
     outline: none;
-
     &:focus {
 
       //border: 1px solid #0093d5;
@@ -105,18 +100,14 @@
   .mod_form_item_no_border {
     border-left: none;
   }
-  .mod_form_item_category {
-    height: auto;
-    padding: 0 25px 0 0;
-    @extend %clearfix;
-  }
   .icon_check {
     right: 2px;
   }
 
   .mod_msg {
-    height: 32px;
-    line-height: 32px;
+    height: 25px;
+    line-height: 25px;
+    margin-left: 125px;
     .msg_word {
       color: #ff0000;
     }
@@ -178,6 +169,10 @@
     margin-top: 15px;
   }
 
+}
+
+.mod_row_center {
+  text-align: center;
 }
 
 
