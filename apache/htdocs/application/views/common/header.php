@@ -2,8 +2,9 @@
     <nav class="mod_inner">
         <ul id="topNavWrap">
             <li class="top_nav_li top_nav_li_home" title="主页"><a href="//www.boatsky.com">主页</a></li>
-            <li class="top_nav_li top_nav_li_movie" title="电影"><a href="//www.boatsky.com/movie">电影</a></li>
+            <li class="top_nav_li top_nav_li_movie" style="display: none;" title="电影"><a href="//www.boatsky.com/movie">电影</a></li>
             <li class="top_nav_li top_nav_li_blog" title="博客"><a href="//www.boatsky.com/blog">博客</a></li>
+            <li class="top_nav_li top_nav_li_bookmark" title="书签"><a href="//www.boatsky.com/bookmark">书签</a></li>
             <?php if(!empty($uid) && !empty($uname) && !empty($ukey)){?>
             <li class="top_nav_li top_nav_li_user" title="用户"><a href="//www.boatsky.com/user"><?php echo $uname;?></a></li>
             <?php }else {?>

@@ -18,7 +18,8 @@ class Index extends MY_Controller {
     //首页
     public function index()
     {
-        $this->movie();
+        //$this->movie();
+        $this->muti_movie();
         //$this->blog_list();
     }
 
@@ -48,5 +49,33 @@ class Index extends MY_Controller {
 
     public function blog_list(){
         $this->render('blog/blog_list');
+    }
+
+    public function muti_movie()
+    {
+        $today = date("j");
+        $yesterday = date("j",strtotime("-1 day"));
+        $beforeYesterday = date("j",strtotime("-2 day"));
+        $todayId = $this->getMovieId($today);
+        $yesterdayId = $this->getMovieId($yesterday);
+        $beforeYesterdayId = $this->getMovieId($beforeYesterday);;
+        $movieQuery = $this->db->query('select * from t_movie where id = '.$todayId.' or id = '.$yesterdayId.' or id = '.$beforeYesterdayId);
+        $arrMovieTemp = array();
+        $arrMovie = array();
+        $arrDay = [$todayId,$yesterdayId,$beforeYesterdayId];
+        foreach ($movieQuery->result() as $row){
+            $arrMovieTemp[] = $row;
+        }
+        //排序
+        for($i = 0;$i < count($arrDay);$i++){
+            for($j = 0;$j < count($arrMovieTemp);$j++){
+                if($arrDay[$i] == $arrMovieTemp[$j]->id){
+                    $arrMovie[] = $arrMovieTemp[$j];
+                }
+            }
+        }
+        $this->render('movie/index',array(
+            'arrMovie'    => $arrMovie,
+        ));
     }
 }

@@ -19,6 +19,9 @@ class MY_Controller extends CI_Controller
         parent::__construct();
         $this->load->helper('cookie');
         $this->load->model('user/Model_user');
+        $this->uid = get_cookie('uid');
+        $this->uname = urldecode(get_cookie('uname'));
+        $this->ukey = get_cookie('ukey');
     }
 
     /**

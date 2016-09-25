@@ -46,3 +46,22 @@ function get_post_valueI($key, $df = 0)
     }
     return $val;
 }
+
+//防止刷新，true为有效，false为无效
+function RefreshHit($ip,$parameter,$allowTime){
+    session_start();
+    if(empty($allowTime)){
+        $allowTime = 1800;
+    }
+    $allowT = md5($ip.$parameter);
+    if(!isset($_SESSION[$allowT])){
+        $refresh = true;
+        $_SESSION[$allowT] = time();
+    }elseif(time() - $_SESSION[$allowT] > $allowTime){
+        $refresh = true;
+        $_SESSION[$allowT] = time();
+    }else{
+        $refresh = false;
+    }
+    return $refresh;
+}
