@@ -35,13 +35,22 @@
     <section class="mod_inner">
         <h1 class="blog_title"><?php echo $blog->title;?></h1>
         <div class="blog_mess">
-            创建时间：<?php echo $blog->create_time;?>      更新时间：<?php echo $blog->update_time;?>   作者：cifer
+            创建时间：<?php echo $blog->create_time;?>      更新时间：<?php echo $blog->update_time;?>   作者：cifer  点击：<?php echo $blog->pv;?>
         </div>
         <div class="blog_desc">
             <?php echo $blog->desc;?>
         </div>
         <div class="">
             <?php echo htmlspecialchars_decode($blog->content);?>
+        </div>
+
+        <div class="prev_next_wrap">
+            <?php if(!empty($prevBlog->id)){?>
+                <a class="prev_btn" href="//www.boatsky.com/blog/<?php echo $prevBlog->id;?>" title="<?php echo $prevBlog->title;?>"><span class="mod_arrow_left">&lt;</span><?php echo $prevBlog->title;?></a>
+            <?php }?>
+            <?php if(!empty($nextBlog->id)){?>
+                <a class="next_btn" href="//www.boatsky.com/blog/<?php echo $nextBlog->id;?>" title="<?php echo $nextBlog->title;?>"><?php echo $nextBlog->title;?><span class="mod_arrow_right">&gt;</span></a>
+            <?php }?>
         </div>
 
     </section>

@@ -42,4 +42,11 @@ class Model_blog extends CI_Model {
         $query = $this->db->update('t_blog', $arrReq);
         return $query;
     }
+
+    //增加点击
+    public function addBlogPvById($id){
+        $this->db->set('pv', 'pv+1', FALSE);
+        $this->db->where('id', $id);
+        $this->db->update('t_blog');
+    }
 }

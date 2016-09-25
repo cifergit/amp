@@ -22,13 +22,34 @@ class Blog extends MY_Controller {
             $this->blog_list();
         }
         else {
-            $query = $this->Model_blog->findBlogById($id);
-            $this->render('blog/detail',array(
-                'blog' => $query->row(),
-                'head_title'    => $query->row()->title,
-                'head_description'  => $query->row()->html_desc,
-                'head_keywords' => $query->row()->html_key,
-            ));
+            $blogListQuery = $this->Model_blog->findBlogAll();
+            $blog = $blogListQuery->row($id-1);
+            if(!empty($blog->id)){
+                if(RefreshHit($_SERVER["REMOTE_ADDR"],'blog_detail'.$id,6000000)){
+                    $this->Model_blog->addBlogPvById($id);
+                }
+                //取出分页
+                $numRows = $blogListQuery->num_rows();
+                $prevBlog = new stdClass();
+                $nextBlog = new stdClass();
+                if($id >= 2){
+                    $prevBlog = $blogListQuery->row($id-2);
+                }
+                if($id < $numRows) {
+                    $nextBlog = $blogListQuery->row($id);
+                }
+                $this->render('blog/detail',array(
+                    'blog'              => $blog,
+                    'prevBlog'          => $prevBlog,
+                    'nextBlog'          => $nextBlog,
+                    'head_title'        => $blog->title,
+                    'head_description'  => $blog->html_desc,
+                    'head_keywords'     => $blog->html_key,
+                ));
+            }
+            else {
+                $this->blog_list();
+            }
         }
     }
 

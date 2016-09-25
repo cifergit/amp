@@ -20,7 +20,7 @@
                 <ol class="blog_ol" type="1">
                     <?php foreach($query->result() as $blog){?>
                         <li>
-                            <a href="http://www.boatsky.com/blog/<?php echo $blog->id;?>"><?php echo $blog->title;?><span class="date"><?php echo $blog->create_time;?></span></a>
+                            <a href="http://www.boatsky.com/blog/<?php echo $blog->id;?>" title="<?php echo $blog->title;?>"><?php echo $blog->title;?><span class="date"><?php echo $blog->create_time;?></span></a>
                         </li>
                     <?php }?>
                 </ol>
