@@ -1,8 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+<meta charset="UTF-8">
+<title></title>
+<script>
+/*function Biology(name) {
+    var tempObj = new Object();
+    tempObj.name = name;
+    tempObj.printName = function(){
+        console.log(this.name);
+    };
+    return tempObj;
+}
+var animals = Biology('animals');
+var plants = Biology('plants');
+animals.printName();//animals
+plants.printName();//plants
+animals.constructor;//function Object() { [native code] }*/
+
+/*function Biology(name) {
+    this.name = name;
+    this.printName = function(){
+        console.log(this.name);
+    };
+}
+var animals = new Biology('animals');
+var plants = new Biology('plants');
+animals.printName();//animals
+plants.printName();//plants
+animals.constructor;//function Biology(name){...}*/
+
+
+function Biology() {};
+Biology.prototype.name = 'biology';
+Biology.prototype.printName = function(){
+    console.log(this.name);
+};
+var animals = new Biology();
+animals.printName();//biology
+var plants = new Biology();
+plants.printName();//biology
+
+console.log(animals.name);//biology
+animals.name = 'animals';
+console.log(animals.name);//animals
+console.log(plants.name);//biology
+animals.printName = function(){
+    console.log('animals');
+};
+animals.printName();//animals
+plants.printName();//biology
+
+</script>
 </head>
 <body>
 
