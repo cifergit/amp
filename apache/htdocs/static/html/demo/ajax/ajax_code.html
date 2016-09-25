@@ -2,7 +2,353 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>code</title>
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+/*$.get(
+    'http://www.boatsky.com/demo/ajax/get',
+    {
+        name    : 'boatsky',
+        age     : 2
+    },
+    function(response,status){
+        var responseObj = JSON.parse(response);
+        if(responseObj.code == 0){
+            console.log(responseObj.data);
+        }
+        else {
+            console.log(response.msg);
+        }
+
+    },
+    'text'//默认值text。有"xml","html","text","script","json","jsonp"
+);*/
+
+/*$.post(
+    'http://www.boatsky.com/demo/ajax/post',
+    {
+        name    : 'boatsky',
+        age     : 2
+    },
+    function(response,status){
+        if(response.code == 0){
+            console.log(response.data);
+        }
+        else {
+            console.log(response.msg);
+        }
+    },
+    'json'
+);*/
+
+/*$.getJSON(
+    'http://www.boatsky.com/demo/ajax/get',
+    {
+        name    : 'boatsky',
+        age     : 2
+    },
+    function(response,status){
+        if(response.code == 0){
+            console.log(response.data);
+        }
+        else {
+            console.log(response.msg);
+        }
+    }
+);*/
+
+/*$.ajax({
+    type    : 'get',
+    dataType: 'json',
+    url     : 'http://www.boatsky.com/demo/ajax/get',
+    async   : true,//默认值可不填
+    data    : {
+        name    : 'boatsky',
+        age     : 2
+    },
+    error   : function(er){
+        console.log(er);
+    },
+    success : function(response){
+        if(response.code == 0){
+            console.log(response.data);
+        }
+        else {
+            console.log(response.msg);
+        }
+    }
+});*/
+
+
+/*//原生js实现ajax方法
+function doAjax(reqParam){
+    var xmlHttp;
+    if (window.XMLHttpRequest) {
+        xmlHttp = new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    var type = reqParam.type;
+    if(type){
+        //获得&型的参数
+        if(reqParam.data){
+            var tempParam = '';
+            for(var key in reqParam.data){
+                if(tempParam){
+                    tempParam = tempParam + '&'+ key + '=' + reqParam.data[key];
+                }
+                else {
+                    tempParam = key + '=' + reqParam.data[key];
+                }
+            }
+            reqParam.dataParam = tempParam;
+        }
+
+        if(type.toLowerCase() == 'post'){
+            xmlHttp.open("POST",reqParam.url,true);
+            xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xmlHttp.send(reqParam.dataParam);
+        }
+        else if(type.toLowerCase() == 'get'){
+            xmlHttp.open("GET",reqParam.url + '?' + reqParam.dataParam,true);
+            xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xmlHttp.send(null);
+        }
+    }
+    xmlHttp.onreadystatechange = function() {
+        //0,Uninitialized,初始化状态。XMLHttpRequest 对象已创建或已被 abort() 方法重置。
+        //1,Open,open() 方法已调用，但是 send() 方法未调用。请求还没有被发送。
+        //2,Sent,Send() 方法已调用，HTTP 请求已发送到 Web 服务器。未接收到响应。
+        //3,Receiving,所有响应头部都已经接收到。响应体开始接收但未完成。
+        //4,Loaded,HTTP 响应已经完全接收。
+        if(xmlHttp.readyState == 4){
+            if(xmlHttp.status == 200){
+                var responseObj = JSON.parse(xmlHttp.responseText);
+                if(responseObj.code == 0){
+                    console.log(responseObj.data);
+                }
+                else {
+                    console.log(responseObj.msg);
+                }
+            }
+            else {
+                console.log(xmlHttp);
+            }
+        }
+    };
+}
+
+var reqGetParam = {
+    type    : 'get',
+    url     : 'http://www.boatsky.com/demo/ajax/get',
+    data    : {
+        name    : 'boatsky',
+        age     : 2,
+        t       : new Date().getTime()
+    }
+};
+
+var reqPostParam = {
+    type    : 'post',
+    url     : 'http://www.boatsky.com/demo/ajax/post',
+    data    : {
+        name    : 'boatsky',
+        age     : 2,
+        t       : new Date().getTime()
+    }
+};
+doAjax(reqGetParam);
+doAjax(reqPostParam);*/
+
+
+/*$.ajax({
+    type    : 'get',
+    dataType: 'jsonp',
+    jsonp   : 'callback',
+    jsonpCallback : "jsonpCallbackFunction",
+    url     : 'http://www.yrczone.com/ajax/jsonp',
+    data    : {
+        name    : 'boatsky',
+        age     : 2,
+        t       : new Date().getTime()
+    },
+    error   : function(er){
+        console.log(er);
+    },
+    success : function(response){
+        if(response.code == 0){
+            console.log(response.data);
+        }
+        else {
+            console.log(response.msg);
+        }
+    }
+});*/
+
+
+//获得jsonp数据
+/*function getJsonp(){
+    var data = {
+        name    : 'boatsky',
+        age     : 2,
+        t       : new Date().getTime()
+    };
+    var dataParam = '';
+    if(data){
+        for(var key in data){
+            if(dataParam){
+                dataParam = dataParam + '&'+ key + '=' + data[key];
+            }
+            else {
+                dataParam = key + '=' + data[key];
+            }
+        }
+    }
+    var reqParam = {};
+    reqParam.url = 'http://www.yrczone.com/ajax/jsonp?callback=jsonpCallbackFunction';
+    if(dataParam){
+        reqParam.url = reqParam.url + '&' + dataParam;
+    }
+    makeScript(reqParam);
+}
+//创建script
+function makeScript(reqParam){
+    var script = document.getElementById('jsonpScript');
+    var head = document.getElementsByTagName('head')[0];
+    if(script){
+        head.removeChild(script);
+    }
+    script = document.createElement('script');
+    script.setAttribute('id','jsonpScript');
+    script.src = reqParam.url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+}
+//回调函数
+function jsonpCallbackFunction(response){
+    if(response.code == 0){
+        console.log(response.data);
+    }
+    else {
+        console.log(response.msg);
+    }
+}
+getJsonp();*/
+
+
+
+
+//cors get例子
+function getCorsData(){
+    var corsUrl = 'http://www.yrczone.com/ajax/cors';
+    var data = {
+        name    : 'boatsky',
+        age     : 2,
+        t       : new Date().getTime()
+    };
+    var dataParam = dataToGetParam(data);
+    var thisCorsUrl = '';
+    if(dataParam){
+        thisCorsUrl = corsUrl + '?' + dataParam;
+    }
+    var reqGetParam = {
+        type    : 'get',
+        url     : thisCorsUrl
+    };
+    corsData(reqGetParam);
+}
+getCorsData();
+//cors post例子
+function postCorsData(){
+    var corsUrl = 'http://www.yrczone.com/ajax/cors';
+    var data = {
+        name    : 'boatsky',
+        age     : 2,
+        t       : new Date().getTime()
+    };
+    var dataParam = dataToGetParam(data);
+    var reqGetParam = {
+        type    : 'post',
+        url     : corsUrl,
+        dataParam    : dataParam
+    };
+    corsData(reqGetParam);
+}
+postCorsData();
+//cors处理
+function corsData(reqParam){
+    var xmlHttp;
+    if (window.XMLHttpRequest) {
+        xmlHttp = new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    if ("withCredentials" in xmlHttp) {
+        // 检查XMLHttpRequest对象是否有“withCredentials”属性
+        // “withCredentials”仅存在于XMLHTTPRequest2对象里
+        xmlHttp = sendXmlHttp(xmlHttp,reqParam);
+    } else if (typeof XDomainRequest != "undefined") {
+        // 否则检查是否支持XDomainRequest，IE8和IE9支持
+        // XDomainRequest仅存在于IE中，是IE用于支持CORS请求的方式
+        xmlHttp = new XDomainRequest();
+        xmlHttp = sendXmlHttp(xmlHttp,reqParam);
+    } else {
+        //浏览器不支持CORS
+        xmlHttp = null;
+    }
+    if (!xmlHttp) {
+        throw new Error('CORS not supported');
+    }
+    xmlHttp.onreadystatechange = function processRequest()
+    {
+        if (xmlHttp.readyState == 4) // 判断对象状态
+        {
+            if (xmlHttp.status == 200)  // 请求结果已经成功返回
+            {
+                var responseObj = JSON.parse(xmlHttp.responseText);
+                if(responseObj.code == 0){
+                    console.log(responseObj.data);
+                }
+                else {
+                    console.log(responseObj.msg);
+                }
+            }
+        }
+    };
+}
+//发送xmlHttp
+function sendXmlHttp(xmlHttp,reqParam){
+    var type = reqParam.type;
+    if(type.toLowerCase() == 'post'){
+        xmlHttp.open("POST",reqParam.url,true);
+        xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        xmlHttp.send(reqParam.dataParam);
+    }
+    else if(type.toLowerCase() == 'get'){
+        xmlHttp.open("GET",reqParam.url,true);
+        xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        xmlHttp.send(null);
+    }
+    return xmlHttp;
+}
+//对象变成get参数形式
+function dataToGetParam(data){
+    var dataParam = '';
+    if(data){
+        for(var key in data){
+            if(dataParam){
+                dataParam = dataParam + '&'+ key + '=' + data[key];
+            }
+            else {
+                dataParam = key + '=' + data[key];
+            }
+        }
+    }
+    return dataParam;
+}
+
+});
+</script>
 </head>
 <body>
 

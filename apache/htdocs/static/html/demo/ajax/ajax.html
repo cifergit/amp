@@ -60,7 +60,7 @@ $(document).ready(function(){
     //ajax get
     $('#J_GetButton').on('click',function(){
         $.get(
-                        url + getInterfaceType(),
+                url + getInterfaceType(),
                 getValue(),
                 function(response,status){
                     var reqStr = getAjaxParam(this);
