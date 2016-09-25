@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>ajax例子</title>
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+<script>
+var local = 'home';
+var url = 'http://www.boatsky.com/demo/ajax/';
+var jsonpUrl = 'http://www.ez-robot.cn/ajax/jsonp';
+var corsUrl = 'http://www.ez-robot.cn/ajax/cors';
+if(local == 'company'){
+    url = 'http://www.boatsky.com/demo/ajax/';
+    jsonpUrl = 'http://www.boatsky.com/demo/ajax/jsonp';
+    corsUrl = 'http://www.boatsky.com/demo/ajax/cors';
+}
+if(local == 'dev'){
+    url = 'http://ndevrb.ingdan.com/ajax/';
+    jsonpUrl = 'http://ndevrb.ingdan.com/ajax/jsonp';
+    corsUrl = 'http://ndevrb.ingdan.com/ajax/cors';
+}
+//打印对象
+function getObjectDetail(obj){
+    var respStr = '';
+    for(var key in obj){
+        if(obj.hasOwnProperty(key)){
+            respStr = respStr + '<br>' + key + ":" + obj[key];
+        }
+    }
+    return respStr;
+}
+//对象变成get参数形式
+function dataToGetParam(data){
+    var dataParam = '';
+    if(data){
+        for(var key in data){
+            if(dataParam){
+                dataParam = dataParam + '&'+ key + '=' + data[key];
+            }
+            else {
+                dataParam = key + '=' + data[key];
+            }
+        }
+    }
+    return dataParam;
+}
+
+$(document).ready(function(){
+    function getAjaxParam(obj){
+        console.log(obj);
+        var reqStr = '';
+        for(var key in obj){
+            if(key == 'type' || key == 'dataType' || key == 'url' || key == 'async' || key == 'data' || key == 'jsonp'){
+                reqStr = reqStr + '<br>' + key + ':' + obj[key];
+            }
+        }
+        reqStr = reqStr + '<br>' + 't:' + new Date().getTime();
+        return reqStr;
+    }
+    //ajax get
+    $('#J_GetButton').on('click',function(){
+        $.get(
+                        url + getInterfaceType(),
+                getValue(),
+                function(response,status){
+                    var reqStr = getAjaxParam(this);
+                    $('#J_Request').html(reqStr);
+                    var responseObj = JSON.parse(response);
+                    if(responseObj.code == 0){
+                        $('#J_Response').html(getObjectDetail(responseObj.data));
+                    }
+                    else {
+                        $('#J_Response').html(responseObj.msg);
+                    }
+
+                },
+                'text'//默认值。一共有"xml","html","text","script","json","jsonp"
+        );
+    });
+    //ajax post
+    $('#J_PostButton').on('click',function(){
+        $.post(
+                        url + getInterfaceType(),
+                getValue(),
+                function(response,status){
+                    var reqStr = getAjaxParam(this);
+                    $('#J_Request').html(reqStr);
+                    if(response.code == 0){
+                        $('#J_Response').html(getObjectDetail(response.data));
+                    }
+                    else {
+                        $('#J_Response').html(response.msg);
+                    }
+                },
+                'json'
+        );
+    });
+    //ajax getJSON
+    $('#J_GetJsonButton').on('click',function(){
+        $.getJSON(
+                        url + getInterfaceType(),
+                getValue(),
+                function(response,status){
+                    var reqStr = getAjaxParam(this);
+                    $('#J_Request').html(reqStr);
+                    if(response.code == 0){
+                        $('#J_Response').html(getObjectDetail(response.data));
+                    }
+                    else {
+                        $('#J_Response').html(response.msg);
+                    }
+                }
+        );
+    });
+    //$.ajax get
+    $('#J_AjaxGetButton').on('click',function(){
+        $.ajax({
+            type    : 'get',
+            dataType: 'json',
+            url     : url + getInterfaceType(),
+            data    : getValue(),
+            error   : function(er){
+                console.log(er);
+            },
+            success : function(response){
+                var reqStr = getAjaxParam(this);
+                $('#J_Request').html(reqStr);
+                if(response.code == 0){
+                    $('#J_Response').html(getObjectDetail(response.data));
+                }
+                else {
+                    $('#J_Response').html(response.msg);
+                }
+            }
+        });
+    });
+    //$.ajax post
+    $('#J_AjaxPostButton').on('click',function(){
+        $.ajax({
+            type    : 'post',
+            dataType: 'json',
+            url     : url + getInterfaceType(),
+            data    : getValue(),
+            error   : function(er){
+                console.log(er);
+            },
+            success : function(response){
+                var reqStr = getAjaxParam(this);
+                $('#J_Request').html(reqStr);
+                if(response.code == 0){
+                    $('#J_Response').html(getObjectDetail(response.data));
+                }
+                else {
+                    $('#J_Response').html(response.msg);
+                }
+            }
+        });
+    });
+    //jsonp
+    $('#J_AjaxJsonpButton').on('click',function(){
+        $.ajax({
+            type    : 'get',
+            dataType: 'jsonp',
+            jsonp   : 'callback',//回调函数参数名，默认callback
+            jsonpCallback : "jsonpCallbackFunction",//回调函数，不填，默认是一个随机函数类似callback=jQuery3100557689627778365_1474459471916
+            url     : jsonpUrl,
+            data    : getValue(),
+            error   : function(er){
+                console.log(er);
+            },
+            success : function(response){
+                console.log(response);
+                var reqStr = getAjaxParam(this);
+                $('#J_Request').html(reqStr);
+                if(response.code == 0){
+                    $('#J_Response').html(getObjectDetail(response.data));
+                }
+                else {
+                    $('#J_Response').html(response.msg);
+                }
+            }
+        });
+    });
+    //获取参数
+    function getValue(){
+        var name = $('#J_AjaxName').val();
+        var age = $('#J_AjaxAge').val();
+        var reqData = {
+            name    : name,
+            age     : age
+        };
+        return reqData;
+    }
+    //获得接口参数
+    function getInterfaceType(){
+        var interfaceType = $('#J_InterfaceType').val();
+        if(!interfaceType){
+            interfaceType = 'get';
+        }
+        return interfaceType;
+    }
+});
+
+var requestElem = document.getElementById('J_Request');
+var responseElem = document.getElementById('J_Response');
+function jsonpCallbackFunction(response){
+    if(response.code == 0){
+        window.responseElem.innerHTML = getObjectDetail(response.data);
+    }
+    else {
+        window.responseElem.innerHTML = response.msg;
+    }
+}
+//以下为原生方法
+window.onload = function(){
+    var requestElem = document.getElementById('J_Request');
+    window.requestElem = requestElem;
+    var responseElem = document.getElementById('J_Response');
+    window.responseElem = responseElem;
+
+    //获取参数
+    function getFormValue(){
+        var name = document.getElementById('J_AjaxName').value;
+        var age = document.getElementById('J_AjaxAge').value;
+        var reqData = {
+            name    : name,
+            age     : age,
+            t       : new Date().getTime()
+        };
+        return reqData;
+    }
+    //获得接口参数
+    function getInterfaceType(){
+        var interfaceType = document.getElementById('J_InterfaceType').value;
+        return interfaceType;
+    }
+    //监听事件
+    function listenEvent(target, type, handler) {
+        if(target.addEventListener){//w3c
+            target.addEventListener(type, handler,false);
+        }
+        else if(target.attachEvent){//IE6-8
+            target.attachEvent("on"+type, function(e){
+                return handler.call(target,e);
+            });
+        }
+    }
+    //原生的ajax方法
+    function doAjax(reqParam){
+        var xmlHttp;
+        if (window.XMLHttpRequest) {
+            xmlHttp = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        var type = reqParam.type;
+        if(type){
+            //获得&型的参数
+            if(reqParam.data){
+                var tempParam = '';
+                for(var key in reqParam.data){
+                    if(tempParam){
+                        tempParam = tempParam + '&'+ key + '=' + reqParam.data[key];
+                    }
+                    else {
+                        tempParam = key + '=' + reqParam.data[key];
+                    }
+                }
+                reqParam.dataParam = tempParam;
+            }
+
+            if(type.toLowerCase() == 'post'){
+                xmlHttp.open("POST",reqParam.url,true);
+                xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                xmlHttp.send(reqParam.dataParam);
+            }
+            else if(type.toLowerCase() == 'get'){
+                xmlHttp.open("GET",reqParam.url + '?' + reqParam.dataParam,true);
+                xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                xmlHttp.send(null);
+            }
+        }
+        requestElem.innerHTML = getObjectDetail({
+            type            : type,
+            url             : reqParam.url,
+            requestParam    : reqParam.dataParam,
+            t               : new Date().getTime()
+
+        });
+        console.log(xmlHttp);
+        xmlHttp.onreadystatechange = function() {
+            //0,Uninitialized,初始化状态。XMLHttpRequest 对象已创建或已被 abort() 方法重置。
+            //1,Open,open() 方法已调用，但是 send() 方法未调用。请求还没有被发送。
+            //2,Sent,Send() 方法已调用，HTTP 请求已发送到 Web 服务器。未接收到响应。
+            //3,Receiving,所有响应头部都已经接收到。响应体开始接收但未完成。
+            //4,Loaded,HTTP 响应已经完全接收。
+            if(xmlHttp.readyState == 4){
+                if(xmlHttp.status == 200){
+                    var responseObj = JSON.parse(xmlHttp.responseText);
+                    if(responseObj.code == 0){
+                        responseElem.innerHTML = getObjectDetail(responseObj.data);
+                    }
+                    else {
+                        responseElem.innerHTML = responseObj.msg;
+                    }
+                }
+                else {
+                    console.log(xmlHttp);
+                }
+            }
+        };
+    }
+    //给原生get按钮增加
+    listenEvent(document.getElementById('J_Get'),'click',function(e){
+        var reqParam = {
+            type    : getInterfaceType(),
+            url     : url + getInterfaceType(),
+            data    : getFormValue()
+        };
+        doAjax(reqParam);
+    });
+    //给原生post按钮添加监听
+    listenEvent(document.getElementById('J_Post'),'click',function(e){
+        var reqParam = {
+            type    : getInterfaceType(),
+            url     : url + getInterfaceType(),
+            data    : getFormValue()
+        };
+        doAjax(reqParam);
+    });
+
+    //获取jsonp
+    function getJsonp(reqParam){
+        var script = document.getElementById('jsonpScript');
+        var head = document.getElementsByTagName('head')[0];
+        if(script){
+            head.removeChild(script);
+        }
+        script = document.createElement('script');
+        script.setAttribute('id','jsonpScript');
+        script.src = reqParam.url;
+        document.getElementsByTagName('head')[0].appendChild(script);
+    }
+
+    //原生jsonp触发
+    listenEvent(document.getElementById('J_JsonpButton'),'click',function(e){
+        var data = getFormValue();
+        var dataParam = '';
+        if(data){
+            for(var key in data){
+                if(dataParam){
+                    dataParam = dataParam + '&'+ key + '=' + data[key];
+                }
+                else {
+                    dataParam = key + '=' + data[key];
+                }
+            }
+        }
+        var reqParam = {};
+        if(dataParam){
+            reqParam.url = jsonpUrl + '?callback=jsonpCallbackFunction&' + dataParam;
+        }
+        else {
+            reqParam.url = jsonpUrl + '?callback=jsonpCallbackFunction';
+        }
+        getJsonp(reqParam);
+    });
+
+    //xmlHttp发送
+    function sendXmlHttp(xmlHttp,reqParam){
+        var type = reqParam.type;
+        if(type.toLowerCase() == 'post'){
+            xmlHttp.open("POST",reqParam.url,true);
+            xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xmlHttp.send(reqParam.dataParam);
+        }
+        else if(type.toLowerCase() == 'get'){
+            xmlHttp.open("GET",reqParam.url,true);
+            xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xmlHttp.send(null);
+        }
+        return xmlHttp;
+    }
+    //cors处理
+    function corsData(reqParam){
+        var xmlHttp;
+        if (window.XMLHttpRequest) {
+            xmlHttp = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        if ("withCredentials" in xmlHttp) {
+            // 检查XMLHttpRequest对象是否有“withCredentials”属性
+            // “withCredentials”仅存在于XMLHTTPRequest2对象里
+            xmlHttp = sendXmlHttp(xmlHttp,reqParam);
+        } else if (typeof XDomainRequest != "undefined") {
+            // 否则检查是否支持XDomainRequest，IE8和IE9支持
+            // XDomainRequest仅存在于IE中，是IE用于支持CORS请求的方式
+            xmlHttp = new XDomainRequest();
+            xmlHttp = sendXmlHttp(xmlHttp,reqParam);
+        } else {
+            //浏览器不支持CORS
+            xmlHttp = null;
+        }
+        if (!xmlHttp) {
+            throw new Error('CORS not supported');
+        }
+        console.log(xmlHttp);
+        xmlHttp.onreadystatechange = function processRequest()
+        {
+            if (xmlHttp.readyState == 4) // 判断对象状态
+            {
+                if (xmlHttp.status == 200)  // 请求结果已经成功返回
+                {
+                    var responseObj = JSON.parse(xmlHttp.responseText);
+                    if(responseObj.code == 0){
+                        responseElem.innerHTML = getObjectDetail(responseObj.data);
+                    }
+                    else {
+                        responseElem.innerHTML = responseObj.msg;
+                    }
+                }
+            }
+        };
+    }
+
+    //原生cors get跨域
+    listenEvent(document.getElementById('J_CorsGetButton'),'click',function(e){
+        var data = getFormValue();
+        var dataParam = dataToGetParam(data);
+        var thisCorsUrl = '';
+        if(dataParam){
+            thisCorsUrl = corsUrl + '?' + dataParam;
+        }
+        var reqParam = {
+            type    : 'get',
+            url     : thisCorsUrl
+        };
+        console.log(reqParam);
+        corsData(reqParam);
+    });
+
+    //原生cors post跨域
+    listenEvent(document.getElementById('J_CorsPostButton'),'click',function(e){
+        var data = getFormValue();
+        var dataParam = dataToGetParam(data);
+        var reqParam = {
+            type    : 'post',
+            url     : corsUrl,
+            dataParam    : dataParam
+        };
+        corsData(reqParam);
+    });
+}
+
+</script>
+</head>
+<body>
+
+<form id="J_AjaxGet">
+    接口类型:
+    <select id="J_InterfaceType" name="J_InterfaceType">
+        <option value="get">get接口</option>
+        <option value="post">post接口</option>
+    </select>
+    名字：<input type="text" id="J_AjaxName" name="J_AjaxName" value="ingdan"/>
+    内容：<input type="number" id="J_AjaxAge" name="J_AjaxAge" value="3"/>
+    <button type="button" id="J_GetButton">$.get()</button>
+    <button type="button" id="J_PostButton">$.post()</button>
+    <button type="button" id="J_GetJsonButton">$.getJSON()</button>
+    <button type="button" id="J_AjaxGetButton">$.ajax({type:'get'})</button>
+    <button type="button" id="J_AjaxPostButton">$.ajax({type:'post'})</button>
+    <button type="button" id="J_Get">原生get</button>
+    <button type="button" id="J_Post">原生post</button>
+    <button type="button" id="J_AjaxJsonpButton">$.get()jsonp</button>
+    <button type="button" id="J_JsonpButton">原生jsonp</button>
+    <button type="button" id="J_CorsGetButton">原生cors get</button>
+    <button type="button" id="J_CorsPostButton">原生cors post</button>
+</form>
+
+<h4>请求参数：</h4>
+<section id="J_Request"></section>
+<h4>返回结果：</h4>
+<section id="J_Response"></section>
+
+</body>
+</html>

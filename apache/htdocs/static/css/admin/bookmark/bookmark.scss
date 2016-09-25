@@ -1,0 +1,64 @@
+@charset "UTF-8";
+@import "../../common/_mod_form_v2";
+
+.blog_ol {
+  list-style-type: decimal;
+  margin-left: 14px;
+  a {
+    &:hover {
+      color: #0b76ad;
+    }
+  }
+  .date {
+    color: #999;
+    margin-left: 40px;
+  }
+  li {
+    margin-top: 15px;
+  }
+}
+
+.title {
+  height: 40px;
+  line-height: 40px;
+}
+.new_blog_btn {
+  margin-top: 30px;
+}
+
+
+
+.bookmark_cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  width: 100%;
+  height: 100%;
+  background-color: #3c3c3c;
+  filter: alpha(opacity=40);
+  -moz-opacity:0.40;
+  opacity: 0.40;
+}
+
+.bookmark_alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 500;
+  width: 600px;
+  height: 400px;
+  padding: 20px;
+  background-color: #fff;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+.mod_form {
+  .mod_label {
+
+  }
+}
