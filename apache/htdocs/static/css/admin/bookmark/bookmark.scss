@@ -1,5 +1,32 @@
 @charset "UTF-8";
 @import "../../common/_mod_form_v2";
+@import "../../common/function";
+
+.bookmark_class_table {
+  td {
+    min-width: 50px;
+  }
+  tr {
+    border: 1px solid #ddd;
+  }
+  .bookmark_class_tr {
+    background-color: #eee;
+  }
+}
+
+.bookmark_class {
+  @extend %clearfix;
+  .class_item {
+    float: left;
+    min-width: 50px;
+    max-width: 18%;
+    height: 30px;
+    margin-top: 5px;
+    margin-left: 5px;
+    line-height: 30px;
+    @include elli;
+  }
+}
 
 .blog_ol {
   list-style-type: decimal;
