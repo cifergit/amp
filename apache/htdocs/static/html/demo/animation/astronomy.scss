@@ -1,0 +1,87 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: rgba(0,0,0,1);
+}
+.stars_wrap {
+  position: absolute;
+  width: 1115px;
+  height: 630px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.sun {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  //background: radial-gradient(circle at 75px 75px, rgba(255,0,0,1), rgba(255,255,0,1));
+  background: url('sun.png') 0 -150px no-repeat;
+  box-shadow: 0 0 60px 0 rgba(255,0,0,1);
+  transform: translate(-50%, -50%);
+  animation: sun_scroll 60s infinite linear;
+  //animation: sun_scroll 3s infinite linear;
+  //background: url("../../images/common/index_onestop_v2.png");
+}
+.star {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  animation: move_x 40s infinite cubic-bezier(.42, 0, 1, 1);//cubic-bezier(.42, 0, 1, 1);
+  &::after {
+    display: block;
+    content: '';
+    animation: move_y 40s infinite cubic-bezier(0, 0, .58, 1);//cubic-bezier(0, 0, .58, 1);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: url('earth.png') 0 -135px no-repeat;
+    //box-shadow: 1px 1px 1px 1px rgba(255,255,255,1);
+    //background-color: rgba(255,255,255,1);
+    //background: radial-gradient(circle at 40% 70%, rgba(0,0,255,1), rgba(255,255,255,1));
+  }
+}
+
+@keyframes move_x {
+  50% {
+    transform: translateX(1100px);
+  }
+}
+
+@keyframes move_y {
+  25% {
+    width: 20px;
+    height: 20px;
+  }
+  40% {
+    width: 10px;
+    height: 10px;
+  }
+  50% {
+    width: 15px;
+    height: 15px;
+    transform: translateY(-600px);
+  }
+  70% {
+    width: 40px;
+    height: 40px;
+  }
+  80% {
+    width: 60px;
+    height: 60px;
+  }
+  100% {
+    background-position: -890px -135px;
+  }
+}
+@keyframes sun_scroll {
+  100% {
+    background-position: -650px -150px;
+  }
+}
