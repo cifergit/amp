@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css3球类似自由落体</title>
+    <style>
+        .space {
+            position: relative;
+            width: 800px;
+            height: 800px;
+            margin: 0 auto;
+            background-color: #eee;
+        }
+        .ball {
+            position: absolute;
+            top: 0;
+            left: 250px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30px 30px, #fff, #000);
+            animation: free_fall 2s ease-in 1 forwards;
+        }
+        .ball_2 {
+            visibility: hidden;
+            position: absolute;
+            top: 700px;
+            left: 250px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30px 30px, #fff, #000);
+            animation: free_fall_2 1s ease 2s 2 alternate forwards;
+        }
+        .ball_3 {
+            visibility: hidden;
+            position: absolute;
+            top: 700px;
+            left: 250px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30px 30px, #fff, #000);
+            animation: free_fall_3 0.5s ease 4s 2 alternate forwards;
+        }
+        @keyframes free_fall {
+            0% {
+                top: 0;
+            }
+            100% {
+                visibility: hidden;
+                top: 700px;
+            }
+        }
+        @keyframes free_fall_2 {
+            0.1% {
+                top: 700px;
+            }
+            1% {
+                visibility: visible;
+                top: 699px;
+            }
+            100% {
+                visibility: hidden;
+                top: 400px;
+            }
+        }
+        @keyframes free_fall_3 {
+            0% {
+                visibility: visible;
+                top: 700px;
+            }
+            100% {
+                visibility: hidden;
+                top: 600px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>css3球类似自由落体</h1>
+<section class="space">
+    <div class="ball"></div>
+    <div class="ball_2"></div>
+    <div class="ball_3"></div>
+</section>
+
+</body>
+</html>
