@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.author-wrap{
+  padding: 40px;
+}
+p {
+  margin-top: 10px;
+  //text-indent: 2em;
+}
+.details {
+  margin-top: 10px;
+  //text-indent: 2em;
+  summary {
+    margin-bottom: 10px;
+  }
+  p {
+    margin-top: 0;
+    margin-left: 10px;
+    text-indent: 0;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+}
