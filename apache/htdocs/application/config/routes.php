@@ -53,4 +53,19 @@ $route['default_controller'] = 'index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['blog.html'] = 'blog';
 $route['blog/(:num)'] = 'blog/index/$1';
+$route['blog/(:num).html'] = 'blog/index/$1';
+$route['blog/regexp.html'] = 'blog/regexp';
+$route['login.html'] = 'login';
+$route['register.html'] = 'register';
+$route['user.html'] = 'user';
+$route['bookmark.html'] = 'bookmark';
+$route['movie.html'] = 'movie';
+
+$route['about.html'] = 'about/author';
+$route['links.html'] = 'about/author/friends';
+
+
+
+
