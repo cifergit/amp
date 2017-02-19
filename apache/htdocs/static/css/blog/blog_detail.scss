@@ -10,8 +10,16 @@
   font-size: 20px;
   margin-bottom: 20px;
 }
+.blog_mess {
+  color: #00d586;
+}
+
 .blog_mess,.blog_desc {
   margin-bottom: 20px;
+}
+
+.blog-message-item {
+  margin-right: 30px;
 }
 
 p {
@@ -21,22 +29,24 @@ p {
   margin-top: 50px;
   @extend %clearfix;
   a {
-    &:hover {
+    color: #00d586;
+    span {
       color: #00d586;
+    }
+    &:hover {
+      color: #09bb07;
       span {
-        color: #00d586;
+        color: #09bb07;
       }
     }
   }
   .prev_btn {
     display: block;
     float: left;
-    color: #999;
   }
   .next_btn {
     display: block;
     float: right;
-    color: #999;
   }
   .mod_arrow_left {
     float: left;

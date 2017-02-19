@@ -1,5 +1,5 @@
 @charset "UTF-8";
-
+@import "../common/function";
 
 .my_share {
   /*width: 50%;
@@ -11,28 +11,89 @@
     //margin: 10px 0;
   }
 }
-.blog_ol {
-  list-style-type: decimal;
-  margin-left: 14px;
-  a {
+
+.blog-ul {
+  width: 520px;
+  padding-top: 10px;
+  .blog-li {
+    padding: 0 10px;
+    border-radius: 3px;
+    transition-property: background-color,color;
+    transition-duration: 0.3s;
     &:hover {
-      color: #0b76ad;
+      background-color: #eee;
+      .num,.name,.date,.pv {
+        color: #09bb07;
+      }
     }
   }
+
+  .blog-a {
+    display: block;
+    height: 30px;
+    color: #bbb;
+    font-size: 12px;
+    @extend %clearfix;
+
+  }
+
+  .num {
+    float: left;
+    display: block;
+    width: 24px;
+    height: 30px;
+    line-height: 30px;
+  }
+  .name {
+    float: left;
+    display: block;
+    width: 250px;
+    height: 30px;
+    color: #555;
+    font-size: 14px;
+    line-height: 30px;
+    @include elli;
+  }
+
   .date {
-    color: #999;
-    margin-left: 40px;
+    float: left;
+    display: block;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+  }
+  .pv {
+    float: left;
+    display: block;
+
+    width: 80px;
+    height: 30px;
+    margin-left: 20px;
+    line-height: 30px;
+    @include elli;
   }
   li {
-    margin-top: 15px;
+    margin-top: 5px;
   }
 }
 
 .title {
+  display: none;
   height: 40px;
   line-height: 40px;
+  font-weight: normal;
 }
 .new_blog_btn {
   margin-top: 30px;
+}
+
+.my_demo {
+  margin-top: 60px;
+  .demo_title {
+    margin-top: 20px;
+  }
+  .demo_list {
+    margin-top: 10px;
+  }
 }
 

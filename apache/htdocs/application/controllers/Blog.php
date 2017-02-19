@@ -13,6 +13,7 @@ class Blog extends MY_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('blog/Model_blog');
+        $this->load->model('blog/Model_user');
     }
 
     //博客
@@ -38,8 +39,10 @@ class Blog extends MY_Controller {
                 if($id < $numRows) {
                     $nextBlog = $blogListQuery->row($id);
                 }
-                $this->render('blog/detail',array(
+                $blogAuthor = $this->Model_user->getUser($blog->user_id)->row();
+                $this->render('blog/blog_detail',array(
                     'blog'              => $blog,
+                    'blogAuthor'        => $blogAuthor,
                     'prevBlog'          => $prevBlog,
                     'nextBlog'          => $nextBlog,
                     'head_title'        => $blog->title,
@@ -57,7 +60,10 @@ class Blog extends MY_Controller {
     public function blog_list(){
         $query = $this->Model_blog->findBlogAll();
         $this->render('blog/blog_home',array(
-            'query' => $query
+            'query' => $query,
+            'head_title'            => $this->config->item('seo_blog')['head_title'],
+            'head_description'      => $this->config->item('seo_blog')['head_description'],
+            'head_keywords'         => $this->config->item('seo_blog')['head_keywords'],
         ));
     }
 
