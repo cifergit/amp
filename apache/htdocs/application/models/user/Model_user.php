@@ -15,7 +15,7 @@ class Model_user extends CI_Model {
     }
 
     //id查用户
-    public function  getUser($userId){
+    public function getUser($userId){
         $userQuery = $this->db->query('select * from t_user where id = '.$userId);
         return $userQuery;
     }

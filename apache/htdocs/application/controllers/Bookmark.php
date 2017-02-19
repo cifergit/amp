@@ -23,9 +23,9 @@ class Bookmark extends MY_Controller {
         $this->render('bookmark/bookmark',array(
             'bookmarkArr'       => $query->result(),
             'bookmarkClassArr'      => $queryClass->result(),
-            'head_title'            => "太空船书签",
-            'head_description'      => "太空船书签",
-            'head_keywords'         => "太空船书签,前端书签，前端框架大全，前端团队，常用工具，前端导航，网站导航",
+            'head_title'            => $this->config->item('seo_bookmark')['head_title'],
+            'head_description'      => $this->config->item('seo_bookmark')['head_description'],
+            'head_keywords'         => $this->config->item('seo_bookmark')['head_keywords'],
         ));
     }
 

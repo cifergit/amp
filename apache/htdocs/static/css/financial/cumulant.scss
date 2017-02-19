@@ -1,0 +1,152 @@
+@charset "UTF-8";
+@import "../common/reset";
+@import "../common/function";
+
+body {
+  max-width: 100%;
+  height: 100%;
+  background-color: #fff;
+  color: #666;
+  font: 14px/1.5 'Lucida Grande','Arial','Microsoft YaHei','SimSun';
+}
+.main-wrap {
+  width: 750px;
+  margin: 0 auto;
+}
+
+.title {
+  margin-bottom: 40px;
+  font-size: 40px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.form-wrap,.result-wrap,.detail-wrap {
+  margin-left: 40px;
+}
+.form-unit {
+  margin-bottom: 20px;
+}
+
+
+.form-content {
+  position: relative;
+  @extend %clearfix;
+  .form-lable {
+    float: left;
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 30px;
+  }
+  .form-input {
+    float: left;
+    width: 416px;
+    height: 60px;
+    padding: 0 20px;
+    line-height: 60px;
+    font-size: 30px;
+  }
+  .form-input-clear {
+    position: absolute;
+    right: 50px;
+    width: 80px;
+    height: 60px;
+    line-height: 60px;
+    color: #999;
+    font-size: 50px;
+    text-align: center;
+  }
+}
+.form-msg {
+  margin-left: 200px;
+  width: 360px;
+  height: 20px;
+  color: #f00;
+  font-size: 24px;
+}
+.form-btn {
+  width: 308px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 30px;
+}
+.add-all-btn {
+  border: 1px solid #ff7b00;
+  border-radius: 5px;
+  background-color: #ff7b00;
+  color: #fff;
+}
+.clear-all-btn {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-left: 40px;
+  background-color: #ddd;
+  color: #333;
+}
+.add-btn {
+  width: 660px;
+  height: 80px;
+  border: 1px solid #0399e5;
+  border-radius: 7px;
+  line-height: 80px;
+  background-color: #0399e5;
+  font-size: 40px;
+  color: #fff;
+}
+
+
+.result-msg {
+  font-size: 30px;
+  font-weight: normal;
+}
+.result-content {
+  width: 100%;
+  height: 90px;
+  font-size: 40px;
+}
+.this-price-result {
+  margin-left: 10px;
+  font-size: 60px;
+  color: #f00;
+}
+
+.detail-wrap {
+  margin-top: 80px;
+  .detail-title {
+    font-size: 24px;
+    font-weight: normal;
+  }
+}
+.detail-table {
+  width: 670;
+  font-size: 24px;
+  margin-bottom: 40px;
+  .table-th {
+    width: 135px;
+    height: 60px;
+    border: 1px solid #eee;
+    line-height: 60px;
+    text-align: right;
+    font-weight: normal;
+  }
+
+  td {
+    border: 1px solid #eee;
+    height: 60px;
+    line-height: 60px;
+    overflow: hidden;
+    text-align: right;
+  }
+  .item-delete-btn {
+    width: 80px;
+    height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    line-height: 50px;
+    background-color: #ddd;
+    color: #333;
+    text-align: center;
+  }
+
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <title>理财定投复利在线计算器</title>
+    <meta name="description" content="理财定投复利在线计算器">
+    <meta name="keywords" content="理财定投复利在线计算器">
+    <link rel="stylesheet" href="//www.boatsky.com/static/css/common/global.css">
+    <script>
+        function calculate(){
+            var everyInvest = parseInt(document.getElementById('J_EveryInvest').value);
+            var time = parseInt(document.getElementById('J_Time').value);
+            var yearPercent = document.getElementById('J_Percent').value/100;
+            var invest = everyInvest*time;
+            document.getElementById('J_Invest').innerHTML = invest;
+            var moneyArr = [];
+            var all = 0;
+            for(var i = 1;i <= time;i++){
+                var moneyLength = moneyArr.length;
+                //老数据进行处理
+                if(moneyLength > 0){
+                    for(var j = 0;j < moneyLength;j++){
+                        moneyArr[j].time = moneyArr[j].time + 1;
+                        if(moneyArr[j].time == 12){
+                            moneyArr[j].value = moneyArr[j].value*(1+yearPercent);
+                            moneyArr[j].time = 0;
+                        }
+                    }
+                }
+                //新投入
+                var monyeItem = {};
+                monyeItem.value = everyInvest;
+                monyeItem.time = 1;
+                moneyArr.push(monyeItem);
+                //最后一个月
+                if(i == time){
+                    moneyLength = moneyArr.length;
+                    for(var k = 0;k < moneyLength;k++){
+                        all = all +  moneyArr[k].value;
+                    }
+                }
+            }
+            document.getElementById('J_All').innerHTML = all;
+            var earn = all - invest;
+            document.getElementById('J_Earn').innerHTML = earn;
+        }
+    </script>
+    <style>
+        .red {
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <nav class="mod_inner">
+        <ul id="topNavWrap">
+            <li class="top_nav_li top_nav_li_home" title="电影"><a href="//www.boatsky.com">电影</a></li>
+            <li class="top_nav_li top_nav_li_blog" title="博客"><a href="//www.boatsky.com/blog.html">博客</a></li>
+            <li class="top_nav_li top_nav_li_bookmark" title="书签"><a href="//www.boatsky.com/bookmark.html">书签</a></li>
+            <li class="top_nav_li top_nav_li_user" title="登录"><a href="//www.boatsky.com/login.html">登录</a></li>
+            <li class="top_nav_li top_nav_li_user" title="注册"><a href="//www.boatsky.com/register.html">注册</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="main_wrap">
+    <form class="mod_inner">
+        <h1>理财定投<span class="red">复利</span>在线计算器</h1>
+        <div class="mod_row">
+            <div class="mod_content">
+                <div class="mod_label">每月投入(元)</div>
+                <input type="number" id="J_EveryInvest" value=""/>
+            </div>
+        </div>
+        <div class="mod_row">
+            <div class="mod_content">
+                <div class="mod_label">投资周期(月)</div>
+                <input type="number" id="J_Time" value=""/>
+            </div>
+        </div>
+        <div class="mod_row">
+            <div class="mod_content">
+                <div class="mod_label">年收益%</div>
+                <input type="number" id="J_Percent" value=""/>
+            </div>
+        </div>
+        <div class="mod_row">
+            <div class="mod_content">
+                <div class="mod_label">投资总额(元)</div>
+                <div class="" id="J_Invest"></div>
+            </div>
+        </div>
+        <div class="mod_row">
+            <div class="mod_content">
+                <div class="mod_label">最终总额(元)</div>
+                <div class="" id="J_All"></div>
+            </div>
+        </div>
+        <div class="mod_row">
+            <div class="mod_content">
+                <div class="mod_label">收益总额(元)</div>
+                <div class="" id="J_Earn"></div>
+            </div>
+        </div>
+        <div class="mod_row">
+            <div class="mod_content">
+                <button type="button" id="J_Calculate" onclick="calculate()">计算</button>
+            </div>
+        </div>
+        <div class="mod_row">
+            <a href="regular_invest.html">理财定投<span class="red">不复利</span>在线计算器</a>
+        </div>
+    </form>
+</div>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?4a4ea946dcbb93baa1b830b4c1907c92";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

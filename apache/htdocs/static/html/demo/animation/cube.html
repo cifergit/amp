@@ -1,10 +1,92 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
+<head lang="zh-cmn-Hans">
     <meta charset="UTF-8">
-    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <title>css3实现简单的立方体</title>
+    <meta name="description" content="css3实现简单的立方体">
+    <meta name="keywords" content="css3实现简单的立方体">
+    <style>
+html,body {
+    height: 100%;
+}
+.cube {
+    position: relative;
+    height: 100%;
+    animation: rotateMove 20s linear infinite;
+    transform-style:preserve-3d;
+    transform: rotateX(-20deg) rotateY(-20deg) rotateZ(0deg);
+}
+@keyframes rotateMove {
+    0%{
+        transform: rotateX(-20deg) rotateY(-20deg) rotateZ(0deg);
+        transform-origin: center center;
+    }
+    100%{
+        transform: rotateX(340deg) rotateY(340deg) rotateZ(360deg);
+        transform-origin: center center;
+    }
+}
+.face {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
+    text-align: center;
+    line-height: 200px;
+    font-size: 40px;
+    font-weight: bold;
+    color: red;
+    opacity: 0.4;
+}
+.front {
+    transform: translateZ(100px);
+    background-color: #ffff00;
+}
+.back {
+    transform: rotateX(180deg) translateZ(100px);
+    background-color: orange;
+}
+.top {
+    transform: rotateX(90deg) translateZ(100px);
+    background-color: deepskyblue;
+}
+.bottom {
+    transform:rotateX(-90deg) translateZ(100px);
+    background-color: gray;
+}
+.right {
+    transform:rotateY(90deg) translateZ(100px);
+    background-color: #008000;
+}
+.left {
+    transform:rotateY(-90deg) translateZ(100px);
+    background-color: #0000ff;
+}
+    </style>
 </head>
 <body>
-
+<div class="cube">
+    <div class="face front">front</div>
+    <div class="face top">top</div>
+    <div class="face right">right</div>
+    <div class="face bottom">bottom</div>
+    <div class="face left">left</div>
+    <div class="face back">back</div>
+</div>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?4a4ea946dcbb93baa1b830b4c1907c92";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 </body>
 </html>

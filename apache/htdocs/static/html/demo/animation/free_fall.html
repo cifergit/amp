@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
+<head lang="zh-cmn-Hans">
     <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <title>css3球类似自由落体</title>
+    <meta name="description" content="css3球伪自由落体">
+    <meta name="keywords" content="css3球伪自由落体">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .title {
+            text-align: center;
+        }
         .space {
             position: relative;
-            width: 800px;
-            height: 800px;
+            width: 600px;
+            height: 600px;
             margin: 0 auto;
             background-color: #eee;
         }
@@ -24,7 +36,7 @@
         .ball_2 {
             visibility: hidden;
             position: absolute;
-            top: 700px;
+            top: 500px;
             left: 250px;
             width: 100px;
             height: 100px;
@@ -35,7 +47,7 @@
         .ball_3 {
             visibility: hidden;
             position: absolute;
-            top: 700px;
+            top: 500px;
             left: 250px;
             width: 100px;
             height: 100px;
@@ -49,30 +61,30 @@
             }
             100% {
                 visibility: hidden;
-                top: 700px;
+                top: 500px;
             }
         }
         @keyframes free_fall_2 {
             0.1% {
-                top: 700px;
+                top: 500px;
             }
             1% {
                 visibility: visible;
-                top: 699px;
+                top: 499px;
             }
             100% {
                 visibility: hidden;
-                top: 400px;
+                top: 250px;
             }
         }
         @keyframes free_fall_3 {
             0% {
                 visibility: visible;
-                top: 700px;
+                top: 500px;
             }
             100% {
                 visibility: hidden;
-                top: 600px;
+                top: 400px;
             }
         }
 
@@ -80,12 +92,20 @@
 </head>
 <body>
 
-<h1>css3球类似自由落体</h1>
+<p class="title">css3球类似自由落体</p>
 <section class="space">
     <div class="ball"></div>
     <div class="ball_2"></div>
     <div class="ball_3"></div>
 </section>
-
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?4a4ea946dcbb93baa1b830b4c1907c92";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 </body>
 </html>

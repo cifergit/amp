@@ -33,6 +33,8 @@
             </tbody>
         </table>
 
+        <a class="demo_a" href="http://www.boatsky.com/static/html/common/link.html">demo链接</a>
+
     </section>
 </section>
 
