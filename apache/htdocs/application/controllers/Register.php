@@ -19,7 +19,7 @@ class Register extends MY_Controller {
     //首页
     public function index()
     {
-        $this->render('user/register',array());
+        $this->render('user/register',$this->config->item('seo_register'));
     }
 
     //注册

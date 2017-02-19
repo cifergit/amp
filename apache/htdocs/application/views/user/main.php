@@ -6,7 +6,6 @@
  * Time: 0:43
  */
 ?>
-<link rel="stylesheet" href="//www.boatsky.com/static/css/user/main.css"/>
 </head>
 <body>
 
@@ -30,4 +29,4 @@
     </section>
 </section>
 
-<script type="text/javascript" data-main="/static/js/user/login.js?t=1" src="/static/module/require/require.js"></script>
+<script type="text/javascript" data-main="/static/js/common/empty.js?t=1" src="/static/module/require/require.js"></script>

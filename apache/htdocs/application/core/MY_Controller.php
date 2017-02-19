@@ -32,9 +32,26 @@ class MY_Controller extends CI_Controller
      */
     protected function render($page = 'index', $params = array()) {
         $this->_data = array_merge($this->_data, $params);
-        $this->_data['head_title'] = isset($params['head_title']) ? $params['head_title'] : '太空船-电影推荐网';
-        $this->_data['head_description'] = isset($params['head_description']) ? $params['head_description'] : '推荐最值的看的电影，太空船推荐，必属精品！';
-        $this->_data['head_keywords'] = isset($params['head_keywords']) ? $params['head_keywords'] : '太空船，电影推荐网，电影排行榜，太空船网，太空船电影，太空船电影网，太空船电影推荐，电影推荐，电影评分，电影分享';
+        $this->_data['head_title'] = isset($params['head_title']) ? $params['head_title'] : '太空船-cifer的博客';
+        $this->_data['head_description'] = isset($params['head_description']) ? $params['head_description'] : '太空船-cifer的博客';
+        $this->_data['head_keywords'] = isset($params['head_keywords']) ? $params['head_keywords'] : '太空船-cifer的博客';
+
+        $currentNav = '';
+        $phpSelf = $_SERVER['REQUEST_URI'];
+        if(strstr($phpSelf,'/bookmark')){
+            $currentNav = 'bookmark';
+        }
+        else if(strstr($phpSelf,'/about')){
+            $currentNav = 'about';
+        }
+        else if(strstr($phpSelf,'/links')){
+            $currentNav = 'links';
+        }
+        else {
+            $currentNav = 'blog';
+        }
+        $this->_data['currentNav'] = $currentNav;
+
         $this->checkLogin();
         $this->_data['uid'] = get_cookie('uid');
         $this->_data['uname'] = urldecode(get_cookie('uname'));

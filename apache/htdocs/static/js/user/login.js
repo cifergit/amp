@@ -99,7 +99,7 @@ requirejs(['jquery','global','validator','windowalert'], function ($,global,vali
                             {
                                 value : '确定',
                                 callbackEvent : function(){
-                                    location.href = '/user';
+                                    location.href = '/user.html';
                                 }
                             }
                         ]

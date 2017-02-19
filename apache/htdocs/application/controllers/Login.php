@@ -17,7 +17,7 @@ class Login extends MY_Controller {
     //登录
     public function index()
     {
-        $this->render('user/login',array());
+        $this->render('user/login',$this->config->item('seo_login'));
     }
 
     //登录

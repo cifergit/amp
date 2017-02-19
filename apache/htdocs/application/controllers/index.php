@@ -13,22 +13,31 @@ class Index extends MY_Controller {
     function __construct() {
         parent::__construct();
         $this->load->database();
+        $this->load->model('blog/Model_blog');
     }
 
     //首页
     public function index()
     {
         //$this->movie();
-        $this->muti_movie();
-        //$this->blog_list();
+        //$this->muti_movie();
+        $this->blog_list();
+    }
+
+    public function blog_list(){
+        $query = $this->Model_blog->findBlogAll();
+        $this->render('blog/blog_home',array(
+            'query' => $query,
+            'head_title'            => $this->config->item('seo_blog')['head_title'],
+            'head_description'      => $this->config->item('seo_blog')['head_description'],
+            'head_keywords'         => $this->config->item('seo_blog')['head_keywords'],
+        ));
     }
 
     public function movie(){
-
         $today = date("j");
         $todayId = $this->getMovieId($today);
         $movieQuery = $this->db->query('select * from t_movie where id = '.$todayId);
-
         $this->render('common/index',array(
             'movieQuery'    => $movieQuery,
         ));
@@ -47,9 +56,9 @@ class Index extends MY_Controller {
         return $today_movie_index;
     }
 
-    public function blog_list(){
+    /*public function blog_list(){
         $this->render('blog/blog_list');
-    }
+    }*/
 
     public function muti_movie()
     {

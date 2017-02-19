@@ -7,6 +7,7 @@
  * */
 ?>
     <link rel="stylesheet" href="//www.boatsky.com/static/css/movie/index.css"/>
+
 </head>
 <body>
 
@@ -56,4 +57,4 @@
     </section>
 </section>
 
-<script type="text/javascript" data-main="//www.boatsky.com/static/js/blog/blog_list.js" src="//www.boatsky.com/static/module/require/require.js"></script>
+<script type="text/javascript" data-main="//www.boatsky.com/static/js/common/empty.js" src="//www.boatsky.com/static/module/require/require.js"></script>

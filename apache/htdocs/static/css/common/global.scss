@@ -22,9 +22,15 @@ body{
   -webkit-touch-callout: none;/*禁止系统默认菜单*/
 }
 .main_wrap {
+  padding: 10px 0;
+}
+.main-wrap {
   padding: 20px 0;
 }
 .mod_inner {
+  margin: 0 auto;
+}
+.mod-inner {
   margin: 0 auto;
 }
 
@@ -45,17 +51,20 @@ body{
 
 @media screen and (max-width: 1191px){
   .main_wrap {
-    .mod_inner {
-      padding: 20px;
+    .mod_inner,.mod-inner {
+      padding: 10px;
     }
   }
 }
 
+
 @media screen and (min-width: 1190px){
-  .mod_inner {
+  .mod_inner,.mod-inner {
       width: 1190px;
   }
 }
+
+
 
 .header {
   width: 100%;
@@ -67,7 +76,7 @@ body{
   }
   ul {
     @extend %clearfix;
-    .top_nav_li {
+    .top-nav-li {
       float: left;
       box-sizing: border-box;
       width: 20%;
@@ -76,12 +85,14 @@ body{
       padding: 0 5px;
       line-height: 40px;
       text-align: center;
+      transition-property: background-color,color;
+      transition-duration: 0.3s;
       &:hover {
         background-color: #09bb07;
         //color: #fff;
       }
     }
-    .cur {
+    .top-nav-li--active {
       background-color: #09bb07;
     }
 
@@ -92,6 +103,7 @@ body{
       line-height: 40px;
       @include elli;
     }
+
   }
 }
 footer {
@@ -105,7 +117,13 @@ footer {
     line-height: 30px;
     text-align: center;
   }
+  .friends-list {
+    width: 0;
+    height: 0;
+    @extend %indent;
+  }
 }
+
 .main_inner {
   //max-width: 1242px;
   margin: 0 auto;
