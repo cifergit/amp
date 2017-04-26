@@ -45,7 +45,7 @@ class Blog extends MY_Controller {
                     'blogAuthor'        => $blogAuthor,
                     'prevBlog'          => $prevBlog,
                     'nextBlog'          => $nextBlog,
-                    'head_title'        => $blog->title,
+                    'head_title'        => $blog->title.'—太空船',
                     'head_description'  => $blog->html_desc,
                     'head_keywords'     => $blog->html_key,
                 ));
@@ -59,13 +59,14 @@ class Blog extends MY_Controller {
     //博客列表页
     public function blog_list(){
         $query = $this->Model_blog->findBlogAll();
-        $this->render('blog/blog_home',array(
+        $this->render('blog/blog_list',array(
             'query' => $query,
             'head_title'            => $this->config->item('seo_blog')['head_title'],
             'head_description'      => $this->config->item('seo_blog')['head_description'],
             'head_keywords'         => $this->config->item('seo_blog')['head_keywords'],
         ));
     }
+
 
     //正则表达式
     public function regexp() {

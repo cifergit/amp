@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .author-wrap{
-  padding: 40px;
+  //padding: 40px;
 }
 p {
   margin-top: 10px;
@@ -9,9 +9,13 @@ p {
 }
 .details {
   margin-top: 10px;
-  //text-indent: 2em;
+  margin-left: 20px;
   summary {
     margin-bottom: 10px;
+    cursor: pointer;
+    &:hover {
+      color: #09bb07;
+    }
   }
   p {
     margin-top: 0;
@@ -20,5 +24,8 @@ p {
   }
   ol {
     list-style-type: decimal;
+  }
+  .notice {
+    color: #00d586;
   }
 }

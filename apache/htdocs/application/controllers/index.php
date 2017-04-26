@@ -26,7 +26,7 @@ class Index extends MY_Controller {
 
     public function blog_list(){
         $query = $this->Model_blog->findBlogAll();
-        $this->render('blog/blog_home',array(
+        $this->render('blog/blog_list',array(
             'query' => $query,
             'head_title'            => $this->config->item('seo_blog')['head_title'],
             'head_description'      => $this->config->item('seo_blog')['head_description'],
@@ -42,6 +42,7 @@ class Index extends MY_Controller {
             'movieQuery'    => $movieQuery,
         ));
     }
+
 
     //用日期的天得到电影ID
     private function getMovieId($day){

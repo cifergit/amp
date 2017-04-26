@@ -12,8 +12,8 @@
 
 <?php $this->load->view('common/header');?>
 
-<section class="main_wrap">
-    <section class="mod_inner">
+<section class="main-wrap">
+    <section class="mod-inner">
         <div class="my_share">
             <div class="inner">
                 <!--<h1 class="title">cifer的博客：</h1>-->

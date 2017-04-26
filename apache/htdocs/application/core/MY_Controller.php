@@ -32,9 +32,9 @@ class MY_Controller extends CI_Controller
      */
     protected function render($page = 'index', $params = array()) {
         $this->_data = array_merge($this->_data, $params);
-        $this->_data['head_title'] = isset($params['head_title']) ? $params['head_title'] : '太空船-cifer的博客';
-        $this->_data['head_description'] = isset($params['head_description']) ? $params['head_description'] : '太空船-cifer的博客';
-        $this->_data['head_keywords'] = isset($params['head_keywords']) ? $params['head_keywords'] : '太空船-cifer的博客';
+        $this->_data['head_title'] = isset($params['head_title']) ? $params['head_title'] : '太空船';
+        $this->_data['head_description'] = isset($params['head_description']) ? $params['head_description'] : '太空船';
+        $this->_data['head_keywords'] = isset($params['head_keywords']) ? $params['head_keywords'] : '太空船，cifer，cifer的博客，前端博客，前端技术博客，前端个人博客';
 
         $currentNav = '';
         $phpSelf = $_SERVER['REQUEST_URI'];
@@ -47,7 +47,13 @@ class MY_Controller extends CI_Controller
         else if(strstr($phpSelf,'/links')){
             $currentNav = 'links';
         }
-        else {
+        else if(strstr($phpSelf,'/user')){
+            $currentNav = 'user';
+        }
+        else if(strstr($phpSelf,'/login') || strstr($phpSelf,'/register')){
+            $currentNav = 'login';
+        }
+        else if(strstr($phpSelf,'/blog')){
             $currentNav = 'blog';
         }
         $this->_data['currentNav'] = $currentNav;

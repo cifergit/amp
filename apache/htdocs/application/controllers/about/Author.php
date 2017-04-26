@@ -16,12 +16,20 @@ class Author extends MY_Controller {
     //关于我
     public function index()
     {
-        $this->render('common/author');
+        $this->render('common/author',array(
+            'head_title'            => $this->config->item('seo_author')['head_title'],
+            'head_description'      => $this->config->item('seo_author')['head_description'],
+            'head_keywords'         => $this->config->item('seo_author')['head_keywords'],
+        ));
     }
 
     //友链
     public function friends(){
-        $this->render('common/friends');
+        $this->render('common/friends',array(
+            'head_title'            => $this->config->item('seo_friends')['head_title'],
+            'head_description'      => $this->config->item('seo_friends')['head_description'],
+            'head_keywords'         => $this->config->item('seo_friends')['head_keywords'],
+        ));
     }
 
 }

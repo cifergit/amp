@@ -11,8 +11,8 @@
 
 <?php $this->load->view('common/header');?>
 
-<div class="main_wrap">
-    <section class="main_inner mod_inner">
+<div class="main-wrap">
+    <section class="main_inner mod-inner">
         <h1 class="page_title">一步注册</h1>
         <form class="register_form" action="" method="post">
             <div class="form_item">

@@ -1,2 +1,2 @@
-.author-wrap{padding:40px}p{margin-top:10px}.details{margin-top:10px}.details summary{margin-bottom:10px}.details p{margin-top:0;margin-left:10px;text-indent:0}.details ol{list-style-type:decimal}
+p{margin-top:10px}.details{margin-top:10px;margin-left:20px}.details summary{margin-bottom:10px;cursor:pointer}.details summary:hover{color:#09bb07}.details p{margin-top:0;margin-left:10px;text-indent:0}.details ol{list-style-type:decimal}.details .notice{color:#00d586}
 /*# sourceMappingURL=about.css.map */

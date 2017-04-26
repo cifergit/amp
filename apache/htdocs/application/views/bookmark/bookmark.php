@@ -11,8 +11,8 @@
 
 <?php $this->load->view('common/header');?>
 
-<section class="main_wrap">
-    <section class="mod_inner">
+<section class="main-wrap">
+    <section class="mod-inner">
 
         <table class="bookmark_class_table">
             <tbody>

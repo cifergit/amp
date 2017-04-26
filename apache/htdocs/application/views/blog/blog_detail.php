@@ -25,8 +25,8 @@
 
 <?php $this->load->view('common/header');?>
 
-<section class="main_wrap">
-    <section class="mod_inner">
+<section class="main-wrap">
+    <section class="mod-inner">
         <h1 class="blog_title"><?php echo $blog->title;?></h1>
         <div class="blog_mess">
             <span class="blog-message-item">原创作者：<?php echo $blogAuthor->name;?></span>

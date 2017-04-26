@@ -11,8 +11,8 @@
 
 <?php $this->load->view('common/header');?>
 
-<section class="main_wrap">
-    <section class="main_inner mod_inner">
+<section class="main-wrap">
+    <section class="main_inner mod-inner">
         <h1 class="page_title">立即登录</h1>
         <h3 class="page_title">没有账号？<a href="/register.html">注册一个</a>吧</h3>
         <form class="register_form" action="" method="post">

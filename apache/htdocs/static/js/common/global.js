@@ -27,7 +27,7 @@ define(function(require,exports,module){
     function pageMinHeight() {
         var clientWidth = document.documentElement.clientHeight || document.body.clientHeight;
         var minHeight = clientWidth - 40 -50 - 20;
-        $('.main_wrap').css("min-height",minHeight);
+        $('.main-wrap').css("min-height",minHeight);
         $('.js-main-wrap').css("min-height",minHeight);
     }
 

@@ -8,24 +8,29 @@
 @import "reset";
 @import "function";
 @import "mod_button";
+a {
+  color: #00d586;
+  &:hover {
+    color: #09bb07;
+  }
+}
 .hide {
   display: none;
 }
+//隐藏点位
+.visibility {
+  visibility: hidden;
+}
+
 body{
   max-width: 100%;
   height:100%;
-  background-color: #fff;
+  background-color: #eee;
   color:#666;
   font:14px/1.5 'Lucida Grande','Arial','Microsoft YaHei','SimSun';
-  //-webkit-user-select: none;/*禁用手机浏览器的用户选择功能 */
-  -moz-user-select: none;
-  -webkit-touch-callout: none;/*禁止系统默认菜单*/
-}
-.main_wrap {
-  padding: 10px 0;
 }
 .main-wrap {
-  padding: 20px 0;
+  padding: 10px 0;
 }
 .mod_inner {
   margin: 0 auto;
@@ -48,11 +53,15 @@ body{
   right: 0;
   font-size: 20px;
 }
-
-@media screen and (max-width: 1191px){
+.mod_inner,.mod-inner {
+  width: 1160px;
+  padding: 15px;
+  background-color: #fff;
+}
+/*@media screen and (max-width: 1191px){
   .main_wrap {
     .mod_inner,.mod-inner {
-      padding: 10px;
+      padding: 15px;
     }
   }
 }
@@ -60,9 +69,11 @@ body{
 
 @media screen and (min-width: 1190px){
   .mod_inner,.mod-inner {
-      width: 1190px;
+    width: 1160px;
+    padding: 15px;
+    background-color: #fff;
   }
-}
+}*/
 
 
 
@@ -71,6 +82,12 @@ body{
   height: 40px;
   font-size: 14px;
   background-color: #00d586;
+  .mod_inner,.mod-inner {
+    width: 1190px;
+    padding: 0;
+    background-color: transparent;
+  }
+
   a {
     color: #fff;
   }
@@ -94,6 +111,13 @@ body{
     }
     .top-nav-li--active {
       background-color: #09bb07;
+    }
+    .top-nav-li-logo {
+      color: #eee;
+      @include user-select-none;
+      &:hover {
+        background-color: #00d586;
+      }
     }
 
     a {
@@ -126,8 +150,8 @@ footer {
 
 .main_inner {
   //max-width: 1242px;
-  margin: 0 auto;
-  padding: 0 10px 0px 10px;
+  //margin: 0 auto;
+  //padding: 0 10px 0px 10px;
 }
 
 .mod_arrow_left {

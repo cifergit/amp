@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AACA,aAAa,CACX,OAAO,CAAE,IAAI,CAGf,aAAc,CACZ,UAAU,CAAE,IAAI",
+"mappings": "AAKA,aAAc,CACZ,UAAU,CAAE,IAAI",
 "sources": ["friends.scss"],
 "names": [],
 "file": "friends.css"

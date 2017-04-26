@@ -54,7 +54,7 @@
  * NOTE: If you change these, also change the error_reporting() code below
  */
 //生产环境
-if($_SERVER['SERVER_ADDR'] == "104.131.157.84"){
+if($_SERVER['SERVER_ADDR'] == "139.162.109.34"){
     define('ENVIRONMENT', 'production');
 }
 else {

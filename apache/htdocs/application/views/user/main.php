@@ -11,8 +11,8 @@
 
 <?php $this->load->view('common/header');?>
 
-<section class="main_wrap">
-    <section class="mod_inner">
+<section class="main-wrap">
+    <section class="mod-inner">
         <h1 class="page_title">个人首页</h1>
         <div class="row">
             <div class="lable">昵称：</div>
